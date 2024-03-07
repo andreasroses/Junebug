@@ -8,20 +8,20 @@ public class WanderEnemyState : EnemyState
     private float speed = 0.5f;
 
     private Vector3 movePosition;
-    private Vector3 originalPosition;
     public EnemyStateID GetID(){
         return EnemyStateID.Wander;
     }
     public void Enter(EnemyController enemy){
-        movePosition = getWanderPosition();
-        originalPosition = enemy.enemyTransform.position;
+        movePosition = getWanderPosition(enemy.enemyTransform.position);
     }
     public void Update(EnemyController enemy){
         timer -= Time.deltaTime;
-        enemy.enemyTransform.position = Vector2.MoveTowards(enemy.enemyTransform.position,enemy.enemyTransform.position + movePosition, speed * Time.deltaTime);
+        Debug.Log("Current position: " + enemy.enemyTransform.position);
+        Debug.Log("WanderPosition: " + movePosition);
+        enemy.enemyTransform.position = Vector2.Lerp(enemy.enemyTransform.position,movePosition, speed * Time.deltaTime);
         if(timer < 0){
-            movePosition = getWanderPosition();
-            timer = 3.0f;
+            movePosition = getWanderPosition(enemy.enemyTransform.position);
+            timer = 5.0f;
         }
         
     }
@@ -29,9 +29,11 @@ public class WanderEnemyState : EnemyState
 
     }
 
-    private Vector2 getWanderPosition(){
-        float x = Random.Range(-0.5f,0.5f);
-        float y = Random.Range(-0.5f,0.5f);
-        return new Vector3(x,y);
+    private Vector3 getWanderPosition(Vector3 originalPos){
+        int x = Random.Range(-1,1);
+        int y = Random.Range(-1,1);
+        Vector3 addPos = new Vector3(x,y,0);
+        return originalPos+addPos;
+        
     }
 }

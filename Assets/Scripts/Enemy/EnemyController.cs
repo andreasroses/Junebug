@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
     public EnemyStateID initialState;
 
     public Transform enemyTransform;
-    void Start()
+    void Awake()
     {
         enemyTransform = GetComponent<Transform>();
         stateMachine = new EnemyStateMachine(this);
