@@ -4,24 +4,36 @@ using UnityEngine;
 
 public class WanderEnemyState : EnemyState
 {
-    private float timer = 5.0f;
-    private float speed = 0.5f;
+    private Transform playerTransform;
+    private float timer;
+    private float speed;
+
+    private Vector3 enterPosition;
 
     private Vector3 movePosition;
     public EnemyStateID GetID(){
         return EnemyStateID.Wander;
     }
     public void Enter(EnemyController enemy){
-        movePosition = getWanderPosition(enemy.enemyTransform.position);
+        playerTransform = enemy.config.playerTransform;
+        timer = enemy.config.wanderTimer;
+        speed = enemy.config.wanderSpeed;
+        enterPosition = enemy.enemyTransform.position;
+        movePosition = getWanderPosition(enterPosition);
     }
     public void Update(EnemyController enemy){
+        Vector3 direction = playerTransform.position - movePosition;
+        if(direction.sqrMagnitude > enemy.config.minDistanceFromPlayer *enemy.config.minDistanceFromPlayer){
+            enemy.stateMachine.ChangeState(EnemyStateID.Attack);
+            return;
+        }
         timer -= Time.deltaTime;
         Debug.Log("Current position: " + enemy.enemyTransform.position);
         Debug.Log("WanderPosition: " + movePosition);
         enemy.enemyTransform.position = Vector2.Lerp(enemy.enemyTransform.position,movePosition, speed * Time.deltaTime);
         if(timer < 0){
-            movePosition = getWanderPosition(enemy.enemyTransform.position);
-            timer = 5.0f;
+            movePosition = getWanderPosition(enterPosition);
+            timer = enemy.config.wanderTimer;
         }
         
     }

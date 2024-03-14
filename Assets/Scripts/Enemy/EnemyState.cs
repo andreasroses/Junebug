@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum EnemyStateID{
-    Wander
+    Wander,Attack
 }
 public interface EnemyState
 {
