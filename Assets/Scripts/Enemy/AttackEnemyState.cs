@@ -5,6 +5,7 @@ using UnityEngine;
 public class AttackEnemyState : EnemyState
 {
     private Transform playerTransform;
+    private LayerMask playerMask;
     private float timer;
     private float speed;
     private Vector3 attackPosition;
@@ -15,6 +16,7 @@ public class AttackEnemyState : EnemyState
     }
     public void Enter(EnemyController enemy){
         playerTransform = enemy.config.playerTransform;
+        playerMask = enemy.config.playerMask;
         timer = enemy.config.attackTimer;
         speed = enemy.config.attackSpeed;
         enterPosition = enemy.transform.position;
@@ -46,7 +48,8 @@ public class AttackEnemyState : EnemyState
 
     private bool doesLand(){
         var check = Random.Range(0,10);
-        if(check > 5){
+        Collider2D[] collisions = Physics2D.OverlapCircleAll(enterPosition,2f,playerMask);
+        if(check > 5 && collisions.Length > 0){
             return true;
         }
         return false;
