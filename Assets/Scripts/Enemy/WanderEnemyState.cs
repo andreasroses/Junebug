@@ -15,7 +15,7 @@ public class WanderEnemyState : EnemyState
         return EnemyStateID.Wander;
     }
     public void Enter(EnemyController enemy){
-        playerTransform = enemy.config.playerTransform;
+        playerTransform = enemy.playerTransform;
         timer = enemy.config.wanderTimer;
         speed = enemy.config.wanderSpeed;
         enterPosition = enemy.enemyTransform.position;
@@ -23,13 +23,11 @@ public class WanderEnemyState : EnemyState
     }
     public void Update(EnemyController enemy){
         Vector3 direction = playerTransform.position - movePosition;
-        if(direction.sqrMagnitude > enemy.config.minDistanceFromPlayer *enemy.config.minDistanceFromPlayer){
+        if(direction.sqrMagnitude < (enemy.config.minDistanceFromPlayer * enemy.config.minDistanceFromPlayer)){
+            Debug.Log("WanderState: minDistance reached");
             enemy.stateMachine.ChangeState(EnemyStateID.Attack);
-            return;
         }
         timer -= Time.deltaTime;
-        Debug.Log("Current position: " + enemy.enemyTransform.position);
-        Debug.Log("WanderPosition: " + movePosition);
         enemy.enemyTransform.position = Vector2.Lerp(enemy.enemyTransform.position,movePosition, speed * Time.deltaTime);
         if(timer < 0){
             movePosition = getWanderPosition(enterPosition);

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class AttackEnemyState : EnemyState
 {
     private Transform playerTransform;
@@ -15,7 +15,7 @@ public class AttackEnemyState : EnemyState
         return EnemyStateID.Attack;
     }
     public void Enter(EnemyController enemy){
-        playerTransform = enemy.config.playerTransform;
+        playerTransform = enemy.playerTransform;
         playerMask = enemy.config.playerMask;
         timer = enemy.config.attackTimer;
         speed = enemy.config.attackSpeed;
@@ -25,6 +25,11 @@ public class AttackEnemyState : EnemyState
     }
     
     public void Update(EnemyController enemy){
+        Vector3 direction = playerTransform.position - enterPosition;
+        if(direction.sqrMagnitude > enemy.config.maxDistanceFromPlayer *enemy.config.maxDistanceFromPlayer){
+            Debug.Log("AttackState: maxDistance reached");
+            enemy.stateMachine.ChangeState(EnemyStateID.Wander);
+        }
         timer -= Time.deltaTime;
         if(timer < 0){
             enemy.OnAttack.Invoke(swordAttack(enemy));
@@ -41,15 +46,18 @@ public class AttackEnemyState : EnemyState
         // enemy.enemyTransform.position = Vector2.Lerp(attackPosition,enterPosition, speed);
         //add animator to show attack movement, will work with state machine
         if(doesLand()){
+            Debug.Log("AttackState: swordAttack(): hit landed!");
             return Random.Range(5,20);
         }
+        Debug.Log("AttackState: swordAttack(): hit did not land,,,");
         return 0f;
     }
 
     private bool doesLand(){
+        Debug.Log("AttackState: checking if lands...");
         var check = Random.Range(0,10);
         Collider2D[] collisions = Physics2D.OverlapCircleAll(enterPosition,2f,playerMask);
-        if(check > 5 && collisions.Length > 0){
+        if(check > 5 && collisions.Length > 0){          
             return true;
         }
         return false;
