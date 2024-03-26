@@ -60,7 +60,7 @@ public class AttackEnemyState : EnemyState
         Debug.Log("AttackState: checking if lands...");
         var check = Random.Range(0,10);
         Collider2D[] collisions = Physics2D.OverlapCircleAll(enterPosition,2f,playerMask);
-        if(check > 4 && collisions.Length > 0){          
+        if(check > 3 && collisions.Length > 0){          
             return true;
         }
         return false;

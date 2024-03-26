@@ -28,7 +28,13 @@ public class PlayerCharacter : MonoBehaviour
 
     public void Heal(float healingAmount){
         if(health < maxHealth){
-            health+=healingAmount;
+            var calcHeal = health + healingAmount;
+            if(calcHeal > maxHealth){
+                health = maxHealth;
+            }
+            else{
+                health = calcHeal;
+            }
         }
     }
 

@@ -12,10 +12,13 @@ public class CubeSpawner : MonoBehaviour
     [SerializeField] private float spawnZ = 0f;
     [SerializeField] private float waitTime;
 
+    private ScreenFader screenFader;
+
     private InspectItem currCube;
     private int numSorted = -1;
 
     void Start(){
+        screenFader = GetComponent<ScreenFader>();
         SpawnCubesRandom();
     }
     // void SpawnCubes(){
@@ -29,12 +32,15 @@ public class CubeSpawner : MonoBehaviour
     // }
 
     public void SpawnCubesRandom(){
+        numSorted++;
         if(numSorted < totalToSort){
             int index = Random.Range(0,2);
             Vector3 spawnPosition = new Vector3(spawnX,spawnY,spawnZ);
             GameObject newCube = Instantiate(cubePrefabs[index],spawnPosition, Quaternion.identity);
             currCube = newCube.GetComponent<InspectItem>();
-            numSorted++;
+        }
+        if(numSorted == totalToSort){
+            screenFader.FadeToColor("UserOSScene");
         }
     }
 

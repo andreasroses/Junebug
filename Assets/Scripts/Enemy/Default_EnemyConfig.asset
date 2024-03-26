@@ -16,7 +16,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   wanderTimer: 5
-  attackTimer: 2
+  attackTimer: 1
   wanderSpeed: 0.5
   attackSpeed: 0.5
   minDistanceFromPlayer: 2
