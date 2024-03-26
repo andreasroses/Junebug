@@ -23,8 +23,11 @@ public class WanderEnemyState : EnemyState
     }
     public void Update(EnemyController enemy){
         Vector3 direction = playerTransform.position - movePosition;
-        if(direction.sqrMagnitude < (enemy.config.minDistanceFromPlayer * enemy.config.minDistanceFromPlayer)){
-            Debug.Log("WanderState: minDistance reached");
+        direction.z = 0;
+        var enemyDistanceSqrd = direction.sqrMagnitude;
+        var minDistanceSqrd = enemy.config.minDistanceFromPlayer * enemy.config.minDistanceFromPlayer;
+        if(enemyDistanceSqrd < minDistanceSqrd){
+            Debug.Log("WanderState: minDistance reached: " + minDistanceSqrd);
             enemy.stateMachine.ChangeState(EnemyStateID.Attack);
         }
         timer -= Time.deltaTime;

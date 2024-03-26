@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInputHandler : MonoBehaviour
 {
     [SerializeField] PlayerCharacter player;
+
     void Update()
     {
         Vector3 input = Vector3.zero;
@@ -22,7 +23,7 @@ public class PlayerInputHandler : MonoBehaviour
         if(Input.GetKey(KeyCode.D)){
             input.x += 1;
         }
-        if(Input.GetKey(KeyCode.E)){
+        if(Input.GetKeyDown(KeyCode.E)){
             player.CheckInteract();
         }
         player.MovePlayer(input);

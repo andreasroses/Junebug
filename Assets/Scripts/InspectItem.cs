@@ -15,7 +15,7 @@ public class InspectItem : MonoBehaviour
 
     private Vector3 startPosition;
     private Vector3 startRotation;
-    void Start()
+    void Awake()
     {
         var tmp = GetComponent<MeshRenderer>().material.name;
         matColor = tmp[0];

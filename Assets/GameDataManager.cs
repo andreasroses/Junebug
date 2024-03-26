@@ -5,17 +5,16 @@ using UnityEngine;
 public class GameDataManager : MonoBehaviour
 {
     public static GameDataManager singleton;
-    public StoryData storyData;
+    private int CorrectInfoFound = 0;
     void Awake()
     {
         if(singleton != null){
             Destroy(this.gameObject);
         }
         singleton = this;
-        storyData = new StoryData();
     }
 
     public void StoryInfoTracker(){
-        storyData.UpdateInfoCount();
+        CorrectInfoFound++;
     }
 }

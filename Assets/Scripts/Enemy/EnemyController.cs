@@ -5,8 +5,9 @@ using UnityEngine.Events;
 
 [System.Serializable]
 public class AttackEvent : UnityEvent<float> {}
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, Interactable
 {
+    private int HitsLanded = 0;
     public EnemyStateMachine stateMachine;
     public Transform playerTransform;
     public EnemyStateID initialState;
@@ -26,5 +27,12 @@ public class EnemyController : MonoBehaviour
     {
         Debug.Log("Current state: " + stateMachine.currentState);
         stateMachine.Update();
+    }
+
+    public void Interact(){
+        HitsLanded++;
+        if(HitsLanded == 4){
+            Destroy(this.gameObject);
+        }
     }
 }

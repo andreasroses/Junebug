@@ -26,8 +26,11 @@ public class AttackEnemyState : EnemyState
     
     public void Update(EnemyController enemy){
         Vector3 direction = playerTransform.position - enterPosition;
-        if(direction.sqrMagnitude > enemy.config.maxDistanceFromPlayer *enemy.config.maxDistanceFromPlayer){
-            Debug.Log("AttackState: maxDistance reached");
+        direction.z = 0;
+        var enemyDistanceSqrd = direction.sqrMagnitude;
+        var maxDistanceSqrd = enemy.config.maxDistanceFromPlayer * enemy.config.maxDistanceFromPlayer;
+        if(enemyDistanceSqrd > maxDistanceSqrd){
+            Debug.Log("AttackState: maxDistance reached: " + enemyDistanceSqrd);
             enemy.stateMachine.ChangeState(EnemyStateID.Wander);
         }
         timer -= Time.deltaTime;
@@ -57,7 +60,7 @@ public class AttackEnemyState : EnemyState
         Debug.Log("AttackState: checking if lands...");
         var check = Random.Range(0,10);
         Collider2D[] collisions = Physics2D.OverlapCircleAll(enterPosition,2f,playerMask);
-        if(check > 5 && collisions.Length > 0){          
+        if(check > 4 && collisions.Length > 0){          
             return true;
         }
         return false;
