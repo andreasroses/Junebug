@@ -12,13 +12,12 @@ public class CubeSpawner : MonoBehaviour
     [SerializeField] private float spawnZ = 0f;
     [SerializeField] private float waitTime;
 
-    private ScreenFader screenFader;
+    [SerializeField] private ScreenFader screenFader;
 
     private InspectItem currCube;
     private int numSorted = -1;
 
     void Start(){
-        screenFader = GetComponent<ScreenFader>();
         SpawnCubesRandom();
     }
     // void SpawnCubes(){
