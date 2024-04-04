@@ -39,7 +39,7 @@ public class CubeSpawner : MonoBehaviour
             currCube = newCube.GetComponent<InspectItem>();
         }
         if(numSorted == totalToSort){
-            screenFader.FadeToColor("UserOSScene");
+            //screenFader.FadeToColor("UserOSScene");
         }
     }
 
