@@ -7,9 +7,8 @@ public class CubeSpawner : MonoBehaviour
     [SerializeField] private List<GameObject> cubePrefabs;
     [SerializeField] private int totalToSort;
 
-    [SerializeField] private float spawnX = 0f;
-    [SerializeField] private float spawnY = 0f;
-    [SerializeField] private float spawnZ = 0f;
+    [SerializeField] private Transform puzzleWindow;
+    [SerializeField] private GameObject cubeWindow;
     [SerializeField] private float waitTime;
 
     [SerializeField] private ScreenFader screenFader;
@@ -34,12 +33,12 @@ public class CubeSpawner : MonoBehaviour
         numSorted++;
         if(numSorted < totalToSort){
             int index = Random.Range(0,2);
-            Vector3 spawnPosition = new Vector3(spawnX,spawnY,spawnZ);
-            GameObject newCube = Instantiate(cubePrefabs[index],spawnPosition, Quaternion.identity);
+            GameObject newCube = Instantiate(cubePrefabs[index],puzzleWindow.position, Quaternion.identity);
             currCube = newCube.GetComponent<InspectItem>();
+            currCube.transform.parent = puzzleWindow;
         }
         if(numSorted == totalToSort){
-            //screenFader.FadeToColor("UserOSScene");
+            Destroy(cubeWindow);
         }
     }
 

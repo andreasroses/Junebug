@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EndCheckpoint : MonoBehaviour
 {
-    [SerializeField] ScreenFader screenFader;
+    [SerializeField] private GameObject rpgWindow;
 
     void OnTriggerEnter2D(Collider2D other){
-        screenFader.FadeToColor("UserOSScene");
+        Destroy(rpgWindow);
     }
 }
