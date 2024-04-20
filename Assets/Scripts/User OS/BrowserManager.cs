@@ -4,20 +4,46 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 
-[System.Serializable]
-public class ViewportEvent : UnityEvent<Texture2D> {}
+
 public class BrowserManager : MonoBehaviour
 {
     [SerializeField] private TMP_InputField inputField;
-    [SerializeField] private List<Texture2D> pgImgList;
+    [SerializeField] private TMP_InputField homeInput;
     [SerializeField] private List<string> webpageList;
-    public ViewportEvent updateWebpage;
-    public void UpdateViewport(string userInput){
+    [SerializeField] private List<string> termsList;
+    
+    
+    private WebpageLoader webpageLoader;
+
+    void Start(){
+        webpageLoader = GetComponent<WebpageLoader>();
+    }
+    public void BrowserSearch(string userInput){
+        Debug.Log("BrowserSearch: " + userInput);
         if(inputField.wasCanceled){
             return;
         }
         if(webpageList.Contains(userInput)){
-            updateWebpage.Invoke(pgImgList[0]);
+            var imgNameIndex = userInput.IndexOf('?') + 1;
+            string imgName = userInput.Substring(imgNameIndex);
+            webpageLoader.UpdateViewport(imgName);
+        }
+        else{
+            webpageLoader.UpdateViewport("not-found");
         }
     }
+
+    public void HomeSearch(string userInput){
+        if(homeInput.wasCanceled){
+            return;
+        }
+        if(termsList.Contains(userInput)){
+            webpageLoader.UpdateViewport(userInput);
+        }
+        else{
+            webpageLoader.UpdateViewport("not-found");
+        }
+    }
+
+    
 }

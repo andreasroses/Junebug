@@ -1,0 +1,44 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+public class WebpageLoader : MonoBehaviour
+{
+    [SerializeField] private List<Sprite> pgImgList;
+    [SerializeField] private Image currImage;
+    [SerializeField] private GameObject homeSearchbar;
+    [SerializeField] private RectTransform webpageRes;
+    [SerializeField] private Vector2 longPageRes;
+    [SerializeField] private Vector2 homePageRes;
+    private bool otteryOn = true;
+    public void UpdateViewport(string imgName){
+        ToggleOtteryBar();
+        if(!imgName.Equals("not-found")){
+            if(!imgName.Equals(currImage.name)){
+                for(int i = 0; i < pgImgList.Count;i++){
+                    if(pgImgList[i].name.Equals(imgName)){
+                    currImage.sprite = pgImgList[i];
+                    webpageRes.sizeDelta = longPageRes;
+                    return;
+                    }
+                }
+            }
+        }
+        webpageRes.sizeDelta = homePageRes;
+        currImage.sprite = pgImgList[1];
+        
+    }
+
+    public void LoadHome(){
+        if(!"home".Equals(currImage.name)){
+            currImage.sprite = pgImgList[0];
+            webpageRes.sizeDelta = homePageRes;
+            ToggleOtteryBar();
+        }
+    }
+
+    private void ToggleOtteryBar(){
+        otteryOn = !otteryOn;
+        homeSearchbar.SetActive(otteryOn);
+    }
+}
