@@ -35,7 +35,8 @@ public class CubeSpawner : MonoBehaviour
             int index = Random.Range(0,2);
             GameObject newCube = Instantiate(cubePrefabs[index],puzzleWindow.position, Quaternion.identity);
             currCube = newCube.GetComponent<InspectItem>();
-            currCube.transform.parent = puzzleWindow;
+            currCube.transform.parent = cubeWindow.transform;
+            currCube.transform.position = new Vector3(currCube.transform.position.x, currCube.transform.position.y, currCube.transform.position.z-9200f);
         }
         if(numSorted == totalToSort){
             Destroy(cubeWindow);

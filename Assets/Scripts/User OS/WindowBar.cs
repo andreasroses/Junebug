@@ -5,14 +5,18 @@ using UnityEngine.EventSystems;
 
 public class WindowBar : MonoBehaviour, IBeginDragHandler, IDragHandler
 {
-    [SerializeField] private Canvas canvas;
+    private Canvas canvas;
     private Vector2 newPosition;
     private Transform selectedObj;
+    
+    void Start(){
+        canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
+
+    }
     
     public void OnBeginDrag(PointerEventData eventData)
     {
         selectedObj = eventData.pointerDrag.GetComponent<Transform>().parent;
-        Debug.Log(selectedObj.name);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -21,9 +25,5 @@ public class WindowBar : MonoBehaviour, IBeginDragHandler, IDragHandler
         selectedObj.position = canvas.transform.TransformPoint(newPosition);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 }
