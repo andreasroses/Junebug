@@ -11,6 +11,8 @@ public class WebpageLoader : MonoBehaviour
     [SerializeField] private Vector2 longPageRes;
     [SerializeField] private Vector2 homePageRes;
     private bool otteryOn = true;
+
+    
     public void UpdateViewport(string imgName){
         ToggleOtteryBar();
         if(!imgName.Equals("not-found")){
@@ -19,6 +21,7 @@ public class WebpageLoader : MonoBehaviour
                     if(pgImgList[i].name.Equals(imgName)){
                     currImage.sprite = pgImgList[i];
                     webpageRes.sizeDelta = longPageRes;
+                    webpageRes.position = new Vector3(webpageRes.position.x,(longPageRes.y/2) * -1,webpageRes.position.z);
                     return;
                     }
                 }
