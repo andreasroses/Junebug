@@ -19,7 +19,6 @@ public class BrowserManager : MonoBehaviour
         webpageLoader = GetComponent<WebpageLoader>();
     }
     public void BrowserSearch(string userInput){
-        Debug.Log("BrowserSearch: " + userInput);
         if(inputField.wasCanceled){
             return;
         }
