@@ -1345,13 +1345,21 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3848429809472869739, guid: 65b5eeebd4460454c8788223a70bb379, type: 3}
+      propertyPath: m_Size
+      value: 0.77365005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848429809472869739, guid: 65b5eeebd4460454c8788223a70bb379, type: 3}
+      propertyPath: m_Value
+      value: 0.9998354
+      objectReference: {fileID: 0}
     - target: {fileID: 4290636998331467658, guid: 65b5eeebd4460454c8788223a70bb379, type: 3}
       propertyPath: m_Name
       value: ChatboxWindow
       objectReference: {fileID: 0}
     - target: {fileID: 5942945442249997647, guid: 65b5eeebd4460454c8788223a70bb379, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -280.97394
+      value: -293.9931
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
