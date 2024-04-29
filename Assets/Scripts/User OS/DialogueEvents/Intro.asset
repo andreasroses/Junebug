@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EventName: Intro
   FriendName: Edith
-  Dialogue: []
-  DialogueDesc: []
+  Dialogue:
+  - bestie u will not believe what i just heard
+  - girl what happened
+  - ur mum
+  - ... i hate u
+  DialogueDesc:
+  - what happened?
+  - ...
   DialogueMultChoices: []
   DialogueResults: []
