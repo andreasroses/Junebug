@@ -17,7 +17,7 @@ MonoBehaviour:
     m_Bits: 64
   wanderTimer: 5
   attackTimer: 1
-  wanderSpeed: 0.5
-  attackSpeed: 0.5
+  wanderSpeed: 1
+  attackSpeed: 1.2
   minDistanceFromPlayer: 1.5
   maxDistanceFromPlayer: 5
