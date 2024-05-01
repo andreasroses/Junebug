@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security;
 using UnityEngine;
 
@@ -8,15 +9,19 @@ using UnityEngine;
 public class DialogueManager
 {
     [SerializeField]private DialogueDatabase storyTexts;
-    private Queue<string> currTexts;
+    private Queue<string> currTexts = new Queue<string>();
+    private Queue<string> msgOptions = new Queue<string>();
+    public string linkMsg;
     private List<string> dialogueDesc;
 
-    public DialogueManager(string eventName){
+    public void StartDialogue(string eventName){
         Predicate<DialogueEvent> matchEvent = (DialogueEvent d) => {return d.EventName.Equals(eventName);};
         DialogueEvent d = storyTexts.DialogueEvents.Find(matchEvent);
         List<string> tmpTxts = d.Dialogue;
         queueTexts(tmpTxts);
         dialogueDesc = d.DialogueDesc;
+        queueOptions(dialogueDesc);
+        linkMsg = d.LinkDialogue[0];
     }
 
 
@@ -24,5 +29,33 @@ public class DialogueManager
         foreach(string msg in msgTxts){
             currTexts.Enqueue(msg);
         }
+    }
+
+    private void queueOptions(List<string> options){
+        foreach(string msg in options){
+            msgOptions.Enqueue(msg);
+        }
+    }
+
+    public string GetNextMessage(){
+        return currTexts.Dequeue();
+    }
+
+    public string GetNextOptions(){
+        return msgOptions.Dequeue();
+    }
+
+    public bool IsDialogueQueueEmpty(){
+        if(currTexts.Any()){
+            return false;
+        }
+        return true;
+    }
+
+    public bool IsOptionsQueueEmpty(){
+        if(msgOptions.Any()){
+            return false;
+        }
+        return true;
     }
 }

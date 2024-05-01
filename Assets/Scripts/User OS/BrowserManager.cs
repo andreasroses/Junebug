@@ -15,7 +15,7 @@ public class BrowserManager : MonoBehaviour
     
     private WebpageLoader webpageLoader;
 
-    void Start(){
+    void Awake(){
         webpageLoader = GetComponent<WebpageLoader>();
     }
     public void BrowserSearch(string userInput){
@@ -25,6 +25,7 @@ public class BrowserManager : MonoBehaviour
         if(webpageList.Contains(userInput)){
             var imgNameIndex = userInput.IndexOf('?') + 1;
             string imgName = userInput.Substring(imgNameIndex);
+            Debug.Log("BrowserManager - imgName: " + imgName);
             webpageLoader.UpdateViewport(imgName);
         }
         else{

@@ -8,9 +8,10 @@ public class DialogueEvent : ScriptableObject
 {
     public string EventName;
     public string FriendName;
-    public List<String> Dialogue;
-    public List<String> DialogueDesc;
+    public List<string> Dialogue;
+    public List<string> LinkDialogue;
+    public List<string> DialogueDesc;
 
-    public List<String> DialogueMultChoices;
-    public List<String> DialogueResults;
+    public List<string> DialogueMultChoices;
+    public List<string> DialogueResults;
 }

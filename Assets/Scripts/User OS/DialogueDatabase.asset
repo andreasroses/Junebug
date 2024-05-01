@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66629cac7dd00d9429a28937798fadde, type: 3}
   m_Name: DialogueDatabase
   m_EditorClassIdentifier: 
-  DialogueEvents: []
+  DialogueEvents:
+  - {fileID: 11400000, guid: 31d6795ae629dc444917482c5864645e, type: 2}
