@@ -7,7 +7,7 @@ public class AttackEnemyState : EnemyState
     private Transform playerTransform;
     private LayerMask playerMask;
     private float timer;
-    private float speed;
+    private float swordPositionX;
     private Vector3 attackPosition;
 
     private Vector3 enterPosition;
@@ -18,7 +18,7 @@ public class AttackEnemyState : EnemyState
         playerTransform = enemy.playerTransform;
         playerMask = enemy.config.playerMask;
         timer = enemy.config.attackTimer;
-        speed = enemy.config.attackSpeed;
+        swordPositionX = enemy.swordTransform.localPosition.x;
         enterPosition = enemy.transform.position;
         attackPosition = enemy.transform.position + new Vector3(0,-0.2f,0);
 
@@ -36,7 +36,19 @@ public class AttackEnemyState : EnemyState
         timer -= Time.deltaTime;
         if(timer < 0){
             enemy.OnAttack.Invoke(swordAttack(enemy));
+            Vector3 sidePosition = playerTransform.InverseTransformPoint(enterPosition);
+            if(!(sidePosition.x < 0)){
+                enemy.enemyAttack.SetTrigger("AttackLeft");
+                enemy.swordTransform.localPosition = new Vector3(swordPositionX,enemy.swordTransform.localPosition.y,enemy.swordTransform.localPosition.z);
+            }
+            else{
+                enemy.enemyAttack.SetTrigger("AttackRight");
+                enemy.swordTransform.localPosition = new Vector3(-swordPositionX,enemy.swordTransform.localPosition.y,enemy.swordTransform.localPosition.z);
+
+            }
+            
             timer = enemy.config.attackTimer;
+            enemy.enemyAttack.SetTrigger("Wait");
         }
     }
 

@@ -13,8 +13,10 @@ public class EnemyController : MonoBehaviour, Interactable
     public EnemyStateID initialState;
     public EnemyConfig config;
     public Transform enemyTransform;
+    public Transform swordTransform;
     public AttackEvent OnAttack;
     [SerializeField] private Animator playerAttack;
+    [SerializeField] public Animator enemyAttack;
     void Awake()
     {
         enemyTransform = GetComponent<Transform>();
@@ -31,10 +33,11 @@ public class EnemyController : MonoBehaviour, Interactable
     }
 
     public void Interact(){
-        playerAttack.Play("swordAttack");
+        playerAttack.SetTrigger("AttackLeft");
         HitsLanded++;
         if(HitsLanded == 4){
             Destroy(this.gameObject);
         }
+        playerAttack.SetTrigger("Wait");
     }
 }
