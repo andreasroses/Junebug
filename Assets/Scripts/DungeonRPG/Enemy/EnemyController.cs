@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour, Interactable
     public EnemyConfig config;
     public Transform enemyTransform;
     public AttackEvent OnAttack;
+    [SerializeField] private Animator playerAttack;
     void Awake()
     {
         enemyTransform = GetComponent<Transform>();
@@ -30,6 +31,7 @@ public class EnemyController : MonoBehaviour, Interactable
     }
 
     public void Interact(){
+        playerAttack.Play("swordAttack");
         HitsLanded++;
         if(HitsLanded == 4){
             Destroy(this.gameObject);
