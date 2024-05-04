@@ -22,8 +22,9 @@ public class ChatboxManager : MonoBehaviour
         }
         singleton = this;
     }
+
     void Start(){
-        dialogueManager.StartDialogue("Intro");
+        dialogueManager.StartDialogue(GameDataManager.singleton.GetNextMsgEvent());
         SpawnNewFriendMessage(dialogueManager.GetNextMessage());
         SpawnNewOption(dialogueManager.GetNextOptions());
     }

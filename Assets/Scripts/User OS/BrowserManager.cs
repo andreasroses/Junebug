@@ -25,7 +25,6 @@ public class BrowserManager : MonoBehaviour
         if(webpageList.Contains(userInput)){
             var imgNameIndex = userInput.IndexOf('?') + 1;
             string imgName = userInput.Substring(imgNameIndex);
-            Debug.Log("BrowserManager - imgName: " + imgName);
             webpageLoader.UpdateViewport(imgName);
         }
         else{

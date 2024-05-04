@@ -8,15 +8,13 @@ using UnityEngine;
 [System.Serializable]
 public class DialogueManager
 {
-    [SerializeField]private DialogueDatabase storyTexts;
+    
     private Queue<string> currTexts = new Queue<string>();
     private Queue<string> msgOptions = new Queue<string>();
     public string linkMsg;
     private List<string> dialogueDesc;
 
-    public void StartDialogue(string eventName){
-        Predicate<DialogueEvent> matchEvent = (DialogueEvent d) => {return d.EventName.Equals(eventName);};
-        DialogueEvent d = storyTexts.DialogueEvents.Find(matchEvent);
+    public void StartDialogue(DialogueEvent d){
         List<string> tmpTxts = d.Dialogue;
         queueTexts(tmpTxts);
         dialogueDesc = d.DialogueDesc;
