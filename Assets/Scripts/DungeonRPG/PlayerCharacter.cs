@@ -10,6 +10,7 @@ public class PlayerCharacter : MonoBehaviour
 
     [SerializeField] float interactRadius = 5f;
     [SerializeField] LayerMask layerMask;
+    [SerializeField] private HealthTracker healthTracker;
     Rigidbody2D rb;
 
     void Awake(){
@@ -36,6 +37,7 @@ public class PlayerCharacter : MonoBehaviour
                 health = calcHeal;
             }
         }
+        healthTracker.UpdateHealth();
     }
 
     public void CheckInteract(){
