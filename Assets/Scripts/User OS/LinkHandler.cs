@@ -12,7 +12,6 @@ public class LinkHandler : MonoBehaviour
         string link = linkTxt.text;
         GameObject newWindow = Instantiate(browserWindow, transform.root,false);
         BrowserManager tmpLoader = newWindow.GetComponent<BrowserManager>();
-        Debug.Log("LinkHandler - link: " + link);
         tmpLoader.BrowserSearch(link);
     }
 }

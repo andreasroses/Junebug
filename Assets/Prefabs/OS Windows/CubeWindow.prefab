@@ -966,6 +966,22 @@ PrefabInstance:
       propertyPath: spawnPosition.z
       value: 1.0801481
       objectReference: {fileID: 0}
+    - target: {fileID: 2459332042793472338, guid: 5fa93130b1817704699d1348788c2319, type: 3}
+      propertyPath: packets.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2459332042793472338, guid: 5fa93130b1817704699d1348788c2319, type: 3}
+      propertyPath: packets.Array.data[0]
+      value: 
+      objectReference: {fileID: 6801955793903224657, guid: ce169ca46a435ad46b16d2cf0427a567, type: 3}
+    - target: {fileID: 2459332042793472338, guid: 5fa93130b1817704699d1348788c2319, type: 3}
+      propertyPath: packets.Array.data[1]
+      value: 
+      objectReference: {fileID: 6801955793903224657, guid: 19d21ab2be825564e9a2fa3304041cd3, type: 3}
+    - target: {fileID: 2459332042793472338, guid: 5fa93130b1817704699d1348788c2319, type: 3}
+      propertyPath: packets.Array.data[2]
+      value: 
+      objectReference: {fileID: 6801955793903224657, guid: a898c3ea2f2c46f42ad477d99346971a, type: 3}
     - target: {fileID: 9089531901467627760, guid: 5fa93130b1817704699d1348788c2319, type: 3}
       propertyPath: m_Name
       value: CubeSpawner

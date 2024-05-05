@@ -9,31 +9,15 @@ public class StoryEvent : UnityEvent {}
 public class InspectItem : MonoBehaviour
 {
     public StoryEvent InfoTrackingEvent;
-    private bool isSafe;
-    private char matColor;
+    [SerializeField]private bool isSafe;
     private Transform itemTransform;
 
     private Vector3 startPosition;
     private Vector3 startRotation;
-    void Awake()
-    {
-        var tmp = GetComponent<MeshRenderer>().material.name;
-        matColor = tmp[0];
-        itemTransform = GetComponent<Transform>();
-        switch(matColor){
-            case 'r':
-                isSafe = false;
-                break;
-            case 'g':
-                isSafe = true;
-                break;
-            default:
-                isSafe = true;
-                break;
-        }
-        
-    }
 
+    void Awake(){
+        itemTransform = transform;
+    }
     void OnMouseDown()
     {
         startPosition = Input.mousePosition;
