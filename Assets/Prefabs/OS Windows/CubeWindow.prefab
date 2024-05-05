@@ -587,7 +587,6 @@ RectTransform:
   m_LocalScale: {x: 90.37857, y: 90.37857, z: 90.37857}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3213359698602548010}
   - {fileID: 6772370312891265847}
   - {fileID: 9116599563954723183}
   - {fileID: 6883678275272279203}
@@ -636,37 +635,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &4218391153369098790
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3213359698602548010}
-  m_Layer: 0
-  m_Name: CubeSpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3213359698602548010
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4218391153369098790}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 100}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4063202596524573787}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5828107050710394144
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,7 +953,7 @@ PrefabInstance:
     - target: {fileID: 2459332042793472338, guid: 5fa93130b1817704699d1348788c2319, type: 3}
       propertyPath: puzzleWindow
       value: 
-      objectReference: {fileID: 3213359698602548010}
+      objectReference: {fileID: 4063202596524573787}
     - target: {fileID: 2459332042793472338, guid: 5fa93130b1817704699d1348788c2319, type: 3}
       propertyPath: spawnPosition.x
       value: -3.61
