@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour
 {
-    [SerializeField] float speed = 0.5f;
+    [SerializeField] public float speed = 0.5f;
     [SerializeField] public float health = 100f;
     [SerializeField] float maxHealth = 100f;
 

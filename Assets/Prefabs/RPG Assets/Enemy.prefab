@@ -113,7 +113,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.51, y: 1.55, z: 0}
-  m_LocalScale: {x: 0.9103, y: 0.9103, z: 0.9103}
+  m_LocalScale: {x: 0.91029996, y: 0.91029996, z: 0.91030014}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7482961493865170966}
@@ -157,8 +157,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -211953801
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: -1800005340, guid: ed1215bb9fef0e84a824715f47579d60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -187,6 +187,8 @@ MonoBehaviour:
   initialState: 0
   config: {fileID: 11400000, guid: ba3ab726eb8098a49862498134f45cf1, type: 2}
   enemyTransform: {fileID: 8889220789240180678}
+  swordTransform: {fileID: 0}
+  playerSword: {fileID: 0}
   OnAttack:
     m_PersistentCalls:
       m_Calls:
@@ -214,6 +216,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerAttack: {fileID: 0}
+  enemyAttack: {fileID: 0}
+  playerSwordPosX: 0
 --- !u!70 &4409935275524410653
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

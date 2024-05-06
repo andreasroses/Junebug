@@ -5,7 +5,12 @@ using UnityEngine;
 public class PlayerInputHandler : MonoBehaviour
 {
     [SerializeField] PlayerCharacter player;
-
+    [SerializeField] private Animator animator;
+    private float mvtSpeed;
+    void Start(){
+        mvtSpeed = player.speed;
+        //animator.speed = mvtSpeed;
+    }
     void Update()
     {
         Vector3 input = Vector3.zero;
@@ -26,6 +31,9 @@ public class PlayerInputHandler : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E)){
             player.CheckInteract();
         }
+        animator.SetFloat("Horizontal",input.x);
+        animator.SetFloat("Vertical",input.y);
+        animator.SetFloat("Speed",input.sqrMagnitude);
         player.MovePlayer(input);
     }
 }
