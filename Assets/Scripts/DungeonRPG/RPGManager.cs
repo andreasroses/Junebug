@@ -7,6 +7,8 @@ public class RPGManager : MonoBehaviour
     [SerializeField] private List<GameObject> levels;
     [SerializeField] private List<GameObject> realityLevels;
     [SerializeField] private Transform gridTransform;
+
+    private StoryEvent revealEvent;
     private GameObject currTilemap;
     private int levelNum = 0;
 
@@ -33,6 +35,7 @@ public class RPGManager : MonoBehaviour
     public void LoadLevel(int numLevel){
         Destroy(currTilemap);
         currTilemap = Instantiate(levels[numLevel]);
+        revealEvent.Invoke();
     }
 
     public void UpdateRPGLevelNum(){

@@ -6,11 +6,10 @@ using UnityEngine;
 public class PlayerInputHandler : MonoBehaviour
 {
     [SerializeField] PlayerCharacter player;
-    [SerializeField] private Animator animator;
     private float mvtSpeed;
     void Start(){
         mvtSpeed = player.speed;
-        //animator.speed = mvtSpeed;
+        //player.animator.speed = mvtSpeed;
     }
     void Update()
     {
@@ -34,10 +33,15 @@ public class PlayerInputHandler : MonoBehaviour
         }
         if(Input.GetMouseButtonDown(0)){
             player.Attack();
+            player.animator.SetTrigger("Attack");
         }
-        animator.SetFloat("Horizontal",input.x);
-        animator.SetFloat("Vertical",input.y);
-        animator.SetFloat("Speed",input.sqrMagnitude);
+        if(input.y != 0 || input.x != 0){
+            player.animator.SetFloat("LastDirX",input.x);
+            player.animator.SetFloat("LastDirY",input.y);
+        }
+        player.animator.SetFloat("Horizontal",input.x);
+        player.animator.SetFloat("Vertical",input.y);
+        player.animator.SetFloat("Speed",input.sqrMagnitude);
         player.MovePlayer(input);
     }
 }

@@ -16,7 +16,6 @@ public class HealthTracker : MonoBehaviour
         healthTrackerTxt.text = player.health.ToString();
     }
     public void UpdateHealth(){
-        Debug.Log("Interact called in HealthTracker");
         healthTrackerTxt.text = player.health.ToString();
     }
 
