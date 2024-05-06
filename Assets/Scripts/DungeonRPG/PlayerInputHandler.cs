@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInputHandler : MonoBehaviour
@@ -30,6 +31,9 @@ public class PlayerInputHandler : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.E)){
             player.CheckInteract();
+        }
+        if(Input.GetMouseButtonDown(0)){
+            player.Attack();
         }
         animator.SetFloat("Horizontal",input.x);
         animator.SetFloat("Vertical",input.y);

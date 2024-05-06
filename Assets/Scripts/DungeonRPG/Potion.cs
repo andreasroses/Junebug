@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 
-public class Potion : MonoBehaviour, Interactable
+public class Potion : MonoBehaviour, IInteractable
 {
     [SerializeField] float healAmount = 10f;
     private PlayerCharacter playerCharacter;

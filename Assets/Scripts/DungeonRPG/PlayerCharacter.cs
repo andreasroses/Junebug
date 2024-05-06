@@ -9,7 +9,9 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] float maxHealth = 100f;
 
     [SerializeField] float interactRadius = 5f;
-    [SerializeField] LayerMask layerMask;
+    [SerializeField] LayerMask interactLayer;
+    [SerializeField] LayerMask attackLayer;
+    [SerializeField] Transform swordTransform;
     [SerializeField] private HealthTracker healthTracker;
     Rigidbody2D rb;
 
@@ -24,7 +26,7 @@ public class PlayerCharacter : MonoBehaviour
         if(health > 0){
             health-=damage;
         }
-        
+        healthTracker.UpdateHealth();
     }
 
     public void Heal(float healingAmount){
@@ -41,10 +43,18 @@ public class PlayerCharacter : MonoBehaviour
     }
 
     public void CheckInteract(){
-        Collider2D[] results = Physics2D.OverlapCircleAll(transform.position, interactRadius,layerMask);
+        Collider2D[] results = Physics2D.OverlapCircleAll(transform.position, interactRadius,interactLayer);
         if(results.Length > 0){
             Debug.Log("Object found: "+ results[0].gameObject.name);
-            results[0].GetComponent<Interactable>().Interact();
+            results[0].GetComponent<IInteractable>().Interact();
+        }
+    }
+
+    public void Attack(){
+        Collider2D[] results = Physics2D.OverlapCircleAll(swordTransform.position, interactRadius,attackLayer);
+        if(results.Length > 0){
+            Debug.Log("Object found: "+ results[0].gameObject.name);
+            results[0].GetComponent<IDamageable>().Damage();
         }
     }
 }

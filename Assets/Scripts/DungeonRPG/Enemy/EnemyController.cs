@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[System.Serializable]
-public class AttackEvent : UnityEvent<float> {}
-public class EnemyController : MonoBehaviour, Interactable
-{
+public class EnemyController : MonoBehaviour, IDamageable{
     private int HitsLanded = 0;
     public EnemyStateMachine stateMachine;
     public Transform playerTransform;
@@ -15,39 +12,30 @@ public class EnemyController : MonoBehaviour, Interactable
     public Transform enemyTransform;
     public Transform swordTransform;
     public Transform playerSword;
-    public AttackEvent OnAttack;
-    [SerializeField] private Animator playerAttack;
+    private PlayerCharacter playerCharacter;
     [SerializeField] public Animator enemyAttack;
     [SerializeField] private float playerSwordPosX;
-    void Awake()
-    {
+    void Awake(){
         enemyTransform = GetComponent<Transform>();
         stateMachine = new EnemyStateMachine(this);
         stateMachine.RegisterState(new WanderEnemyState());
         stateMachine.RegisterState(new AttackEnemyState());
         stateMachine.ChangeState(initialState);
+        playerCharacter = GameObject.FindWithTag("Player").GetComponent<PlayerCharacter>();
     }
 
-    void Update()
-    {
-        Debug.Log("Current state: " + stateMachine.currentState);
+    void Update(){
         stateMachine.Update();
     }
 
-    public void Interact(){
-        Vector3 sidePosition = playerTransform.InverseTransformPoint(transform.position);
-        if(sidePosition.x < 0){
-                playerAttack.SetTrigger("AttackLeft");
-                playerSword.localPosition = new Vector3(-playerSwordPosX,playerSword.localPosition.y,playerSword.localPosition.z);
-        }
-        else{
-                playerAttack.SetTrigger("AttackRight");
-                playerSword.localPosition = new Vector3(playerSwordPosX,playerSword.localPosition.y,playerSword.localPosition.z);
-        }
+    public void Damage(){
         HitsLanded++;
         if(HitsLanded == 4){
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
-        playerAttack.SetTrigger("Wait");
+    }
+
+    public void Attack(float dmg){
+        playerCharacter.TakeDamage(dmg);
     }
 }

@@ -8,8 +8,6 @@ public class AttackEnemyState : EnemyState
     private LayerMask playerMask;
     private float timer;
     private float swordPositionX;
-    private Vector3 attackPosition;
-
     private Vector3 enterPosition;
     public EnemyStateID GetID(){
         return EnemyStateID.Attack;
@@ -20,8 +18,6 @@ public class AttackEnemyState : EnemyState
         timer = enemy.config.attackTimer;
         swordPositionX = enemy.swordTransform.localPosition.x;
         enterPosition = enemy.transform.position;
-        attackPosition = enemy.transform.position + new Vector3(0,-0.2f,0);
-
     }
     
     public void Update(EnemyController enemy){
@@ -35,7 +31,7 @@ public class AttackEnemyState : EnemyState
         }
         timer -= Time.deltaTime;
         if(timer < 0){
-            enemy.OnAttack.Invoke(swordAttack(enemy));
+            enemy.Attack(swordAttack(enemy));
             Vector3 sidePosition = playerTransform.InverseTransformPoint(enterPosition);
             if(!(sidePosition.x < 0)){
                 enemy.enemyAttack.SetTrigger("AttackLeft");
@@ -57,8 +53,6 @@ public class AttackEnemyState : EnemyState
     }
 
     private float swordAttack(EnemyController enemy){
-        // enemy.enemyTransform.position = Vector2.Lerp(enterPosition,attackPosition, speed);
-        // enemy.enemyTransform.position = Vector2.Lerp(attackPosition,enterPosition, speed);
         //add animator to show attack movement, will work with state machine
         if(doesLand()){
             Debug.Log("AttackState: swordAttack(): hit landed!");
