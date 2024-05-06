@@ -3,28 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 [System.Serializable]
 public class DialogueManager
 {
-    
-    private Queue<string> currTexts = new Queue<string>();
+    public Sprite friendImg;
+    private Queue<MessageData> currTexts = new();
     private Queue<string> msgOptions = new Queue<string>();
     public string linkMsg;
     private List<string> dialogueDesc;
 
     public void StartDialogue(DialogueEvent d){
-        List<string> tmpTxts = d.Dialogue;
+        friendImg = d.friendIcon;
+        List<MessageData> tmpTxts = d.msgDialogue;
         queueTexts(tmpTxts);
         dialogueDesc = d.DialogueDesc;
         queueOptions(dialogueDesc);
-        linkMsg = d.LinkDialogue[0];
     }
 
 
-    private void queueTexts(List<string> msgTxts){
-        foreach(string msg in msgTxts){
+    private void queueTexts(List<MessageData> msgTxts){
+        foreach(MessageData msg in msgTxts){
             currTexts.Enqueue(msg);
         }
     }
@@ -35,12 +36,18 @@ public class DialogueManager
         }
     }
 
-    public string GetNextMessage(){
-        return currTexts.Dequeue();
+    public MessageData GetNextMessage(){
+        if(!IsDialogueQueueEmpty()){
+            return currTexts.Dequeue();
+        }
+        return null;
     }
 
     public string GetNextOptions(){
-        return msgOptions.Dequeue();
+        if(!IsOptionsQueueEmpty()){
+            return msgOptions.Dequeue();
+        }
+        return null;
     }
 
     public bool IsDialogueQueueEmpty(){

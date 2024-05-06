@@ -1,12 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameDataManager : MonoBehaviour
 {
     public static GameDataManager singleton;
     [SerializeField]private DialogueDatabase storyTexts;
+    [SerializeField]private FeedsDatabase storyFeed;
     private int currMsgEvent = -1;
+    private int currFeedEvent = -1;
     private int currRPGLevelNum = 0;
     private int CorrectInfoFound = 0;
     void Awake()
@@ -22,8 +26,19 @@ public class GameDataManager : MonoBehaviour
     }
 
     public DialogueEvent GetNextMsgEvent(){
-        currMsgEvent++;
-        return storyTexts.DialogueEvents[currMsgEvent];
+        if(currMsgEvent < storyTexts.DialogueEvents.Count()){
+            currMsgEvent++;
+            return storyTexts.DialogueEvents[currMsgEvent];
+        }
+        return null;
+    }
+
+    public FeedEvent GetNextFeedEvent(){
+        if(currFeedEvent < storyFeed.allFeeds.Count()){
+            currFeedEvent++;
+            return storyFeed.allFeeds[currFeedEvent];
+        }
+        return null;
     }
 
     public int GetCurrentRPGLevel(){
@@ -32,5 +47,9 @@ public class GameDataManager : MonoBehaviour
 
     public void SetCurrentRPGLevel(int numLevel){
         currRPGLevelNum = numLevel;
+    }
+
+    public void TimerPenalty(){
+        CorrectInfoFound-=5;
     }
 }

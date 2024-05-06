@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66629cac7dd00d9429a28937798fadde, type: 3}
-  m_Name: DialogueDatabase
+  m_Script: {fileID: 11500000, guid: c63e336e06fbd5f4abdb87b04c6ba15f, type: 3}
+  m_Name: msg 4
   m_EditorClassIdentifier: 
-  DialogueEvents:
-  - {fileID: 11400000, guid: 31d6795ae629dc444917482c5864645e, type: 2}
+  notPlayer: 1
+  messageText: im impatient for a reason !!!
+  linkText: 

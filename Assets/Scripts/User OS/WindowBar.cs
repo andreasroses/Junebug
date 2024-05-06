@@ -16,7 +16,7 @@ public class WindowBar : MonoBehaviour, IBeginDragHandler, IDragHandler
     
     public void OnBeginDrag(PointerEventData eventData)
     {
-        selectedObj = eventData.pointerDrag.GetComponent<Transform>().parent;
+        selectedObj = transform.parent;
     }
 
     public void OnDrag(PointerEventData eventData)

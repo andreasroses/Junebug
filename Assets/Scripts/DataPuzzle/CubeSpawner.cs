@@ -40,4 +40,9 @@ public class CubeSpawner : MonoBehaviour
         currCube.Toss();
         SpawnCubesRandom();
     }
+
+    public void TimerRanOut(){
+        GameDataManager.singleton.TimerPenalty();
+        Destroy(cubeWindow);
+    }
 }
