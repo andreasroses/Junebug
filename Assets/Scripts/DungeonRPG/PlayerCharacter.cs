@@ -18,7 +18,6 @@ public class PlayerCharacter : MonoBehaviour
     private int[] angles = {0,-90,-180,90};
     Rigidbody2D rb;
     [SerializeField] public Animator animator;
-    [SerializeField] private List<AnimatorController> anims;
     void Awake(){
         rb = GetComponent<Rigidbody2D>();
         dirRotates[0] = swordTransform.rotation;
@@ -81,11 +80,9 @@ public class PlayerCharacter : MonoBehaviour
     }
 
     public void PlayerReveal(){
-
-    }
-
-    public void SwitchSprite(string animType){
-
+        animator.SetBool("isModern",true);
+        animator.SetBool("isArmored",false);
+        animator.SetTrigger("SceneChange");
     }
 
 }

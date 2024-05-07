@@ -35,12 +35,14 @@ public class PlayerInputHandler : MonoBehaviour
             player.Attack();
             player.animator.SetTrigger("Attack");
         }
-        if(input.y != 0 || input.x != 0){
+        if(input.x != 0){
             player.animator.SetFloat("LastDirX",input.x);
+            player.animator.SetFloat("LastDirY",0);
+        }
+        else if(input.y != 0){
+            player.animator.SetFloat("LastDirX",0);
             player.animator.SetFloat("LastDirY",input.y);
         }
-        player.animator.SetFloat("Horizontal",input.x);
-        player.animator.SetFloat("Vertical",input.y);
         player.animator.SetFloat("Speed",input.sqrMagnitude);
         player.MovePlayer(input);
     }

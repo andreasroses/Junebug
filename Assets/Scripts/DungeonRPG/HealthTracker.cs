@@ -13,10 +13,10 @@ public class HealthTracker : MonoBehaviour
     }
 
     void Start(){
-        healthTrackerTxt.text = player.health.ToString();
+        healthTrackerTxt.text = "Player Health: " +  player.health.ToString();
     }
     public void UpdateHealth(){
-        healthTrackerTxt.text = player.health.ToString();
+        healthTrackerTxt.text = "Player Health: " + player.health.ToString();
     }
 
 }

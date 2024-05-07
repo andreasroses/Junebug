@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 805125262123309684}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.2790256, y: 0.7746482, z: -0.02961601}
+  m_LocalPosition: {x: 0.03, y: 0.36, z: -0.02961601}
   m_LocalScale: {x: 0.073238075, y: 0.5548211, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -211953801
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.645283, g: 0.645283, b: 0.645283, a: 1}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 327307392781894819}
   - component: {fileID: 8252616546871508239}
   - component: {fileID: 4409935275524410653}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.51, y: 1.55, z: 0}
-  m_LocalScale: {x: 0.91029996, y: 0.91029996, z: 0.91030014}
+  m_LocalScale: {x: 20, y: 20, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7482961493865170966}
@@ -159,7 +159,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -211953801
   m_SortingLayer: 5
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -1800005340, guid: ed1215bb9fef0e84a824715f47579d60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -187,38 +187,10 @@ MonoBehaviour:
   initialState: 0
   config: {fileID: 11400000, guid: ba3ab726eb8098a49862498134f45cf1, type: 2}
   enemyTransform: {fileID: 8889220789240180678}
-  swordTransform: {fileID: 0}
+  swordTransform: {fileID: 7482961493865170966}
   playerSword: {fileID: 0}
-  OnAttack:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerCharacter, Assembly-CSharp
-        m_MethodName: TakeDamage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HealthTracker, Assembly-CSharp
-        m_MethodName: UpdateHealth
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  playerAttack: {fileID: 0}
-  enemyAttack: {fileID: 0}
-  playerSwordPosX: 0
+  enemyAttack: {fileID: 7789719075004226861}
+  playerSwordPosX: 0.214
 --- !u!70 &4409935275524410653
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -234,7 +206,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -280,7 +252,7 @@ Transform:
   m_GameObject: {fileID: 5205668761854623164}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.2770257, y: 0.49644828, z: -0.02961601}
+  m_LocalPosition: {x: 0.032001227, y: 0.08179943, z: -0.02961601}
   m_LocalScale: {x: 0.1613801, y: 0.06430376, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -324,8 +296,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -211953801
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.5773585, g: 0.5604331, b: 0.22985399, a: 1}
@@ -364,7 +336,7 @@ Transform:
   m_GameObject: {fileID: 6762815480165825149}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7056767, w: 0.708534}
-  m_LocalPosition: {x: -2.2768257, y: 0.44314826, z: -0.02961601}
+  m_LocalPosition: {x: 0.03220126, y: 0.02849941, z: -0.02961601}
   m_LocalScale: {x: 0.05470785, y: 0.06430377, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -408,8 +380,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -211953801
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.5773585, g: 0.5604331, b: 0.22985399, a: 1}
@@ -431,6 +403,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7482961493865170966}
+  - component: {fileID: 7789719075004226861}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -447,7 +420,7 @@ Transform:
   m_GameObject: {fileID: 7434379238480351336}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.933, y: -0.669, z: 0.02961601}
+  m_LocalPosition: {x: -0.373, y: -0.256, z: 0.02961601}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -456,3 +429,24 @@ Transform:
   - {fileID: 5670834873742257012}
   m_Father: {fileID: 8889220789240180678}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &7789719075004226861
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7434379238480351336}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 29e1d203329b58e49a914a7cb1e2fae8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

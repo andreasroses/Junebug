@@ -11,10 +11,8 @@ public class EnemyController : MonoBehaviour, IDamageable{
     public EnemyConfig config;
     public Transform enemyTransform;
     public Transform swordTransform;
-    public Transform playerSword;
     private PlayerCharacter playerCharacter;
     [SerializeField] public Animator enemyAttack;
-    [SerializeField] private float playerSwordPosX;
     void Awake(){
         enemyTransform = GetComponent<Transform>();
         stateMachine = new EnemyStateMachine(this);

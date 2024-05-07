@@ -1232,11 +1232,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyTexts: {fileID: 11400000, guid: 5da62e7db6f043846aee4cde2b42e833, type: 2}
   storyFeed: {fileID: 11400000, guid: 2cc85994d66d83c4d8a56af121419e91, type: 2}
---- !u!95 &1581536155 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 71465911677447377, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
-  m_PrefabInstance: {fileID: 317034317573821282}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1835797158
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,18 +1308,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 229438712}
     m_Modifications:
-    - target: {fileID: 71465911677447377, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2304766845853363382, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
       propertyPath: m_Name
       value: RPGWindow
       objectReference: {fileID: 0}
     - target: {fileID: 4518268593282053810, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
-      propertyPath: animator
+      propertyPath: healthTracker
       value: 
-      objectReference: {fileID: 1581536155}
+      objectReference: {fileID: 0}
     - target: {fileID: 5888270149415235654, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 126
