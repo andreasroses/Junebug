@@ -1061,6 +1061,10 @@ PrefabInstance:
       propertyPath: rpgWindow
       value: 
       objectReference: {fileID: 2304766845853363382}
+    - target: {fileID: 2643785095641847826, guid: b3ad8e25d7be33d4e9580ef5babcd5ae, type: 3}
+      propertyPath: healthTracker
+      value: 
+      objectReference: {fileID: 8206066294587150995}
     - target: {fileID: 5863072013220981227, guid: b3ad8e25d7be33d4e9580ef5babcd5ae, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1548

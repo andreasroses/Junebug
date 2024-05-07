@@ -18,7 +18,6 @@ public class PlayerCharacter : MonoBehaviour
     private Quaternion[] dirRotates = new Quaternion[4];
     private int[] angles = {0,-90,-180,90};
     Rigidbody2D rb;
-    [SerializeField] public Animator animator;
     void Awake(){
         rb = GetComponent<Rigidbody2D>();
         dirRotates[0] = swordTransform.rotation;

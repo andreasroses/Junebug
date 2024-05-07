@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 210298714752330724}
   - component: {fileID: 9024420845274710145}
-  - component: {fileID: 806379227257272621}
   - component: {fileID: 4937289208218634559}
   - component: {fileID: 4336210229574327638}
   - component: {fileID: 5268955621152878159}
+  - component: {fileID: 806379227257272621}
   m_Layer: 10
   m_Name: OrcEnemy
   m_TagString: Untagged
@@ -88,22 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &806379227257272621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4076131599126571704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16deb8bd7d2957445b81b5eaeb30dc8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
-  initialState: 0
-  config: {fileID: 11400000, guid: ba3ab726eb8098a49862498134f45cf1, type: 2}
-  enemyTransform: {fileID: 210298714752330724}
 --- !u!70 &4937289208218634559
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -172,3 +156,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fed195cc150e0c489a079b06b70be01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 4336210229574327638}
+  spriteRenderer: {fileID: 9024420845274710145}
+--- !u!114 &806379227257272621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4076131599126571704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16deb8bd7d2957445b81b5eaeb30dc8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 0}
+  initialState: 0
+  config: {fileID: 11400000, guid: ba3ab726eb8098a49862498134f45cf1, type: 2}
+  enemyTransform: {fileID: 210298714752330724}
+  au: {fileID: 5268955621152878159}

@@ -14,13 +14,15 @@ public class EnemyController : MonoBehaviour, IDamageable{
     private PlayerCharacter playerCharacter;
     void Awake(){
         enemyTransform = GetComponent<Transform>();
+        playerTransform = GameObject.FindWithTag("Player").transform;
+        playerCharacter = GameObject.FindWithTag("Player").GetComponent<PlayerCharacter>();
+    }
+    void Start(){
         stateMachine = new EnemyStateMachine(this);
         stateMachine.RegisterState(new WanderEnemyState());
         stateMachine.RegisterState(new AttackEnemyState());
         stateMachine.ChangeState(initialState);
-        playerCharacter = GameObject.FindWithTag("Player").GetComponent<PlayerCharacter>();
     }
-
     void Update(){
         stateMachine.Update();
     }

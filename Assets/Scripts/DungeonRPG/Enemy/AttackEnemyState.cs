@@ -29,9 +29,23 @@ public class AttackEnemyState : EnemyState
         }
         timer -= Time.deltaTime;
         if(timer < 0){
+            Vector3 playerPosition = enemy.enemyTransform.InverseTransformPoint(playerTransform.position);
+            if (playerPosition.y > 0){
+                enemy.au.UpdateDirFloats(0,1);
+            }
+            else if (playerPosition.y < 0){
+                enemy.au.UpdateDirFloats(0,-1);
+            }
+            else if (playerPosition.x > 0){
+                enemy.au.UpdateDirFloats(1,0);
+            }
+            else if (playerPosition.x < 0){
+                enemy.au.UpdateDirFloats(-1,0);
+            }
             enemy.au.EnemyAttack();
             enemy.Attack(swordAttack(enemy));
             timer = enemy.config.attackTimer;
+            enemy.au.SwitchAttacking();
         }
     }
 
