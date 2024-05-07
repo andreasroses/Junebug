@@ -7,7 +7,6 @@ public class AttackEnemyState : EnemyState
     private Transform playerTransform;
     private LayerMask playerMask;
     private float timer;
-    private float swordPositionX;
     private Vector3 enterPosition;
     public EnemyStateID GetID(){
         return EnemyStateID.Attack;
@@ -16,7 +15,6 @@ public class AttackEnemyState : EnemyState
         playerTransform = enemy.playerTransform;
         playerMask = enemy.config.playerMask;
         timer = enemy.config.attackTimer;
-        swordPositionX = enemy.swordTransform.localPosition.x;
         enterPosition = enemy.transform.position;
     }
     
@@ -26,25 +24,12 @@ public class AttackEnemyState : EnemyState
         var enemyDistanceSqrd = direction.sqrMagnitude;
         var maxDistanceSqrd = enemy.config.maxDistanceFromPlayer * enemy.config.maxDistanceFromPlayer;
         if(enemyDistanceSqrd > maxDistanceSqrd){
-            Debug.Log("AttackState: maxDistance reached: " + enemyDistanceSqrd);
             enemy.stateMachine.ChangeState(EnemyStateID.Wander);
         }
         timer -= Time.deltaTime;
         if(timer < 0){
             enemy.Attack(swordAttack(enemy));
-            Vector3 sidePosition = playerTransform.InverseTransformPoint(enterPosition);
-            if(!(sidePosition.x < 0)){
-                enemy.enemyAttack.SetTrigger("AttackLeft");
-                enemy.swordTransform.localPosition = new Vector3(swordPositionX,enemy.swordTransform.localPosition.y,enemy.swordTransform.localPosition.z);
-            }
-            else{
-                enemy.enemyAttack.SetTrigger("AttackRight");
-                enemy.swordTransform.localPosition = new Vector3(-swordPositionX,enemy.swordTransform.localPosition.y,enemy.swordTransform.localPosition.z);
-
-            }
-            
             timer = enemy.config.attackTimer;
-            enemy.enemyAttack.SetTrigger("Wait");
         }
     }
 

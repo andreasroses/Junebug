@@ -1312,10 +1312,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RPGWindow
       objectReference: {fileID: 0}
-    - target: {fileID: 4518268593282053810, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
-      propertyPath: healthTracker
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5888270149415235654, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 126
@@ -1357,7 +1353,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4944161857548573621, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
