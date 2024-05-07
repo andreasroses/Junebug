@@ -19,7 +19,8 @@ public class WanderEnemyState : EnemyState
         timer = enemy.config.wanderTimer;
         speed = enemy.config.wanderSpeed;
         enterPosition = enemy.enemyTransform.position;
-        movePosition = getWanderPosition(enterPosition);
+        movePosition = getWanderPosition(enterPosition,enemy);
+        enemy.au.SwitchWalk();
     }
     public void Update(EnemyController enemy){
         Vector3 direction = playerTransform.position - movePosition;
@@ -27,14 +28,16 @@ public class WanderEnemyState : EnemyState
         var enemyDistanceSqrd = direction.sqrMagnitude;
         var minDistanceSqrd = enemy.config.minDistanceFromPlayer * enemy.config.minDistanceFromPlayer;
         if(enemyDistanceSqrd < minDistanceSqrd){
-            Debug.Log("WanderState: minDistance reached: " + minDistanceSqrd);
+            enemy.au.EnemyAttack();
             enemy.stateMachine.ChangeState(EnemyStateID.Attack);
         }
         timer -= Time.deltaTime;
         enemy.enemyTransform.position = Vector2.Lerp(enemy.enemyTransform.position,movePosition, speed * Time.deltaTime);
         if(timer < 0){
-            movePosition = getWanderPosition(enterPosition);
+            enemy.au.SwitchWalk();
+            movePosition = getWanderPosition(enterPosition, enemy);
             timer = enemy.config.wanderTimer;
+            enemy.au.SwitchWalk();
         }
         
     }
@@ -42,10 +45,16 @@ public class WanderEnemyState : EnemyState
 
     }
 
-    private Vector3 getWanderPosition(Vector3 originalPos){
+    private Vector3 getWanderPosition(Vector3 originalPos, EnemyController enemy){
         int x = Random.Range(-1,1);
         int y = Random.Range(-1,1);
-        Vector3 addPos = new Vector3(x,y,0);
+        Vector3 addPos = new(x,y,0);
+        if(addPos.x != 0){
+            enemy.au.UpdateDirFloats(addPos.x,0);
+        }
+        else if(addPos.y != 0){
+            enemy.au.UpdateDirFloats(0,addPos.y);
+        }
         return originalPos+addPos;
         
     }

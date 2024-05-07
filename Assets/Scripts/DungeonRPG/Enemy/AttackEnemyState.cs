@@ -24,10 +24,12 @@ public class AttackEnemyState : EnemyState
         var enemyDistanceSqrd = direction.sqrMagnitude;
         var maxDistanceSqrd = enemy.config.maxDistanceFromPlayer * enemy.config.maxDistanceFromPlayer;
         if(enemyDistanceSqrd > maxDistanceSqrd){
+            enemy.au.EnemyWander();
             enemy.stateMachine.ChangeState(EnemyStateID.Wander);
         }
         timer -= Time.deltaTime;
         if(timer < 0){
+            enemy.au.EnemyAttack();
             enemy.Attack(swordAttack(enemy));
             timer = enemy.config.attackTimer;
         }

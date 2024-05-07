@@ -8,11 +8,12 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] public float speed = 0.5f;
     [SerializeField] public float health = 100f;
     [SerializeField] float maxHealth = 100f;
-
+    [SerializeField] float armorDef = 0;
     [SerializeField] float interactRadius = 5f;
     [SerializeField] LayerMask interactLayer;
     [SerializeField] LayerMask attackLayer;
     [SerializeField] Transform swordTransform;
+    [SerializeField] AnimationUpdater au;
     [SerializeField] private HealthTracker healthTracker;
     private Quaternion[] dirRotates = new Quaternion[4];
     private int[] angles = {0,-90,-180,90};
@@ -46,6 +47,7 @@ public class PlayerCharacter : MonoBehaviour
     public void TakeDamage(float damage){
         if(health > 0){
             health-=damage;
+            health+=armorDef;
         }
         healthTracker.UpdateHealth();
     }
@@ -80,9 +82,12 @@ public class PlayerCharacter : MonoBehaviour
     }
 
     public void PlayerReveal(){
-        animator.SetBool("isModern",true);
-        animator.SetBool("isArmored",false);
-        animator.SetTrigger("SceneChange");
+        au.SwitchModern();
+    }
+
+    public void GainedArmor(){
+        armorDef = 10;
+        au.SwitchArmored();
     }
 
 }
