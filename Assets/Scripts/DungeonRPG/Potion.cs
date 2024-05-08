@@ -10,8 +10,8 @@ public class Potion : MonoBehaviour, IInteractable
     [SerializeField] float healAmount = 10f;
     private PlayerCharacter playerCharacter;
 
-    void Awake(){
-        playerCharacter = GameObject.FindWithTag("Player").GetComponent<PlayerCharacter>();
+    void Start(){
+        playerCharacter = playerCharacter = GameDataManager.singleton.GetPlayer();
     }
     public void Interact(){
         Debug.Log("Interact called in Potion");

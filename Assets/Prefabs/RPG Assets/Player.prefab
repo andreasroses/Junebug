@@ -206,9 +206,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -211953801
-  m_SortingLayer: 5
-  m_SortingOrder: 0
+  m_SortingLayerID: -382316023
+  m_SortingLayer: 1
+  m_SortingOrder: 7
   m_Sprite: {fileID: 1446220400, guid: 52244f9df6250eb419b7ae60798bbd09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -252,9 +252,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.08, y: 0}
-  m_Size: {x: 0.45, y: 0.7}
-  m_Direction: 1
+  m_Offset: {x: -0.01, y: 0.01}
+  m_Size: {x: 0.45, y: 0.6}
+  m_Direction: 0
 --- !u!50 &3391330718895495540
 Rigidbody2D:
   serializedVersion: 4
@@ -333,14 +333,15 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   armorDef: 0
-  interactRadius: 1
+  interactRadius: 2
   interactLayer:
     serializedVersion: 2
     m_Bits: 128
   attackLayer:
     serializedVersion: 2
     m_Bits: 1024
-  swordTransform: {fileID: 2125177678074407295}
+  swordTransform: {fileID: 2285280366249647774}
+  bladeTransform: {fileID: 2125177678074407295}
   au: {fileID: 1521582436430235489}
   healthTracker: {fileID: 0}
 --- !u!1 &4870690152535782734
@@ -354,7 +355,7 @@ GameObject:
   - component: {fileID: 2125177678074407295}
   - component: {fileID: 6731648805755904124}
   - component: {fileID: 4430642959742129327}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Blade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +444,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 1015
+    m_Bits: 1014
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -482,7 +483,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2285280366249647774}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}

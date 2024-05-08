@@ -1057,10 +1057,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RPGGame
       objectReference: {fileID: 0}
-    - target: {fileID: 1475897475733149926, guid: b3ad8e25d7be33d4e9580ef5babcd5ae, type: 3}
-      propertyPath: rpgWindow
-      value: 
-      objectReference: {fileID: 2304766845853363382}
     - target: {fileID: 2643785095641847826, guid: b3ad8e25d7be33d4e9580ef5babcd5ae, type: 3}
       propertyPath: healthTracker
       value: 

@@ -13,7 +13,8 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] LayerMask interactLayer;
     [SerializeField] LayerMask attackLayer;
     [SerializeField] Transform swordTransform;
-    [SerializeField] AnimationUpdater au;
+    [SerializeField] Transform bladeTransform;
+    [SerializeField] public AnimationUpdater au;
     [SerializeField] private HealthTracker healthTracker;
     private Quaternion[] dirRotates = new Quaternion[4];
     private int[] angles = {0,-90,-180,90};
@@ -73,7 +74,7 @@ public class PlayerCharacter : MonoBehaviour
     }
 
     public void Attack(){
-        Collider2D[] results = Physics2D.OverlapCircleAll(swordTransform.position, interactRadius,attackLayer);
+        Collider2D[] results = Physics2D.OverlapCircleAll(bladeTransform.position, interactRadius,attackLayer);
         if(results.Length > 0){
             Debug.Log("Object found: "+ results[0].gameObject.name);
             results[0].GetComponent<IDamageable>().Damage();

@@ -40,7 +40,7 @@ public class AnimationUpdater : MonoBehaviour{
         animator.SetBool("isPlayerClose",false);
     }
     public void EnemyDeath(){
-        animator.SetTrigger("Death");
+        animator.SetBool("isDead",true);
     }
     public void SwitchAttacking(){
         isAttacking = !isAttacking;
@@ -53,5 +53,14 @@ public class AnimationUpdater : MonoBehaviour{
     public void MirrorChar(){
         isFlipped = !isFlipped;
         spriteRenderer.flipX = isFlipped;
+    }
+
+    public void DroneUpdateDirs(float x){
+        if(x < 0){
+            MirrorChar();
+        }
+        else if(isFlipped){
+            MirrorChar();
+        }
     }
 }

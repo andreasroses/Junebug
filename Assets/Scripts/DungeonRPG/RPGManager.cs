@@ -1,24 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
+[System.Serializable]
+public class RPGEvent : UnityEvent {}
 public class RPGManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> levels;
     [SerializeField] private List<GameObject> realityLevels;
     [SerializeField] private Transform gridTransform;
-
+    [SerializeField] private Transform playerTransform;
     public StoryEvent revealEvent;
     private GameObject currTilemap;
     private int levelNum = 0;
 
+    void Awake(){
+        GameDataManager.singleton.LoadPlayer();
+    }
     void Start(){
         levelNum = GameDataManager.singleton.GetCurrentRPGLevel();
         LoadNextLevel();
     }
     private void LoadNextLevel(){
         if(levelNum < levels.Count){
-            currTilemap = Instantiate(levels[levelNum],gridTransform);
+            currTilemap = Instantiate(realityLevels[levelNum],gridTransform);
+            playerTransform.position = currTilemap.transform.GetChild(0).position;
         }
     }
 
@@ -36,9 +43,5 @@ public class RPGManager : MonoBehaviour
     public void LoadLevel(int numLevel){
         Destroy(currTilemap);
         currTilemap = Instantiate(levels[numLevel]);
-    }
-
-    public void UpdateRPGLevelNum(){
-        GameDataManager.singleton.SetCurrentRPGLevel(levelNum);
     }
 }

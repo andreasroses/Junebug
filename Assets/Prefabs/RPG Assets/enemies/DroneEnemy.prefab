@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4587273795348476347}
   - component: {fileID: 9097497855911387064}
-  - component: {fileID: 6096111119111950369}
   - component: {fileID: 1308060355479160374}
   - component: {fileID: 6334477824417466850}
+  - component: {fileID: 6241908074240802952}
+  - component: {fileID: 6415071034445644488}
   m_Layer: 10
   m_Name: DroneEnemy
   m_TagString: Untagged
@@ -28,9 +29,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3633309683639646768}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 108.2, y: 52.6, z: 0}
-  m_LocalScale: {x: 60, y: 60, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,9 +74,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -211953801
-  m_SortingLayer: 5
-  m_SortingOrder: 0
+  m_SortingLayerID: -382316023
+  m_SortingLayer: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1177833731, guid: 699b9bdb2740a9b4d98f297dda43170e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -87,22 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6096111119111950369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3633309683639646768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16deb8bd7d2957445b81b5eaeb30dc8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
-  initialState: 0
-  config: {fileID: 11400000, guid: ba3ab726eb8098a49862498134f45cf1, type: 2}
-  enemyTransform: {fileID: 4587273795348476347}
 --- !u!70 &1308060355479160374
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -135,8 +120,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: 0, y: 0.03}
+  m_Size: {x: 0.1, y: 0.14}
   m_Direction: 0
 --- !u!95 &6334477824417466850
 Animator:
@@ -159,3 +144,36 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6241908074240802952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633309683639646768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fed195cc150e0c489a079b06b70be01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 6334477824417466850}
+  spriteRenderer: {fileID: 9097497855911387064}
+--- !u!114 &6415071034445644488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633309683639646768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d544c8e97fc65204c9a5731ee848ab1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelTransform: {fileID: 0}
+  playerTransform: {fileID: 0}
+  initialState: 0
+  config: {fileID: 11400000, guid: 3f849a038b3e8ce4e99caae52902a5b7, type: 2}
+  enemyTransform: {fileID: 4587273795348476347}
+  au: {fileID: 6241908074240802952}
+  scifiBall: {fileID: 5283600354978664833, guid: 623181608d410a94095df0e6000ebb35, type: 3}

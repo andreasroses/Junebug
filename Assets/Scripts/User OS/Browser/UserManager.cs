@@ -5,17 +5,23 @@ using UnityEngine;
 public class UserManager : MonoBehaviour
 {
     private ScreenFader screenFader;
+    [SerializeField] private GameObject RPGWindow;
+    [SerializeField] private GameObject BrowserWindow;
+    [SerializeField] private GameObject ChatboxWindow;
+    [SerializeField] private GameObject DataSortWindow;
+    [SerializeField] private GameObject TwitterWindow;
+    [SerializeField] private Transform canvasTransform;
     void Start()
     {
         screenFader = GetComponent<ScreenFader>();
     }
 
-    public void LoadPRGGame(){
-        screenFader.FadeToColor("DungeonRPGScene");
+    public void LoadRPGGame(){
+        Instantiate(RPGWindow,canvasTransform);
     }
 
     public void LoadDataSort(){
-        screenFader.FadeToColor("3DPuzzleScene");
+        
     }
 
     public void Quit(){

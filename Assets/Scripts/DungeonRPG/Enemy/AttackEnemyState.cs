@@ -4,21 +4,22 @@ using UnityEngine;
 using UnityEngine.Events;
 public class AttackEnemyState : EnemyState
 {
-    private Transform playerTransform;
-    private LayerMask playerMask;
-    private float timer;
-    private Vector3 enterPosition;
+    protected Transform playerTransform;
+    protected Collider2D[] results = new Collider2D[10];
+    protected ContactFilter2D playerMask;
+    protected float timer;
+    protected Vector3 enterPosition;
     public EnemyStateID GetID(){
         return EnemyStateID.Attack;
     }
-    public void Enter(EnemyController enemy){
+    public virtual void Enter(EnemyController enemy){
         playerTransform = enemy.playerTransform;
-        playerMask = enemy.config.playerMask;
+        playerMask.SetLayerMask(enemy.config.playerMask);
         timer = enemy.config.attackTimer;
         enterPosition = enemy.transform.position;
     }
     
-    public void Update(EnemyController enemy){
+    public virtual void Update(EnemyController enemy){
         Vector3 direction = playerTransform.position - enterPosition;
         direction.z = 0;
         var enemyDistanceSqrd = direction.sqrMagnitude;
@@ -29,19 +30,7 @@ public class AttackEnemyState : EnemyState
         }
         timer -= Time.deltaTime;
         if(timer < 0){
-            Vector3 playerPosition = enemy.enemyTransform.InverseTransformPoint(playerTransform.position);
-            if (playerPosition.y > 0){
-                enemy.au.UpdateDirFloats(0,1);
-            }
-            else if (playerPosition.y < 0){
-                enemy.au.UpdateDirFloats(0,-1);
-            }
-            else if (playerPosition.x > 0){
-                enemy.au.UpdateDirFloats(1,0);
-            }
-            else if (playerPosition.x < 0){
-                enemy.au.UpdateDirFloats(-1,0);
-            }
+            enemy.au.UpdateDirFloats(direction.x,direction.y);
             enemy.au.EnemyAttack();
             enemy.Attack(swordAttack(enemy));
             timer = enemy.config.attackTimer;
@@ -49,11 +38,11 @@ public class AttackEnemyState : EnemyState
         }
     }
 
-    public void Exit(EnemyController enemy){
+    public virtual void Exit(EnemyController enemy){
 
     }
 
-    private float swordAttack(EnemyController enemy){
+    protected float swordAttack(EnemyController enemy){
         //add animator to show attack movement, will work with state machine
         if(doesLand()){
             Debug.Log("AttackState: swordAttack(): hit landed!");
@@ -63,11 +52,11 @@ public class AttackEnemyState : EnemyState
         return 0f;
     }
 
-    private bool doesLand(){
+    protected bool doesLand(){
         Debug.Log("AttackState: checking if lands...");
         var check = Random.Range(0,10);
-        Collider2D[] collisions = Physics2D.OverlapCircleAll(enterPosition,2f,playerMask);
-        if(check > 3 && collisions.Length > 0){          
+        int numColliders = Physics2D.OverlapCircle(enterPosition,2f,playerMask,results);
+        if(check > 3 && numColliders > 0){          
             return true;
         }
         return false;

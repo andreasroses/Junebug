@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
 public class EndCheckpoint : MonoBehaviour
 {
-    [SerializeField] private GameObject rpgWindow;
+    private GameObject rpgWindow;
 
+    void Awake(){
+        rpgWindow = GameObject.FindWithTag("RPGWindow");
+    }
     void OnTriggerEnter2D(Collider2D other){
-        Destroy(rpgWindow);
+        if(GameDataManager.singleton.numEnemiesRemaining == 0){
+            Destroy(rpgWindow);
+        }
     }
 }

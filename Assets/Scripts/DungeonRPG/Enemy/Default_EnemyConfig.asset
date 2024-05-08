@@ -15,9 +15,15 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 64
-  wanderTimer: 2
+  mapMask:
+    serializedVersion: 2
+    m_Bits: 4096
+  idleTimer: 2
   attackTimer: 1
   wanderSpeed: 0.8
   attackSpeed: 1.2
   minDistanceFromPlayer: 1.5
   maxDistanceFromPlayer: 5
+  WaypointRange: 4
+  NumWaypoints: 4
+  projSpeed: 0.3

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactable
   - Canvas
+  - Input
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - PlayerCam
   - Damageable
   - playerSword
-  - 
+  - Map
   - 
   - 
   - 

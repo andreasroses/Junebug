@@ -1,61 +1,104 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WanderEnemyState : EnemyState
 {
-    private Transform playerTransform;
-    private float timer;
-    private float speed;
+    protected Transform playerTransform;
+    protected float timer;
+    protected float speed;
 
-    private Vector3 enterPosition;
-
-    private Vector3 movePosition;
-    public EnemyStateID GetID(){
+    protected float waypointRange;
+    protected ContactFilter2D map;
+    protected List<Vector2> wanderPoints = new List<Vector2>();
+    protected int currPoint = -1;
+    protected Vector2 movePosition;
+    protected int numWaypoints;
+    protected bool isWalking = true;
+    protected Collider2D[] results = new Collider2D[10];
+    private Vector2 moveDirection;
+    public virtual EnemyStateID GetID(){
         return EnemyStateID.Wander;
     }
-    public void Enter(EnemyController enemy){
+    public virtual void Enter(EnemyController enemy){
         playerTransform = enemy.playerTransform;
-        timer = enemy.config.wanderTimer;
+        timer = enemy.config.idleTimer;
         speed = enemy.config.wanderSpeed;
-        enterPosition = enemy.enemyTransform.position;
-        movePosition = getWanderPosition(enterPosition,enemy);
+        waypointRange = enemy.config.WaypointRange;
+        numWaypoints = enemy.config.NumWaypoints;
+        map.SetLayerMask(enemy.config.mapMask);
+        SetWaypoints(enemy);
+        movePosition = GetNextPoint();
+        moveDirection = movePosition - new Vector2(enemy.enemyTransform.position.x,enemy.enemyTransform.position.y);
+        enemy.au.UpdateDirFloats(moveDirection.x,moveDirection.y);
         enemy.au.SwitchWalk();
     }
-    public void Update(EnemyController enemy){
-        Vector3 direction = playerTransform.position - movePosition;
-        direction.z = 0;
+    public virtual void Update(EnemyController enemy){
+        Vector2 direction = new Vector2(playerTransform.position.x,playerTransform.position.y) - movePosition;
         var enemyDistanceSqrd = direction.sqrMagnitude;
         var minDistanceSqrd = enemy.config.minDistanceFromPlayer * enemy.config.minDistanceFromPlayer;
         if(enemyDistanceSqrd < minDistanceSqrd){
             enemy.au.EnemyAttack();
             enemy.stateMachine.ChangeState(EnemyStateID.Attack);
         }
-        timer -= Time.deltaTime;
-        enemy.enemyTransform.position = Vector2.Lerp(enemy.enemyTransform.position,movePosition, speed * Time.deltaTime);
-        if(timer < 0){
-            enemy.au.SwitchWalk();
-            movePosition = getWanderPosition(enterPosition, enemy);
-            timer = enemy.config.wanderTimer;
-            enemy.au.SwitchWalk();
+        if(isWalking){
+            Vector2 currPos = enemy.enemyTransform.position;
+            Vector2 newPos = Vector2.MoveTowards(enemy.enemyTransform.position,movePosition, speed * Time.deltaTime);
+            int numColliders = Physics2D.OverlapCircle(newPos,0.2f,map,results);
+            if(numColliders > 0 || currPos == movePosition){
+                enemy.au.SwitchWalk();
+                isWalking = false;
+            }else{
+                enemy.enemyTransform.position = newPos;
+            }
+            // as lerping check if point collides, if it does get next waypoint
+        }
+        
+        if(!isWalking){
+            timer-=Time.deltaTime;
+            if(timer < 0){
+                timer = enemy.config.idleTimer;
+                movePosition = GetNextPoint();
+                moveDirection = movePosition - new Vector2(enemy.enemyTransform.position.x,enemy.enemyTransform.position.y);
+                enemy.au.UpdateDirFloats(moveDirection.x,moveDirection.y);
+                isWalking = true;
+                enemy.au.SwitchWalk();
+            }
         }
         
     }
-    public void Exit(EnemyController enemy){
+    public virtual void Exit(EnemyController enemy){
 
     }
 
-    private Vector3 getWanderPosition(Vector3 originalPos, EnemyController enemy){
-        int x = Random.Range(-1,1);
-        int y = Random.Range(-1,1);
-        Vector3 addPos = new(x,y,0);
-        if(addPos.x != 0){
-            enemy.au.UpdateDirFloats(addPos.x,0);
+    protected bool GetWaypoint(Vector2 center, float range, out Vector2 result){
+        Vector2 randomPoint = center + Random.insideUnitCircle * range;
+        int numColliders = Physics2D.OverlapCircle(randomPoint,1f,map,results);
+        if(numColliders > 0){
+            result = randomPoint;
+            return false;
         }
-        else if(addPos.y != 0){
-            enemy.au.UpdateDirFloats(0,addPos.y);
+        result = randomPoint;
+        return true;
+    }
+
+    protected void SetWaypoints(EnemyController enemy){
+        int counter = 0;
+        while (counter < numWaypoints - 1){
+            if (GetWaypoint(enemy.enemyTransform.position, waypointRange, out Vector2 waypoint)){
+                wanderPoints.Add(waypoint);
+                counter++;
+            }
         }
-        return originalPos+addPos;
+    }
+
+    protected Vector2 GetNextPoint(){
+        if (wanderPoints.Count == 0)
+            return Vector2.zero;
+
+        currPoint = (currPoint + 1) % wanderPoints.Count;
+        return wanderPoints[currPoint];
         
     }
 }

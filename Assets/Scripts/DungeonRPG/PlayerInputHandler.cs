@@ -7,11 +7,6 @@ public class PlayerInputHandler : MonoBehaviour
 {
     [SerializeField] PlayerCharacter player;
     [SerializeField] AnimationUpdater au;
-    private float mvtSpeed;
-    void Start(){
-        mvtSpeed = player.speed;
-        //player.animator.speed = mvtSpeed;
-    }
     void Update()
     {
         Vector3 input = Vector3.zero;
@@ -33,6 +28,7 @@ public class PlayerInputHandler : MonoBehaviour
             player.CheckInteract();
         }
         if(Input.GetMouseButtonDown(0)){
+            au.PlayerAttack();
             player.Attack();
         }
         if(input.x != 0){

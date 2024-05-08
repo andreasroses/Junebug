@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameDataManager : MonoBehaviour
@@ -11,8 +12,12 @@ public class GameDataManager : MonoBehaviour
     [SerializeField]private FeedsDatabase storyFeed;
     private int currMsgEvent = -1;
     private int currFeedEvent = -1;
-    private int currRPGLevelNum = 0;
+    [SerializeField] private int currRPGLevelNum = 0;
+    public int numEnemiesRemaining = 0;
+    public bool beatLevel = false;
     private int CorrectInfoFound = 0;
+
+    private PlayerCharacter RPGplayer = null;
     void Awake()
     {
         if(singleton != null){
@@ -21,6 +26,9 @@ public class GameDataManager : MonoBehaviour
         singleton = this;
     }
 
+    void Update(){
+
+    }
     public void StoryInfoTracker(){
         CorrectInfoFound++;
     }
@@ -45,11 +53,22 @@ public class GameDataManager : MonoBehaviour
         return currRPGLevelNum;
     }
 
-    public void SetCurrentRPGLevel(int numLevel){
-        currRPGLevelNum = numLevel;
+    public void RPGLevelCompleted(){
+        currRPGLevelNum++;
     }
 
     public void TimerPenalty(){
         CorrectInfoFound-=5;
+    }
+
+    public PlayerCharacter GetPlayer(){
+        return RPGplayer;
+    }
+
+    public void LoadPlayer(){
+        if(RPGplayer == null){
+            RPGplayer = GameObject.FindWithTag("Player").GetComponent<PlayerCharacter>();
+        }
+        
     }
 }
