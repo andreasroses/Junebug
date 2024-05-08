@@ -6,11 +6,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     private PlayerCharacter playerCharacter;
-    private Collider2D[] results = new Collider2D[10];
-    [SerializeField] LayerMask playerMask;
-    private ContactFilter2D player;
     void Start(){
-        player.SetLayerMask(playerMask);
         playerCharacter = GameDataManager.singleton.GetPlayer();
         Destroy(gameObject,4);
     }
@@ -19,9 +15,5 @@ public class Projectile : MonoBehaviour
             playerCharacter.TakeDamage(Random.Range(1,8));
             gameObject.SetActive(false);
         }
-    }
-
-    void OnDrawGizmosSelected(){
-        Gizmos.DrawWireSphere(transform.position,0.1f);
     }
 }

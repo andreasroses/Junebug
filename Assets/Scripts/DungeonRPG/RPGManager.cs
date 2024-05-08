@@ -20,6 +20,9 @@ public class RPGManager : MonoBehaviour
     }
     void Start(){
         levelNum = GameDataManager.singleton.GetCurrentRPGLevel();
+        if(levelNum > 1){
+            levelNum = 0;
+        }
         LoadNextLevel();
     }
     private void LoadNextLevel(){
