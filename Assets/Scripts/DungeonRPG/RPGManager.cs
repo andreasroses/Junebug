@@ -24,7 +24,7 @@ public class RPGManager : MonoBehaviour
     }
     private void LoadNextLevel(){
         if(levelNum < levels.Count){
-            currTilemap = Instantiate(realityLevels[levelNum],gridTransform);
+            currTilemap = Instantiate(levels[levelNum],gridTransform);
             playerTransform.position = currTilemap.transform.GetChild(0).position;
         }
     }

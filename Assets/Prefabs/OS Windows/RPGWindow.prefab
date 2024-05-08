@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 6285414910314487746}
   m_Layer: 0
   m_Name: RPGWindow
-  m_TagString: Untagged
+  m_TagString: RPGWindow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -295,6 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad647870cfa85949b1f9714ca92216f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  windowClosed: RPGWindow
 --- !u!114 &6285414910314487746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,9 +311,13 @@ MonoBehaviour:
   rpgManager: {fileID: 4206518338571561334}
   playerInput: {fileID: 1361286665630088787}
   terminalLine: {fileID: 1854357595161763684}
+  dataSorts:
+  - ?RunningDR-1
+  - ?RunningDR-2
   inputField: {fileID: 6249515873933938738}
   termsList:
-  - rv subject5
+  - catburglar
+  - rv subj5
 --- !u!1 &3668714347284010957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,6 +1062,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RPGGame
       objectReference: {fileID: 0}
+    - target: {fileID: 2334008051992643542, guid: b3ad8e25d7be33d4e9580ef5babcd5ae, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 9042950745692440601}
     - target: {fileID: 2643785095641847826, guid: b3ad8e25d7be33d4e9580ef5babcd5ae, type: 3}
       propertyPath: healthTracker
       value: 
@@ -1136,5 +1145,10 @@ MonoBehaviour:
 --- !u!4 &5429460160668436299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5863072013220981227, guid: b3ad8e25d7be33d4e9580ef5babcd5ae, type: 3}
+  m_PrefabInstance: {fileID: 1874766080721104544}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9042950745692440601 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7456696664276805305, guid: b3ad8e25d7be33d4e9580ef5babcd5ae, type: 3}
   m_PrefabInstance: {fileID: 1874766080721104544}
   m_PrefabAsset: {fileID: 0}

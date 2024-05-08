@@ -16,4 +16,6 @@ MonoBehaviour:
   username: smallrockpd
   postText: Please call 555-4235 to report any sightings of Sam Levings, last seen
     on a run near the edge of town
+  linkText: smallrocktelegraph.com/?sam-missing
   userPic: {fileID: 21300000, guid: 1551487c5c1bdab41aa95def89375218, type: 3}
+  postPic: {fileID: 21300000, guid: 6e10b1840a0715b4e808285bbe75524d, type: 3}

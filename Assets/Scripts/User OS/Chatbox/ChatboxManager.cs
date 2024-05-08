@@ -35,7 +35,7 @@ public class ChatboxManager : MonoBehaviour
     }
 
     public void SpawnMessage(){
-        if(currMsg.notPlayer){
+        if(!currMsg.charName.Equals("June")){
             if(!currMsg.linkText.Equals("")){
                 SpawnNewFriendMessage(linkMsg);
                 SetLink();
@@ -52,8 +52,10 @@ public class ChatboxManager : MonoBehaviour
 
     public void SpawnNewPlayerMessage(){
         newMsg = Instantiate(playerMsg,Vector3.zero,Quaternion.identity);
-        TextMeshProUGUI msgTxt = newMsg.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI nameTxt = newMsg.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI msgTxt = newMsg.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         msgTxt.text = currMsg.messageText;
+        nameTxt.text = currMsg.charName;
         newMsg.transform.SetParent(MsgBox,false);
     }
     public void SpawnNewOption(string dialogueTxt){
@@ -66,39 +68,41 @@ public class ChatboxManager : MonoBehaviour
 
     public void SpawnNewFriendMessage(GameObject chatMsg){
         newMsg = Instantiate(chatMsg,Vector3.zero,Quaternion.identity);
-        TextMeshProUGUI msgTxt = newMsg.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        Image userImg = newMsg.transform.GetChild(1).GetComponent<Image>();
+        TextMeshProUGUI nameTxt = newMsg.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI msgTxt = newMsg.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        Image userImg = newMsg.transform.GetChild(2).GetComponent<Image>();
         msgTxt.text = currMsg.messageText;
+        nameTxt.text = currMsg.charName;
         userImg.sprite = profPic;
         newMsg.transform.SetParent(MsgBox,false);
 
     }
 
     public void SetLink(){
-        TextMeshProUGUI linkTxt = newMsg.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI linkTxt = newMsg.transform.GetChild(3).GetComponent<TextMeshProUGUI>();
         linkTxt.text = currMsg.linkText;
     }
 
     public void PlayerReply(){
-        StartCoroutine(SpawnPlayerMessagesWithDelay());
         Destroy(lastOption);
-    }
-
-    private IEnumerator SpawnMessagesWithDelay(){
-        while(currMsg!=null && currMsg.notPlayer){
-            SpawnMessage();
-            currMsg = dialogueManager.GetNextMessage();
-            yield return new WaitForSeconds(1);
-        }
-        yield return new WaitForSeconds(2);
-        StopCoroutine(SpawnMessagesWithDelay());
         if(!dialogueManager.IsOptionsQueueEmpty()){
             SpawnNewOption(dialogueManager.GetNextOptions());
         }
+        StartCoroutine(SpawnPlayerMessagesWithDelay());
+    }
+
+    private IEnumerator SpawnMessagesWithDelay(){
+        while(currMsg!=null && !currMsg.charName.Equals("June")){
+            SpawnMessage();
+            currMsg = dialogueManager.GetNextMessage();
+        }
+        yield return new WaitForSeconds(2);
+        StopCoroutine(SpawnMessagesWithDelay());
+        
     }
 
     private IEnumerator SpawnPlayerMessagesWithDelay(){
-        while(currMsg!=null &&!currMsg.notPlayer){
+        while(currMsg!=null && currMsg.charName.Equals("June")){
             SpawnMessage();
             currMsg = dialogueManager.GetNextMessage();
             yield return new WaitForSeconds(1);

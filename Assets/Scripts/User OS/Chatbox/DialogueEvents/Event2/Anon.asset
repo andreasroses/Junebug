@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f159ba067660be46a5675c80884b5e1, type: 3}
+  m_Name: Anon
+  m_EditorClassIdentifier: 
+  EventName: MeetAnon
+  FriendName: anonymous
+  friendIcon: {fileID: -252987601, guid: e856f250e55ded84983658094040b9bb, type: 3}
+  msgDialogue:
+  - {fileID: 11400000, guid: 9657c9c34e6e94a45be336f311bf86c2, type: 2}
+  - {fileID: 11400000, guid: 2a6904f3fdeb40640b0f03a711ef04e5, type: 2}
+  - {fileID: 11400000, guid: 2a1846a3701e17f40bb9f43821f14933, type: 2}
+  - {fileID: 11400000, guid: be808290738d7ef46be7403342e44bcc, type: 2}
+  - {fileID: 11400000, guid: 9fc53a90a63ded640977b173fa75a0c1, type: 2}
+  - {fileID: 11400000, guid: 6484b69fa995ed24cbc6d22d5fe1fd14, type: 2}
+  - {fileID: 11400000, guid: 38a23c554178d4d45a247a28362b6c65, type: 2}
+  - {fileID: 11400000, guid: 70ebabb178fbf4042b6225623e0153ff, type: 2}
+  - {fileID: 11400000, guid: 9a466c60d3f0ce443a224a5964291f69, type: 2}
+  - {fileID: 11400000, guid: 2dbc83b95dad37644a78864169201181, type: 2}
+  - {fileID: 11400000, guid: 8d696d4e6f6e7664b9e664398af38b17, type: 2}
+  - {fileID: 11400000, guid: 7b97df3e67d7c524caf1915f8d6f84a7, type: 2}
+  DialogueDesc:
+  - who is this
+  - do you know me??
+  - no seriously what the hell is this
+  DialogueMultChoices: []
+  DialogueResults: []

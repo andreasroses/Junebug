@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f159ba067660be46a5675c80884b5e1, type: 3}
+  m_Name: Intro
+  m_EditorClassIdentifier: 
+  EventName: Intro
+  FriendName: Bee
+  friendIcon: {fileID: 1219538866, guid: e856f250e55ded84983658094040b9bb, type: 3}
+  msgDialogue:
+  - {fileID: 11400000, guid: 4b0d2d6c240e5e740b9c340c7b11633d, type: 2}
+  - {fileID: 11400000, guid: d5761463273cb204b941e7f054ca5ac9, type: 2}
+  - {fileID: 11400000, guid: ca35fc8120ac39c448c7bf8f0e25063e, type: 2}
+  - {fileID: 11400000, guid: de781e1ed705fe24283e405dfefdc1f2, type: 2}
+  - {fileID: 11400000, guid: 3124349d7df0a6041800a308054230bb, type: 2}
+  - {fileID: 11400000, guid: 74de914be9dfed24190330b634c9e473, type: 2}
+  - {fileID: 11400000, guid: 7a0fc02ea4468954699c18cbf2cbd786, type: 2}
+  - {fileID: 11400000, guid: df1c599bbf365114da514e4813483aeb, type: 2}
+  - {fileID: 11400000, guid: 8d2c2603fb70f9d47bb7c778666c185b, type: 2}
+  - {fileID: 11400000, guid: 8411ee0c942abc1448d25e4842743fbd, type: 2}
+  - {fileID: 11400000, guid: be6ea86bd94d64b47a807ea2aa485149, type: 2}
+  - {fileID: 11400000, guid: 1320087a02646ef428398f9df612c691, type: 2}
+  - {fileID: 11400000, guid: 7ae5ff01c6457994680dbe316c55a671, type: 2}
+  - {fileID: 11400000, guid: db40fc628f9941547846454e9e5c073b, type: 2}
+  - {fileID: 11400000, guid: d037e4f45326a9545aa4a828ca70eedc, type: 2}
+  - {fileID: 11400000, guid: 70abbdc52e2b36748a5bfae39398a94f, type: 2}
+  - {fileID: 11400000, guid: b8e632e5f76029841891d41116eaac64, type: 2}
+  - {fileID: 11400000, guid: 451f4ef0eaf027848ac29decdf6f5ac3, type: 2}
+  - {fileID: 11400000, guid: 540e67560dcb6ae4abc4d38785b8b9bf, type: 2}
+  - {fileID: 11400000, guid: eee9a106ee7f93a4aa66f971504437c5, type: 2}
+  - {fileID: 11400000, guid: 120fe845adf07c544bb1182fc7c95444, type: 2}
+  - {fileID: 11400000, guid: d1da4a3a13c92dd499908ab6c5b8aa91, type: 2}
+  - {fileID: 11400000, guid: d5500f7e3ab6e5a41b2dccc1d7a37478, type: 2}
+  - {fileID: 11400000, guid: 98a1e4b4176da4540a50c916872ecef9, type: 2}
+  DialogueDesc:
+  - mostly, why?
+  - you haven't heard?
+  - he's missing
+  - don't really know
+  - be so for real right now
+  - you might have a point...
+  DialogueMultChoices: []
+  DialogueResults: []

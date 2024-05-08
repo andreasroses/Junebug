@@ -247,7 +247,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 3480134096771595736}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.5
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -319,9 +319,9 @@ MonoBehaviour:
     m_Left: 0
     m_Right: 0
     m_Top: 0
-    m_Bottom: 10
+    m_Bottom: 60
   m_ChildAlignment: 4
-  m_Spacing: 10
+  m_Spacing: 30
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -379,6 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad647870cfa85949b1f9714ca92216f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  windowClosed: ChatboxWindow
 --- !u!114 &2357781516020003456
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public class ChirpManager : MonoBehaviour
     [SerializeField] private Transform FeedBox;
     private GameObject newPost;
     private FeedPost currPost;
+    
     void Start(){
         feedManager.StartDialogue(GameDataManager.singleton.GetNextFeedEvent());
         while(!feedManager.IsDialogueQueueEmpty()){

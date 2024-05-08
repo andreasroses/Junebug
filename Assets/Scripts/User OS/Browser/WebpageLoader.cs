@@ -8,6 +8,7 @@ public class WebpageLoader : MonoBehaviour
     [SerializeField] private Image currImage;
     [SerializeField] private GameObject homeSearchbar;
     [SerializeField] private RectTransform webpageRes;
+    [SerializeField] private int lastHomeRes;
     [SerializeField] private Vector2 longPageRes;
     [SerializeField] private Vector2 homePageRes;
     private bool otteryOn = true;
@@ -19,10 +20,13 @@ public class WebpageLoader : MonoBehaviour
             if(!imgName.Equals(currImage.name)){
                 for(int i = 0; i < pgImgList.Count;i++){
                     if(pgImgList[i].name.Equals(imgName)){
-                    currImage.sprite = pgImgList[i];
-                    webpageRes.sizeDelta = longPageRes;
-                    webpageRes.position = new Vector3(webpageRes.position.x,(longPageRes.y/2) * -1,webpageRes.position.z);
-                    return;
+                        currImage.sprite = pgImgList[i];
+                        if(i > lastHomeRes){
+                            webpageRes.sizeDelta = longPageRes;
+                            webpageRes.position = new Vector3(webpageRes.position.x,(longPageRes.y/2) * -1,webpageRes.position.z);
+                            return;
+                        }
+                        return;
                     }
                 }
             }

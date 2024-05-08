@@ -457,6 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad647870cfa85949b1f9714ca92216f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  windowClosed: DataWindow
 --- !u!1 &3994623409312419527
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,7 +683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 235ee5e95b3d1754c8391a33ac412ebf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remainingTime: 10
+  remainingTime: 25
   timerTxt: {fileID: 8387192611647885788}
   timerRanOut:
     m_PersistentCalls:
@@ -1032,7 +1033,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2459332042793472338, guid: 5fa93130b1817704699d1348788c2319, type: 3}
       propertyPath: packets.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2459332042793472338, guid: 5fa93130b1817704699d1348788c2319, type: 3}
       propertyPath: packets.Array.data[0]
@@ -1046,9 +1047,17 @@ PrefabInstance:
       propertyPath: packets.Array.data[2]
       value: 
       objectReference: {fileID: 6801955793903224657, guid: a898c3ea2f2c46f42ad477d99346971a, type: 3}
+    - target: {fileID: 2459332042793472338, guid: 5fa93130b1817704699d1348788c2319, type: 3}
+      propertyPath: packets.Array.data[3]
+      value: 
+      objectReference: {fileID: 6801955793903224657, guid: 03b66caadf91a3140b1904b72aae2cdd, type: 3}
     - target: {fileID: 9089531901467627760, guid: 5fa93130b1817704699d1348788c2319, type: 3}
       propertyPath: m_Name
       value: CubeSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089531901467627760, guid: 5fa93130b1817704699d1348788c2319, type: 3}
+      propertyPath: m_TagString
+      value: DataWindow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

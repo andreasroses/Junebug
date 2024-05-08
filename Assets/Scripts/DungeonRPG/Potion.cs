@@ -14,7 +14,6 @@ public class Potion : MonoBehaviour, IInteractable
         playerCharacter = playerCharacter = GameDataManager.singleton.GetPlayer();
     }
     public void Interact(){
-        Debug.Log("Interact called in Potion");
         playerCharacter.Heal(healAmount);
         gameObject.SetActive(false);
         Destroy(gameObject);

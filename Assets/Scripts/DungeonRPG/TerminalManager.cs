@@ -8,6 +8,7 @@ public class TerminalManager : MonoBehaviour
     [SerializeField] RPGManager rpgManager;
     [SerializeField] GameObject playerInput;
     [SerializeField] GameObject terminalLine;
+    [SerializeField] List<string> dataSorts;
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private List<string> termsList;
     private TMP_InputField terminalInput;
@@ -30,6 +31,14 @@ public class TerminalManager : MonoBehaviour
         if(termsList.Contains(userInput)){
             if(userInput.Contains("rv")){
                 rpgManager.RevealLevel();
+                GameDataManager.singleton.revealCalled = true;
+            }
+            if(userInput.Contains("catburglar")){
+                GameDataManager.singleton.catburglar = true;
+                GameDataManager.singleton.cs.SpawnCubesRandom();
+                GameObject newWindow = Instantiate(UserManager.singleton.GetBrowserWindow(), transform.root,false);
+                BrowserManager tmpLoader = newWindow.GetComponent<BrowserManager>();
+                tmpLoader.BrowserSearch(dataSorts[Random.Range(0,2)]);
             }
         }
     }

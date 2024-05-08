@@ -45,15 +45,12 @@ public class AttackEnemyState : EnemyState
     protected float swordAttack(EnemyController enemy){
         //add animator to show attack movement, will work with state machine
         if(doesLand()){
-            Debug.Log("AttackState: swordAttack(): hit landed!");
             return Random.Range(5,20);
         }
-        Debug.Log("AttackState: swordAttack(): hit did not land,,,");
         return 0f;
     }
 
     protected bool doesLand(){
-        Debug.Log("AttackState: checking if lands...");
         var check = Random.Range(0,10);
         int numColliders = Physics2D.OverlapCircle(enterPosition,2f,playerMask,results);
         if(check > 3 && numColliders > 0){          

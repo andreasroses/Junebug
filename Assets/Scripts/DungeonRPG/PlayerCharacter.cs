@@ -68,7 +68,6 @@ public class PlayerCharacter : MonoBehaviour
     public void CheckInteract(){
         Collider2D[] results = Physics2D.OverlapCircleAll(transform.position, interactRadius,interactLayer);
         if(results.Length > 0){
-            Debug.Log("Object found: "+ results[0].gameObject.name);
             results[0].GetComponent<IInteractable>().Interact();
         }
     }
@@ -76,7 +75,6 @@ public class PlayerCharacter : MonoBehaviour
     public void Attack(){
         Collider2D[] results = Physics2D.OverlapCircleAll(bladeTransform.position, interactRadius,attackLayer);
         if(results.Length > 0){
-            Debug.Log("Object found: "+ results[0].gameObject.name);
             results[0].GetComponent<IDamageable>().Damage();
         }
     }

@@ -15,9 +15,8 @@ public class CubeSpawner : MonoBehaviour
     private int numSorted = -1;
 
     void Start(){
-        SpawnCubesRandom();
+        GameDataManager.singleton.LoadCubeSpawner();
     }
-
     public void SpawnCubesRandom(){
         numSorted++;
         if(numSorted < totalToSort){
@@ -27,6 +26,7 @@ public class CubeSpawner : MonoBehaviour
             currCube.transform.localPosition = new Vector3(0, currCube.transform.localPosition.y, -1);
         }
         if(numSorted == totalToSort){
+            UserManager.singleton.DataSortResults();
             Destroy(cubeWindow);
         }
     }
@@ -43,6 +43,7 @@ public class CubeSpawner : MonoBehaviour
 
     public void TimerRanOut(){
         GameDataManager.singleton.TimerPenalty();
+        GameDataManager.singleton.dataSorted = true;
         Destroy(cubeWindow);
     }
 }

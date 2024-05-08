@@ -12,6 +12,8 @@ public class EndCheckpoint : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other){
         if(GameDataManager.singleton.numEnemiesRemaining == 0){
+            GameDataManager.singleton.RPGLevelCompleted();
+            GameDataManager.singleton.ClosedWindow("RPGWindow");
             Destroy(rpgWindow);
         }
     }

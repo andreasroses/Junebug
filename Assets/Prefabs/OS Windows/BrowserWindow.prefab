@@ -611,7 +611,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4458500311320916768}
   m_HandleRect: {fileID: 1932832989258948421}
   m_Direction: 0
-  m_Value: 0.33333334
+  m_Value: 0.33536586
   m_Size: 0.99997365
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2002,7 +2002,7 @@ GameObject:
   - component: {fileID: 5326036323398119067}
   m_Layer: 5
   m_Name: BrowserWindow
-  m_TagString: Untagged
+  m_TagString: BrowserWindow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2040,6 +2040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad647870cfa85949b1f9714ca92216f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  windowClosed: BrowserWindow
 --- !u!114 &7342131047372947058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2056,6 +2057,12 @@ MonoBehaviour:
   homeInput: {fileID: 826002255512630249}
   webpageList:
   - smallrocktelegraph.com/?sam-missing
+  - sscrawler.com/?download
+  - 204.53.169.01.?GetDataSort
+  - ?RunningDR-1
+  - ?RunningDR-2
+  - ?data-results
+  - smallrocktelegraph.com/?bee-missing
   termsList: []
 --- !u!114 &5326036323398119067
 MonoBehaviour:
@@ -2072,10 +2079,17 @@ MonoBehaviour:
   pgImgList:
   - {fileID: 21300000, guid: 7859c1a1ddae81745aaf93e33ff96a98, type: 3}
   - {fileID: 21300000, guid: c49960863f2d3ca48a8dc835e1a51c9c, type: 3}
+  - {fileID: 21300000, guid: 877527285b2c65d49af02f034a2a3e84, type: 3}
+  - {fileID: 21300000, guid: f3ffbf219c25a7b4f94ea603e4300593, type: 3}
+  - {fileID: 21300000, guid: 1c704d1c76c07854e95177a4573600f0, type: 3}
+  - {fileID: 21300000, guid: 4d3ac10e48784b8408352943e14380b3, type: 3}
+  - {fileID: 21300000, guid: 17ad7d3b222280a4f97b54f31ef3c41d, type: 3}
+  - {fileID: 21300000, guid: 6671dac65df837b4b9a83f715779bdc0, type: 3}
   - {fileID: 21300000, guid: c68b638fd8f581e4998fb0f0785c6df5, type: 3}
   currImage: {fileID: 1731028037512055550}
   homeSearchbar: {fileID: 1957370380720228990}
   webpageRes: {fileID: 934899306804890043}
+  lastHomeRes: 6
   longPageRes: {x: 1141.1, y: 1600}
   homePageRes: {x: 1141.1, y: 859.51}
 --- !u!1 &9081773108362955306

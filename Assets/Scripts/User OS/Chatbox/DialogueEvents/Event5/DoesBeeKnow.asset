@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f159ba067660be46a5675c80884b5e1, type: 3}
+  m_Name: DoesBeeKnow
+  m_EditorClassIdentifier: 
+  EventName: DoesBeeKnow
+  FriendName: Bee
+  friendIcon: {fileID: 1219538866, guid: e856f250e55ded84983658094040b9bb, type: 3}
+  msgDialogue:
+  - {fileID: 11400000, guid: 4266b7ae6e61e4e439c92db11682359b, type: 2}
+  - {fileID: 11400000, guid: 2fc03e142bd184745893f868c230a97b, type: 2}
+  - {fileID: 11400000, guid: 08d0e44f37facc048bfd66f8dbf62380, type: 2}
+  - {fileID: 11400000, guid: 15c05b15086f9b546aa52df00ba827e0, type: 2}
+  - {fileID: 11400000, guid: 76d7104eddd685e42a422ca82d97ab4a, type: 2}
+  - {fileID: 11400000, guid: 23f01525f28573c4ab8d1c7605c8a291, type: 2}
+  - {fileID: 11400000, guid: 1ccd2d6a41327ca449b73c1a38047889, type: 2}
+  - {fileID: 11400000, guid: 4fa5073ef1ec6044bb606b1c0d6e70b3, type: 2}
+  - {fileID: 11400000, guid: 37ac05f83a1f868479f4d80f97d4ccea, type: 2}
+  - {fileID: 11400000, guid: 3b441c0379e14054fae6eb9b81f0aa8d, type: 2}
+  - {fileID: 11400000, guid: 6bebb196ad3a184478cc08f5320de17e, type: 2}
+  - {fileID: 11400000, guid: f5640dfa9d7adab4b9fd2deee241da70, type: 2}
+  - {fileID: 11400000, guid: c4aa33375a978714d9e6eee3fc5ccf48, type: 2}
+  - {fileID: 11400000, guid: 2714f5c4210484042a3a62a7c0da8e89, type: 2}
+  - {fileID: 11400000, guid: d9fbe4da16656e54bae85ab3b7ad0cf3, type: 2}
+  - {fileID: 11400000, guid: 8d4445e5bb50a3148bb2f3592c19ac13, type: 2}
+  - {fileID: 11400000, guid: 15cace32b077a8b4395b7ce1a64d353a, type: 2}
+  - {fileID: 11400000, guid: 8b150d662523df840985b59176ab4379, type: 2}
+  - {fileID: 11400000, guid: 5d8e89e7d195ef4479e1baf94553a534, type: 2}
+  DialogueDesc:
+  - is it happening to you too?
+  - did nothing happen when you played?
+  - sam is in this game, HEAR ME OUT
+  - but aren't the similarities weird?
+  - my game does not look like that
+  - yes but isn't it weird
+  - im perfectly fine
+  DialogueMultChoices: []
+  DialogueResults: []

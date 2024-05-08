@@ -14,11 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EventName: Intro
   FeedPosts:
+  - {fileID: 11400000, guid: 736eeeacb609bcb478388c6f7f183e7a, type: 2}
+  - {fileID: 11400000, guid: 7a1f26a984498384cb773307c215c62f, type: 2}
   - {fileID: 11400000, guid: d0d9d0f62e1c318459bd903311fb14fc, type: 2}
-  - {fileID: 11400000, guid: 7a1f26a984498384cb773307c215c62f, type: 2}
-  - {fileID: 11400000, guid: 7a1f26a984498384cb773307c215c62f, type: 2}
-  - {fileID: 11400000, guid: 7a1f26a984498384cb773307c215c62f, type: 2}
-  - {fileID: 11400000, guid: 7a1f26a984498384cb773307c215c62f, type: 2}
-  - {fileID: 11400000, guid: 7a1f26a984498384cb773307c215c62f, type: 2}
-  - {fileID: 11400000, guid: 7a1f26a984498384cb773307c215c62f, type: 2}
-  - {fileID: 11400000, guid: 7a1f26a984498384cb773307c215c62f, type: 2}
+  - {fileID: 11400000, guid: 8b9603b253f304b4e85cc17d772c12aa, type: 2}
+  - {fileID: 11400000, guid: 016a5e51523659b4799f374efb1feb20, type: 2}
+  - {fileID: 11400000, guid: 9e5b25c1b701e344fb7adf111ce10574, type: 2}

@@ -15,4 +15,6 @@ MonoBehaviour:
   charName: Martha Levings
   username: mlevings80
   postText: 'my son is not a runner, he would never run away from home. '
-  userPic: {fileID: 21300000, guid: 35372451cd52e81448f8b81cc8943e02, type: 3}
+  linkText: 
+  userPic: {fileID: 21300000, guid: 6e10b1840a0715b4e808285bbe75524d, type: 3}
+  postPic: {fileID: 0}
