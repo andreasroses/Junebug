@@ -34,29 +34,26 @@ public class UserManager : MonoBehaviour
         
     }
     public void LoadRPGMenu(){
-        GameDataManager.singleton.OpenWindow("RPGWindow");
-        Instantiate(RPGMenu,canvasTransform);
+        RPGMenu.SetActive(true);
     }
     public void LoadRPGGame(){
-        Instantiate(RPGWindow, canvasTransform);
+        RPGWindow.SetActive(true);
     }
 
     public void LoadBrowserWindow(){
-        GameDataManager.singleton.OpenWindow("BrowserWindow");
-        Instantiate(BrowserWindow, canvasTransform);
+        BrowserWindow.SetActive(true);
     }
 
     public void LoadChatboxWindow(){
-        //GameDataManager.singleton.OpenWindow("ChatboxWindow");
-        Instantiate(ChatboxWindow, canvasTransform);
+        ChatboxWindow.SetActive(true);
     }
 
     public void LoadDataSortWindow(){
-        Instantiate(DataSortWindow, canvasTransform);
+        DataSortWindow.SetActive(true);
     }
 
     public void LoadTwitterWindow(){
-        Instantiate(TwitterWindow, canvasTransform);
+        TwitterWindow.SetActive(true);
     }
 
     public void ShowRPGIcon(){

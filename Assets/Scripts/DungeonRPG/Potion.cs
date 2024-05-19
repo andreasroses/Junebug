@@ -10,7 +10,7 @@ public class Potion : MonoBehaviour, IInteractable
     private PlayerCharacter playerCharacter;
 
     void Start(){
-        playerCharacter = playerCharacter = GameDataManager.singleton.GetPlayer();
+        playerCharacter = GameDataManager.singleton.GetPlayer();
     }
     public void Interact(){
         playerCharacter.Heal(healAmount);
