@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ using UnityEngine.Events;
 public class RPGEvent : UnityEvent {}
 public class RPGManager : MonoBehaviour
 {
+    [SerializeField] GameDataManager gm;
+    public int CurrentLevel = 0;
     [SerializeField] private List<GameObject> levels;
     [SerializeField] private List<GameObject> realityLevels;
     [SerializeField] private Transform gridTransform;
@@ -15,11 +18,8 @@ public class RPGManager : MonoBehaviour
     private GameObject currTilemap;
     private int levelNum = 0;
 
-    void Awake(){
-        GameDataManager.singleton.LoadPlayer();
-    }
     void Start(){
-        levelNum = GameDataManager.singleton.GetCurrentRPGLevel();
+        levelNum = gm.GetCurrentRPGLevel();
         if(levelNum > 1){
             levelNum = 0;
         }
@@ -46,5 +46,10 @@ public class RPGManager : MonoBehaviour
     public void LoadLevel(int numLevel){
         Destroy(currTilemap);
         currTilemap = Instantiate(levels[numLevel]);
+    }
+
+    public void RPGLevelCompleted(){
+        CurrentLevel++;
+        gm.CurrRPGLevel = CurrentLevel;
     }
 }

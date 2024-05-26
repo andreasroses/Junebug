@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class EndCheckpoint : MonoBehaviour
 {
+    [SerializeField] LevelManager lm;
     private GameObject rpgWindow;
 
     void Awake(){
         rpgWindow = GameObject.FindWithTag("RPGWindow");
     }
     void OnTriggerEnter2D(Collider2D other){
-        if(GameDataManager.singleton.numEnemiesRemaining == 0){
-            GameDataManager.singleton.RPGLevelCompleted();
+        if(lm.numEnemiesRemaining == 0){
+            rpgWindow.GetComponent<RPGManager>().RPGLevelCompleted();
             rpgWindow.SetActive(false);
         }
     }

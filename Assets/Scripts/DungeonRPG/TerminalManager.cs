@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 public class TerminalManager : MonoBehaviour
 {
+    [SerializeField] GameDataManager gm;
     [SerializeField] RPGManager rpgManager;
     [SerializeField] GameObject playerInput;
     [SerializeField] GameObject terminalLine;
@@ -31,11 +32,9 @@ public class TerminalManager : MonoBehaviour
         if(termsList.Contains(userInput)){
             if(userInput.Contains("rv")){
                 rpgManager.RevealLevel();
-                GameDataManager.singleton.revealCalled = true;
             }
             if(userInput.Contains("catburglar")){
-                GameDataManager.singleton.catburglar = true;
-                GameDataManager.singleton.cs.SpawnCubesRandom();
+                gm.cs.SpawnCubesRandom();
                 GameObject newWindow = Instantiate(UserManager.singleton.GetBrowserWindow(), transform.root,false);
                 BrowserManager tmpLoader = newWindow.GetComponent<BrowserManager>();
                 tmpLoader.BrowserSearch(dataSorts[Random.Range(0,2)]);

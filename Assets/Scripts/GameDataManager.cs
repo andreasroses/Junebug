@@ -8,36 +8,38 @@ using UnityEngine.Rendering;
 
 public class GameDataManager : MonoBehaviour
 {
-    public static GameDataManager singleton;
     [SerializeField]private DialogueDatabase storyTexts;
     [SerializeField]private FeedsDatabase storyFeed;
-    public bool isRPGWindowOpen = false;
+    public int CurrRPGLevel = 0;
     private int currMsgEvent = -1;
     private int currFeedEvent = -1;
-    [SerializeField] private int currRPGLevelNum = 0;
+    private int progNum = 0;
     public CubeSpawner cs;
     public int numEnemiesRemaining = 0;
     public bool beatLevel = false;
-    public bool RPGDownloaded = false;
-    public bool DataSortDownload = false;
-    private int CorrectInfoFound = 0;
-    public bool dataSorted = false;
-    public bool catburglar = false;
-    public bool GameOver = false;
-    public bool revealCalled = false;
-    public bool dayPassed = false;
-    private PlayerCharacter RPGplayer = null;
-    void Awake()
-    {
-        if(singleton != null){
-            Destroy(this.gameObject);
-        }
-        singleton = this;
-    }
+    public List<ProgressionEvent> progEvents;
+    public ProgressionEvent currProgEvent;
+    public int CorrectInfoFound = 0;
+
     void Start(){
         UserManager.singleton.LoadTwitterWindow();
+        currProgEvent = progEvents[progNum];
+    }
+    void Update(){
+        if(currProgEvent.IsEventDone()){
+            currProgEvent = progEvents[++progNum];
+        }
     }
 
+    public void BrowserEventDone(){
+        currProgEvent.MarkEventDone(EventType.Browser);
+    }
+    public void TextEventDone(){
+        currProgEvent.MarkEventDone(EventType.Text);
+    }
+    public void FeedEventDone(){
+        currProgEvent.MarkEventDone(EventType.Feed);
+    }
     public void LoadCubeSpawner(){
         if(cs == null){
             cs = GameObject.FindWithTag("DataWindow").GetComponent<CubeSpawner>();
@@ -55,6 +57,7 @@ public class GameDataManager : MonoBehaviour
         return null;
     }
 
+
     public FeedEvent GetNextFeedEvent(){
         if(currFeedEvent < storyFeed.allFeeds.Count()){
             currFeedEvent++;
@@ -64,26 +67,11 @@ public class GameDataManager : MonoBehaviour
     }
 
     public int GetCurrentRPGLevel(){
-        return currRPGLevelNum;
-    }
-
-    public void RPGLevelCompleted(){
-        currRPGLevelNum++;
+        return CurrRPGLevel;
     }
 
     public void TimerPenalty(){
         CorrectInfoFound-=5;
-    }
-
-    public PlayerCharacter GetPlayer(){
-        return RPGplayer;
-    }
-
-    public void LoadPlayer(){
-        if(RPGplayer == null){
-            RPGplayer = GameObject.FindWithTag("Player").GetComponent<PlayerCharacter>();
-        }
-        
     }
 
     // public void ClosedWindow(string window){

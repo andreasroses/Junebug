@@ -6,7 +6,7 @@ public class Armor : MonoBehaviour, IInteractable
 {
     private PlayerCharacter playerCharacter;
     void Start(){
-        playerCharacter = GameDataManager.singleton.GetPlayer();
+        playerCharacter = GameObject.FindWithTag("Player").GetComponent<PlayerCharacter>();
     }
     public void Interact(){
         playerCharacter.au.SwitchArmored();

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CubeSpawner : MonoBehaviour
 {
+    [SerializeField] GameDataManager gm;
     [SerializeField] private List<GameObject> packets;
     [SerializeField] private int totalToSort;
     [SerializeField] private GameObject cubeWindow;
@@ -15,7 +16,7 @@ public class CubeSpawner : MonoBehaviour
     private int numSorted = -1;
 
     void Start(){
-        GameDataManager.singleton.LoadCubeSpawner();
+        gm.LoadCubeSpawner();
     }
     public void SpawnCubesRandom(){
         numSorted++;
@@ -42,8 +43,7 @@ public class CubeSpawner : MonoBehaviour
     }
 
     public void TimerRanOut(){
-        GameDataManager.singleton.TimerPenalty();
-        GameDataManager.singleton.dataSorted = true;
+        gm.TimerPenalty();
         Destroy(cubeWindow);
     }
 }

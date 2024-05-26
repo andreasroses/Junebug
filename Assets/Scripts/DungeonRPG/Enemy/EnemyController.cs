@@ -6,6 +6,7 @@ using UnityEngine.Rendering.Universal;
 
 public class EnemyController : MonoBehaviour, IDamageable{
     protected int HitsLanded = 0;
+    [SerializeField] protected LevelManager lm;
     [SerializeField] protected Transform levelTransform;
     public EnemyStateMachine stateMachine;
     public Transform playerTransform;
@@ -34,7 +35,7 @@ public class EnemyController : MonoBehaviour, IDamageable{
     public virtual void Damage(){
         HitsLanded++;
         if(HitsLanded == 4){
-            GameDataManager.singleton.numEnemiesRemaining--;
+            lm.numEnemiesRemaining--;
             au.EnemyDeath();
             stateMachine.GetState(stateMachine.currentState)?.Exit(this);
             Destroy(gameObject,1);

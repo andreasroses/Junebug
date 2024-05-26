@@ -9,7 +9,7 @@ public class ModernPotion : MonoBehaviour, IInteractable
     private PlayerCharacter playerCharacter;
     private bool healCooldown;
     void Start(){
-        playerCharacter = GameDataManager.singleton.GetPlayer();
+        playerCharacter = GameObject.FindWithTag("Player").GetComponent<PlayerCharacter>();
     }
     public void Interact(){
         if(healCooldown == false){

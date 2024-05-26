@@ -14,7 +14,7 @@ public class DroneEnemy : EnemyController
     public override void Damage(){
         HitsLanded++;
         if(HitsLanded == 4){
-            GameDataManager.singleton.numEnemiesRemaining--;
+            lm.numEnemiesRemaining--;
             stateMachine.GetState(stateMachine.currentState)?.Exit(this);
             au.EnemyDeath();
             Destroy(gameObject,1);

@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 public class ChatboxManager : MonoBehaviour
 {
+    [SerializeField] GameDataManager gm;
     public static ChatboxManager singleton;
     [SerializeField] private GameObject playerMsg;
     [SerializeField] private GameObject msgOption;
@@ -25,15 +27,24 @@ public class ChatboxManager : MonoBehaviour
         }
         singleton = this;
     }
-
     void Start(){
-        dialogueManager.StartDialogue(GameDataManager.singleton.GetNextMsgEvent());
+        dialogueManager.StartDialogue(gm.GetNextMsgEvent());
         profPic = dialogueManager.friendImg;
         currMsg = dialogueManager.GetNextMessage();
         StartCoroutine(SpawnMessagesWithDelay());
         SpawnNewOption(dialogueManager.GetNextOptions());
     }
 
+    public void NewMessageEvent(){
+        foreach(Transform child in MsgBox.transform){
+            Destroy(child.gameObject);
+        }
+        dialogueManager.StartDialogue(gm.GetNextMsgEvent());
+        profPic = dialogueManager.friendImg;
+        currMsg = dialogueManager.GetNextMessage();
+        StartCoroutine(SpawnMessagesWithDelay());
+        SpawnNewOption(dialogueManager.GetNextOptions());
+    }
     public void SpawnMessage(){
         if(!currMsg.charName.Equals("June")){
             if(!currMsg.linkText.Equals("")){

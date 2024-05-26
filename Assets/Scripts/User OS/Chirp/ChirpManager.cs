@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ChirpManager : MonoBehaviour
 {
+    [SerializeField] GameDataManager gm;
     private FeedPostsManager feedManager = new();
     [SerializeField] private GameObject userPost;
     [SerializeField] private GameObject linkPost;
@@ -15,7 +16,7 @@ public class ChirpManager : MonoBehaviour
     private FeedPost currPost;
     
     void Start(){
-        feedManager.StartDialogue(GameDataManager.singleton.GetNextFeedEvent());
+        feedManager.StartDialogue(gm.GetNextFeedEvent());
         while(!feedManager.IsDialogueQueueEmpty()){
             SpawnPosts(feedManager.GetNextPost());
         }
