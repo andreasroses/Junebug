@@ -977,6 +977,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CubeWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 9056452382781539659, guid: b7b30c1cccb783b4dae6bce61a19e659, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1259814269}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1409,8 +1413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyTexts: {fileID: 11400000, guid: 5da62e7db6f043846aee4cde2b42e833, type: 2}
   storyFeed: {fileID: 11400000, guid: 2cc85994d66d83c4d8a56af121419e91, type: 2}
-  isRPGWindowOpen: 0
-  currRPGLevelNum: 0
+  CurrRPGLevel: 0
   cs: {fileID: 0}
   numEnemiesRemaining: 0
   beatLevel: 0
@@ -1460,6 +1463,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 229438712}
     m_Modifications:
+    - target: {fileID: 2357781516020003456, guid: 65b5eeebd4460454c8788223a70bb379, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1259814269}
     - target: {fileID: 3071304696611865224, guid: 65b5eeebd4460454c8788223a70bb379, type: 3}
       propertyPath: m_LocalPosition.x
       value: 286
@@ -1575,6 +1582,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChirpWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 7211509706244377740, guid: c2c3ac8e2587e3c4e9b2dbf3fe534042, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1259814269}
     - target: {fileID: 7348725110943094143, guid: c2c3ac8e2587e3c4e9b2dbf3fe534042, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -1981,6 +1992,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RPGWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 2304766845853363382, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5888270149415235654, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 77
@@ -2021,6 +2036,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6285414910314487746, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1259814269}
+    - target: {fileID: 9121414167524374082, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121414167524374082, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1989853267}
+    - target: {fileID: 9121414167524374082, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121414167524374082, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121414167524374082, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121414167524374082, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WindowHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121414167524374082, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2031,6 +2078,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5888270149415235654, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
   m_PrefabInstance: {fileID: 1989853265}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1989853267 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8127314585130548730, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
+  m_PrefabInstance: {fileID: 1989853265}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad647870cfa85949b1f9714ca92216f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
