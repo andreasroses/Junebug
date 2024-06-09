@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ChatboxManager : MonoBehaviour
 {
+    //add flag to load new messages or not
     [SerializeField] GameDataManager gm;
     public static ChatboxManager singleton;
     [SerializeField] private GameObject playerMsg;

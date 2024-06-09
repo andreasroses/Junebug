@@ -20,13 +20,14 @@ public class GameDataManager : MonoBehaviour
     public List<ProgressionEvent> progEvents;
     public ProgressionEvent currProgEvent;
     public int CorrectInfoFound = 0;
-
+    public StoryEvent progress;
     void Start(){
         UserManager.singleton.LoadTwitterWindow();
         currProgEvent = progEvents[progNum];
     }
     void Update(){
         if(currProgEvent.IsEventDone()){
+            progress.Invoke();
             currProgEvent = progEvents[++progNum];
         }
     }
