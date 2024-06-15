@@ -28,21 +28,11 @@ public class GameDataManager : MonoBehaviour
         currProgEvent.SetEventReqs();
     }
     void Update(){
-        while(!beatGame){
-            if(currProgEvent.IsEventDone()){
-                if(currProgEvent.results.Contains(EventResult.RPGIcon)){
-                    UserManager.singleton.ShowRPGIcon();
-                }
-                if(currProgEvent.results.Contains(EventResult.DataIcon)){
-                    UserManager.singleton.ShowDataIcon();
-                }
-                if(currProgEvent.results.Contains(EventResult.Message)){
-                    progressMsg.Invoke();
-                }
-                if(currProgEvent.results.Contains(EventResult.FeedUpdate)){
-                    progressFeed.Invoke();
-                }
-                if(progNum < progEvents.Count){
+        if (!beatGame && currProgEvent != null){
+            currProgEvent.currRPGLvl = CurrRPGLevel;
+            if (currProgEvent.IsEventDone()){
+                HandleEventResults(currProgEvent.results);
+                if (progNum < progEvents.Count - 1){
                     currProgEvent = progEvents[++progNum];
                     currProgEvent.SetEventReqs();
                 }
@@ -50,7 +40,6 @@ public class GameDataManager : MonoBehaviour
                     beatGame = true;
                 }
             }
-            currProgEvent.currRPGLvl = CurrRPGLevel;
         }
         
     }
@@ -104,34 +93,24 @@ public class GameDataManager : MonoBehaviour
         CorrectInfoFound-=5;
     }
 
-    // public void ClosedWindow(string window){
-    //     if(window.Equals("ChirpWindow") && currFeedEvent == 0){
-    //         UserManager.singleton.LoadChatboxWindow();
-    //     }
-    //     if(window.Equals("BrowserWindow") && currMsgEvent == 0){
-    //         RPGDownloaded = true;
-    //         UserManager.singleton.ShowRPGIcon();
-    //         UserManager.singleton.LoadChatboxWindow();
-    //     }
-    //     if(window.Equals("BrowserWindow") && currMsgEvent == 1 && RPGDownloaded){
-    //         DataSortDownload = true;
-    //         UserManager.singleton.ShowDataIcon();
-    //     }
-    //     if(window.Equals("RPGWindow") && currMsgEvent == 2 && RPGDownloaded){
-    //         UserManager.singleton.LoadChatboxWindow();
-    //     }
-    //     if(window.Equals("RPGWindow") && currMsgEvent == 3 && RPGDownloaded){
-    //         UserManager.singleton.LoadChatboxWindow();
-    //     }
-    //     if(window.Equals("ChatboxWindow") && currMsgEvent == 4){
-    //         UserManager.singleton.LoadTwitterWindow();
-    //         UserManager.singleton.LoadChatboxWindow();
-    //     }
-    // }
-
-    // public void OpenWindow(string window){
-    //     if(window.Equals("RPGWindow") && currMsgEvent == 1 && RPGDownloaded){
-    //         UserManager.singleton.LoadChatboxWindow();
-    //     }
-    // }
+    private void HandleEventResults(List<EventResult> results){
+        foreach (var result in results){
+            switch (result){
+                case EventResult.RPGIcon:
+                    UserManager.singleton.ShowRPGIcon();
+                    break;
+                case EventResult.DataIcon:
+                    UserManager.singleton.ShowDataIcon();
+                    break;
+                case EventResult.Message:
+                    progressMsg?.Invoke();
+                    break;
+                case EventResult.FeedUpdate:
+                    progressFeed?.Invoke();
+                    break;
+                case EventResult.None:
+                    break;
+            }
+        }
+    }
 }
