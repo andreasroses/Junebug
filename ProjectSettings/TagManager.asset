@@ -11,6 +11,7 @@ TagManager:
   - BrowserWindow
   - DataWindow
   - GM
+  - RPGGame
   layers:
   - Default
   - TransparentFX

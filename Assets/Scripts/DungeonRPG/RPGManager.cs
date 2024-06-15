@@ -19,12 +19,9 @@ public class RPGManager : MonoBehaviour
     private int levelNum = 0;
 
     void Start(){
-        levelNum = gm.GetCurrentRPGLevel();
-        if(levelNum > 1){
-            levelNum = 0;
-        }
-        LoadNextLevel();
+        CurrentLevel = gm.GetCurrentRPGLevel();
     }
+
     private void LoadNextLevel(){
         if(levelNum < levels.Count){
             currTilemap = Instantiate(levels[levelNum],gridTransform);
@@ -39,17 +36,20 @@ public class RPGManager : MonoBehaviour
 
     public void RevealLevel(){
         Destroy(currTilemap);
-        currTilemap = Instantiate(realityLevels[levelNum],gridTransform);
+        currTilemap = Instantiate(realityLevels[CurrentLevel],gridTransform);
         revealEvent.Invoke();
     }
 
-    public void LoadLevel(int numLevel){
+    public void LoadLevel(){
         Destroy(currTilemap);
-        currTilemap = Instantiate(levels[numLevel]);
+        currTilemap = Instantiate(levels[CurrentLevel],gridTransform);
+        playerTransform.position = currTilemap.transform.GetChild(0).position;
     }
 
     public void RPGLevelCompleted(){
         CurrentLevel++;
+        gm.RPGEventDone();
         gm.CurrRPGLevel = CurrentLevel;
+        transform.parent.gameObject.SetActive(false);
     }
 }

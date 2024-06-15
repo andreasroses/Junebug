@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 7431642492134491873}
   - component: {fileID: 4625592088339846489}
   - component: {fileID: 3344191181118821420}
+  - component: {fileID: 8820590552573774974}
   m_Layer: 12
   m_Name: Level2
   m_TagString: Untagged
@@ -1630,6 +1631,19 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &8820590552573774974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4168513477695075741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ab99c3f10320f44912f932efb9f0d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numEnemiesRemaining: 3
 --- !u!1 &4187841743271244837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,8 +1826,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2049f2340c528f45ae060445a35993f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lm: {fileID: 8820590552573774974}
   openDoor: {fileID: 8244038443641957338}
-  numEnemies: 3
 --- !u!61 &4053471596141140561
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4784,6 +4798,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 806379227257272621, guid: 814d56479e0248b4db81b8cf9d3ccf4d, type: 3}
+      propertyPath: lm
+      value: 
+      objectReference: {fileID: 8820590552573774974}
     - target: {fileID: 4076131599126571704, guid: 814d56479e0248b4db81b8cf9d3ccf4d, type: 3}
       propertyPath: m_Name
       value: OrcEnemy (2)
@@ -5032,6 +5050,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 806379227257272621, guid: 814d56479e0248b4db81b8cf9d3ccf4d, type: 3}
+      propertyPath: lm
+      value: 
+      objectReference: {fileID: 8820590552573774974}
     - target: {fileID: 4076131599126571704, guid: 814d56479e0248b4db81b8cf9d3ccf4d, type: 3}
       propertyPath: m_Name
       value: OrcEnemy (1)
@@ -5094,6 +5116,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 806379227257272621, guid: 814d56479e0248b4db81b8cf9d3ccf4d, type: 3}
+      propertyPath: lm
+      value: 
+      objectReference: {fileID: 8820590552573774974}
     - target: {fileID: 4076131599126571704, guid: 814d56479e0248b4db81b8cf9d3ccf4d, type: 3}
       propertyPath: m_Name
       value: OrcEnemy
@@ -5116,6 +5142,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3948864040359086334}
     m_Modifications:
+    - target: {fileID: 767524728859645204, guid: e768f58313a6d2a42a3099885257e05f, type: 3}
+      propertyPath: lm
+      value: 
+      objectReference: {fileID: 8820590552573774974}
     - target: {fileID: 2364901986698877291, guid: e768f58313a6d2a42a3099885257e05f, type: 3}
       propertyPath: m_Name
       value: EndLevelCheckpoint

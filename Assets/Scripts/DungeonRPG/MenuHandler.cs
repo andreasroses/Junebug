@@ -14,7 +14,7 @@ public class MenuHandler : MonoBehaviour
 
     public void Play(){
         UserManager.singleton.LoadRPGGame();
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     public void SelectPlayer(){

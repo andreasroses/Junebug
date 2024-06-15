@@ -26,6 +26,7 @@ public class WebpageLoader : MonoBehaviour
                             webpageRes.position = new Vector3(webpageRes.position.x,(longPageRes.y/2) * -1,webpageRes.position.z);
                             return;
                         }
+                        webpageRes.sizeDelta = homePageRes;
                         return;
                     }
                 }

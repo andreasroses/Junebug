@@ -1328,6 +1328,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140686982}
   m_CullTransparentMesh: 1
+--- !u!1 &1237405601 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2304766845853363382, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
+  m_PrefabInstance: {fileID: 1989853265}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1259814265
 GameObject:
   m_ObjectHideFlags: 0
@@ -1375,7 +1380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0011b308a29cf8045911218e82768af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RPGWindow: {fileID: 2304766845853363382, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
+  RPGWindow: {fileID: 1237405601}
   rpgIcon: {fileID: 1051188927}
   dataIcon: {fileID: 422744867}
   RPGMenu: {fileID: 1358331174}
@@ -1414,53 +1419,90 @@ MonoBehaviour:
   storyTexts: {fileID: 11400000, guid: 5da62e7db6f043846aee4cde2b42e833, type: 2}
   storyFeed: {fileID: 11400000, guid: 2cc85994d66d83c4d8a56af121419e91, type: 2}
   CurrRPGLevel: 0
+  currFeedEvent: -1
+  progNum: 0
   cs: {fileID: 0}
   numEnemiesRemaining: 0
-  beatLevel: 0
+  beatGame: 0
   progEvents:
-  - eventType: 1
-    eventReq: 1
+  - eventTypes: 0100000002000000
+    results: 01000000
     eventDone: 0
     rpgLvlReq: 0
     currRPGLvl: 0
-  - eventType: 2
-    eventReq: 1
+  - eventTypes: 0200000000000000
+    results: 02000000
     eventDone: 0
     rpgLvlReq: 0
     currRPGLvl: 0
-  - eventType: 2
-    eventReq: 1
+  - eventTypes: 04000000
+    results: 01000000
     eventDone: 0
     rpgLvlReq: 0
     currRPGLvl: 0
-  - eventType: 0
-    eventReq: 1
+  - eventTypes: 0000000002000000
+    results: 03000000
     eventDone: 0
     rpgLvlReq: 0
     currRPGLvl: 0
-  - eventType: 0
-    eventReq: 1
+  - eventTypes: 05000000
+    results: 01000000
     eventDone: 0
     rpgLvlReq: 0
     currRPGLvl: 0
-  - eventType: 0
-    eventReq: 1
+  - eventTypes: 00000000
+    results: 01000000
     eventDone: 0
     rpgLvlReq: 1
     currRPGLvl: 0
+  - eventTypes: 04000000
+    results: 01000000
+    eventDone: 0
+    rpgLvlReq: 1
+    currRPGLvl: 0
+  - eventTypes: 0000000004000000030000000200000005000000
+    results: 01000000
+    eventDone: 0
+    rpgLvlReq: 2
+    currRPGLvl: 0
+  - eventTypes: 00000000
+    results: 04000000
+    eventDone: 0
+    rpgLvlReq: 0
+    currRPGLvl: 0
+  - eventTypes: 01000000
+    results: 00000000
+    eventDone: 0
+    rpgLvlReq: 0
+    currRPGLvl: 0
   currProgEvent:
-    eventType: 0
-    eventReq: 0
+    eventTypes: 
+    results: 
     eventDone: 0
     rpgLvlReq: 0
     currRPGLvl: 0
   CorrectInfoFound: 0
-  progress:
+  progressMsg:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1269780597}
         m_TargetAssemblyTypeName: ChatboxManager, Assembly-CSharp
         m_MethodName: NewMessageEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  progressFeed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1334913803}
+        m_TargetAssemblyTypeName: ChirpManager, Assembly-CSharp
+        m_MethodName: NewFeedEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1631,6 +1673,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4290636998331467658, guid: c2c3ac8e2587e3c4e9b2dbf3fe534042, type: 3}
   m_PrefabInstance: {fileID: 1334913799}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1334913803 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7211509706244377740, guid: c2c3ac8e2587e3c4e9b2dbf3fe534042, type: 3}
+  m_PrefabInstance: {fileID: 1334913799}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334913801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cdd1591efe72744da0f68f8682ad13a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1343383977
 GameObject:
   m_ObjectHideFlags: 0
@@ -1813,6 +1866,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5443201054303344800, guid: 9f2f176a406f9c046ad4c88c861352c9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1259814269}
     - target: {fileID: 6002360688831604471, guid: 9f2f176a406f9c046ad4c88c861352c9, type: 3}
       propertyPath: m_Name
       value: RPGMenu
@@ -2018,10 +2075,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RPGWindow
       objectReference: {fileID: 0}
-    - target: {fileID: 2304766845853363382, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 4206518338571561334, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1259814269}
     - target: {fileID: 5888270149415235654, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 77
@@ -2066,34 +2123,6 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 1259814269}
-    - target: {fileID: 9121414167524374082, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9121414167524374082, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1989853267}
-    - target: {fileID: 9121414167524374082, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9121414167524374082, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseWindow
-      objectReference: {fileID: 0}
-    - target: {fileID: 9121414167524374082, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9121414167524374082, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: WindowHandler, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 9121414167524374082, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2104,17 +2133,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5888270149415235654, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
   m_PrefabInstance: {fileID: 1989853265}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1989853267 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8127314585130548730, guid: d621408af0500cc44bdee4a85ceb30e8, type: 3}
-  m_PrefabInstance: {fileID: 1989853265}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ad647870cfa85949b1f9714ca92216f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

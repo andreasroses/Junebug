@@ -22,6 +22,16 @@ public class ChirpManager : MonoBehaviour
         }
         
     }
+    public void NewFeedEvent(){
+        gameObject.SetActive(true);
+        foreach(Transform child in FeedBox.transform){
+            Destroy(child.gameObject);
+        }
+        feedManager.StartDialogue(gm.GetNextFeedEvent());
+        while(!feedManager.IsDialogueQueueEmpty()){
+            SpawnPosts(feedManager.GetNextPost());
+        }
+    }
 
     public void SpawnPosts(FeedPost feedData){
         currPost = feedData;

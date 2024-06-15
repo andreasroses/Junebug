@@ -1,16 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [System.Serializable]
 public class ProgressionEvent{
-    public EventType eventType;
-    public bool eventReq;
-    public bool eventDone;
+    public List<EventType> eventTypes;
+    public List<EventResult> results;
+    public bool eventDone = false;
     public int rpgLvlReq;
     public int currRPGLvl;
-
+    private int numReqs;
+    private int reqsDone = 0;
+    //two event types or however many needed
     public bool IsEventDone(){
         if(currRPGLvl == rpgLvlReq){
             return eventDone;
@@ -19,14 +22,33 @@ public class ProgressionEvent{
     }
 
     public void MarkEventDone(EventType type){
-        if(type == eventType){
+        if(eventTypes.Contains(type)){
+            eventTypes.Remove(type);
+            reqsDone++;
+        }
+        if(reqsDone == numReqs){
             eventDone = true;
         }
+    }
+
+    public void SetEventReqs(){
+        numReqs = eventTypes.Count;
     }
 }
 
 public enum EventType{
     Text,
     Feed,
-    Browser
+    Browser,
+    DataSort,
+    RPGStart,
+    RPGEnd
+}
+
+public enum EventResult{
+    None,
+    Message,
+    RPGIcon,
+    DataIcon,
+    FeedUpdate
 }

@@ -12,24 +12,47 @@ public class GameDataManager : MonoBehaviour
     [SerializeField]private FeedsDatabase storyFeed;
     public int CurrRPGLevel = 0;
     private int currMsgEvent = -1;
-    private int currFeedEvent = -1;
-    private int progNum = 0;
+    [SerializeField] private int currFeedEvent = -1;
+    [SerializeField]private int progNum = 0;
     public CubeSpawner cs;
     public int numEnemiesRemaining = 0;
-    public bool beatLevel = false;
+    public bool beatGame = false;
     public List<ProgressionEvent> progEvents;
     public ProgressionEvent currProgEvent;
     public int CorrectInfoFound = 0;
-    public StoryEvent progress;
+    public StoryEvent progressMsg;
+    public StoryEvent progressFeed;
     void Start(){
         UserManager.singleton.LoadTwitterWindow();
         currProgEvent = progEvents[progNum];
+        currProgEvent.SetEventReqs();
     }
     void Update(){
-        if(currProgEvent.IsEventDone()){
-            progress.Invoke();
-            currProgEvent = progEvents[++progNum];
+        while(!beatGame){
+            if(currProgEvent.IsEventDone()){
+                if(currProgEvent.results.Contains(EventResult.RPGIcon)){
+                    UserManager.singleton.ShowRPGIcon();
+                }
+                if(currProgEvent.results.Contains(EventResult.DataIcon)){
+                    UserManager.singleton.ShowDataIcon();
+                }
+                if(currProgEvent.results.Contains(EventResult.Message)){
+                    progressMsg.Invoke();
+                }
+                if(currProgEvent.results.Contains(EventResult.FeedUpdate)){
+                    progressFeed.Invoke();
+                }
+                if(progNum < progEvents.Count){
+                    currProgEvent = progEvents[++progNum];
+                    currProgEvent.SetEventReqs();
+                }
+                else{
+                    beatGame = true;
+                }
+            }
+            currProgEvent.currRPGLvl = CurrRPGLevel;
         }
+        
     }
 
     public void BrowserEventDone(){
@@ -40,6 +63,12 @@ public class GameDataManager : MonoBehaviour
     }
     public void FeedEventDone(){
         currProgEvent.MarkEventDone(EventType.Feed);
+    }
+    public void RPGEventStarted(){
+        currProgEvent.MarkEventDone(EventType.RPGStart);
+    }
+    public void RPGEventDone(){
+        currProgEvent.MarkEventDone(EventType.RPGEnd);
     }
     public void LoadCubeSpawner(){
         if(cs == null){
@@ -61,7 +90,7 @@ public class GameDataManager : MonoBehaviour
 
     public FeedEvent GetNextFeedEvent(){
         if(currFeedEvent < storyFeed.allFeeds.Count()){
-            currFeedEvent++;
+            ++currFeedEvent;
             return storyFeed.allFeeds[currFeedEvent];
         }
         return null;

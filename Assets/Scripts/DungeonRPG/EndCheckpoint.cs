@@ -8,12 +8,11 @@ public class EndCheckpoint : MonoBehaviour
     private GameObject rpgWindow;
 
     void Awake(){
-        rpgWindow = GameObject.FindWithTag("RPGWindow");
+        rpgWindow = GameObject.FindWithTag("RPGGame");
     }
     void OnTriggerEnter2D(Collider2D other){
         if(lm.numEnemiesRemaining == 0){
             rpgWindow.GetComponent<RPGManager>().RPGLevelCompleted();
-            rpgWindow.SetActive(false);
         }
     }
 }

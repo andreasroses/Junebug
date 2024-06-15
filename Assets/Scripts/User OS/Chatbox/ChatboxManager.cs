@@ -28,16 +28,20 @@ public class ChatboxManager : MonoBehaviour
         }
         singleton = this;
     }
-    void Start(){
-        dialogueManager.StartDialogue(gm.GetNextMsgEvent());
-        profPic = dialogueManager.friendImg;
-        currMsg = dialogueManager.GetNextMessage();
-        StartCoroutine(SpawnMessagesWithDelay());
-        SpawnNewOption(dialogueManager.GetNextOptions());
-    }
+    // void Start(){
+    //     dialogueManager.StartDialogue(gm.GetNextMsgEvent());
+    //     profPic = dialogueManager.friendImg;
+    //     currMsg = dialogueManager.GetNextMessage();
+    //     StartCoroutine(SpawnMessagesWithDelay());
+    //     SpawnNewOption(dialogueManager.GetNextOptions());
+    // }
 
     public void NewMessageEvent(){
+        gameObject.SetActive(true);
         foreach(Transform child in MsgBox.transform){
+            Destroy(child.gameObject);
+        }
+        foreach(Transform child in optionBox.transform){
             Destroy(child.gameObject);
         }
         dialogueManager.StartDialogue(gm.GetNextMsgEvent());

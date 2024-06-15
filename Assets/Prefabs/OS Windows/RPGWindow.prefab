@@ -257,7 +257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5888270149415235654
 Transform:
   m_ObjectHideFlags: 0
@@ -295,7 +295,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad647870cfa85949b1f9714ca92216f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windowClosed: RPGWindow
 --- !u!114 &6285414910314487746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a17414f47b3e4a842a0c83267e6b08e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 0}
   rpgManager: {fileID: 4206518338571561334}
   playerInput: {fileID: 1361286665630088787}
   terminalLine: {fileID: 1854357595161763684}
@@ -635,18 +635,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4206518338571561334}
-          m_TargetAssemblyTypeName: RPGManager, Assembly-CSharp
-          m_MethodName: UpdateRPGLevelNum
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 8127314585130548730}
           m_TargetAssemblyTypeName: WindowHandler, Assembly-CSharp
           m_MethodName: CloseWindow
@@ -1060,6 +1048,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 537921368506464204, guid: b3ad8e25d7be33d4e9580ef5babcd5ae, type: 3}
       propertyPath: m_Name
+      value: RPGGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 537921368506464204, guid: b3ad8e25d7be33d4e9580ef5babcd5ae, type: 3}
+      propertyPath: m_TagString
       value: RPGGame
       objectReference: {fileID: 0}
     - target: {fileID: 2334008051992643542, guid: b3ad8e25d7be33d4e9580ef5babcd5ae, type: 3}

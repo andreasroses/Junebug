@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3361517056678920264}
   - component: {fileID: 8957818784541469067}
   - component: {fileID: 5537690021872651183}
+  - component: {fileID: 274395449249765100}
   m_Layer: 12
   m_Name: Level1-Reality
   m_TagString: Untagged
@@ -3232,6 +3233,19 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &274395449249765100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861151788633162309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ab99c3f10320f44912f932efb9f0d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numEnemiesRemaining: 3
 --- !u!1 &1785932123544453461
 GameObject:
   m_ObjectHideFlags: 0
@@ -11078,8 +11092,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2049f2340c528f45ae060445a35993f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lm: {fileID: 274395449249765100}
   openDoor: {fileID: 2266351883704761811}
-  numEnemies: 3
 --- !u!1 &7195757280217470113
 GameObject:
   m_ObjectHideFlags: 0
@@ -11216,6 +11230,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6415071034445644488, guid: 8457bdcb628ef704ab86e4b79ad4f53b, type: 3}
+      propertyPath: lm
+      value: 
+      objectReference: {fileID: 274395449249765100}
     - target: {fileID: 6415071034445644488, guid: 8457bdcb628ef704ab86e4b79ad4f53b, type: 3}
       propertyPath: levelTransform
       value: 
@@ -11407,6 +11425,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6415071034445644488, guid: 8457bdcb628ef704ab86e4b79ad4f53b, type: 3}
+      propertyPath: lm
+      value: 
+      objectReference: {fileID: 274395449249765100}
+    - target: {fileID: 6415071034445644488, guid: 8457bdcb628ef704ab86e4b79ad4f53b, type: 3}
       propertyPath: levelTransform
       value: 
       objectReference: {fileID: 7673145156952032846}
@@ -11542,6 +11564,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6415071034445644488, guid: 8457bdcb628ef704ab86e4b79ad4f53b, type: 3}
+      propertyPath: lm
+      value: 
+      objectReference: {fileID: 274395449249765100}
     - target: {fileID: 6415071034445644488, guid: 8457bdcb628ef704ab86e4b79ad4f53b, type: 3}
       propertyPath: levelTransform
       value: 
