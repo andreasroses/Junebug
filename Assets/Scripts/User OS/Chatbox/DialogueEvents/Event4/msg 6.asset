@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: msg 6
   m_EditorClassIdentifier: 
   charName: anonymous
-  messageText: you can get some info from the game's server
+  messageText: the 'catburglar' command can get you info from the game's server
   linkText: 

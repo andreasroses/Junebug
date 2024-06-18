@@ -15,8 +15,11 @@ public class CubeSpawner : MonoBehaviour
     private InspectItem currCube;
     private int numSorted = -1;
 
-    void Start(){
-        gm.LoadCubeSpawner();
+    void OnEnable(){
+        SpawnCubesRandom();
+    }
+    void OnDisable(){
+        Destroy(currCube);
     }
     public void SpawnCubesRandom(){
         numSorted++;
@@ -28,7 +31,8 @@ public class CubeSpawner : MonoBehaviour
         }
         if(numSorted == totalToSort){
             UserManager.singleton.DataSortResults();
-            Destroy(cubeWindow);
+            gm.DataSortDone();
+            transform.parent.gameObject.SetActive(false);
         }
     }
 
@@ -44,6 +48,7 @@ public class CubeSpawner : MonoBehaviour
 
     public void TimerRanOut(){
         gm.TimerPenalty();
-        Destroy(cubeWindow);
+        gm.DataSortDone();
+        transform.parent.gameObject.SetActive(false);
     }
 }

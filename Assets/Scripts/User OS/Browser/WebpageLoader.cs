@@ -15,7 +15,7 @@ public class WebpageLoader : MonoBehaviour
 
     
     public void UpdateViewport(string imgName){
-        ToggleOtteryBar();
+        OtteryBarOff();
         if(!imgName.Equals("not-found")){
             if(!imgName.Equals(currImage.name)){
                 for(int i = 0; i < pgImgList.Count;i++){
@@ -41,12 +41,18 @@ public class WebpageLoader : MonoBehaviour
         if(!"home".Equals(currImage.name)){
             currImage.sprite = pgImgList[0];
             webpageRes.sizeDelta = homePageRes;
-            ToggleOtteryBar();
+            OtteryBarOn();
         }
     }
 
     private void ToggleOtteryBar(){
         otteryOn = !otteryOn;
         homeSearchbar.SetActive(otteryOn);
+    }
+    private void OtteryBarOn(){
+        homeSearchbar.SetActive(true);
+    }
+    private void OtteryBarOff(){
+        homeSearchbar.SetActive(false);
     }
 }

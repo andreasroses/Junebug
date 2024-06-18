@@ -33,7 +33,7 @@ RectTransform:
   m_Father: {fileID: 7556860240503214308}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.49999997}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -110,7 +110,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -454.9295}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2879354949804913519
 MonoBehaviour:
@@ -287,7 +287,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.00021362305, y: -227.46478}
-  m_SizeDelta: {x: 456.92, y: 60}
+  m_SizeDelta: {x: 456.92, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7245697622320693755
 MonoBehaviour:
@@ -346,7 +346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3071304696611865224
 Transform:
   m_ObjectHideFlags: 0
@@ -391,6 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d4a057f646c8149839ccac0a5b58c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 0}
   playerMsg: {fileID: 815174467334640720, guid: 07c841c76c36d164387eae3f30f6a703, type: 3}
   msgOption: {fileID: 815174467334640720, guid: a70f4a311c870724194653188745f355, type: 3}
   friendMsg: {fileID: 3350369618969189376, guid: b7d708b613e83a74599efc92a554d632, type: 3}
@@ -435,9 +436,9 @@ RectTransform:
   m_Father: {fileID: 4029516916020482569}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -6.67, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &2138996933254683633
 CanvasRenderer:
@@ -502,7 +503,6 @@ GameObject:
   - component: {fileID: 1597201131619798078}
   - component: {fileID: 1658847797721582254}
   - component: {fileID: 3630636255838788414}
-  - component: {fileID: 7863205108237821781}
   m_Layer: 0
   m_Name: ChatBar
   m_TagString: Untagged
@@ -519,15 +519,15 @@ RectTransform:
   m_GameObject: {fileID: 5848036787224901232}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1.5390624}
-  m_LocalScale: {x: 6.98169, y: 6.641109, z: 4.82897}
+  m_LocalScale: {x: 0.009259259, y: 0.009259259, z: 0.009259259}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3071304696611865224}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.02330019, y: -4.965312}
-  m_SizeDelta: {x: 0.6122, y: 0.1746}
+  m_AnchoredPosition: {x: -0.0226, y: -5.1391}
+  m_SizeDelta: {x: 461.2665, y: 163.1198}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1658847797721582254
 CanvasRenderer:
@@ -567,32 +567,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7863205108237821781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5848036787224901232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 1
-  m_Spacing: 0.03
-  m_ChildForceExpandWidth: 0
-  m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 1
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 1
-  m_ReverseArrangement: 0
 --- !u!1 &7323834021669292325
 GameObject:
   m_ObjectHideFlags: 0

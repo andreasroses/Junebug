@@ -1169,8 +1169,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -382316023
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -1395,7 +1395,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lm: {fileID: 3650082727538211193}
   openDoor: {fileID: 1103533587582413236}
-  numEnemies: 2
 --- !u!61 &839332178654519499
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2761,7 +2760,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -382316023
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -2873,7 +2872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9024420845274710145, guid: 814d56479e0248b4db81b8cf9d3ccf4d, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9024420845274710145, guid: 814d56479e0248b4db81b8cf9d3ccf4d, type: 3}
       propertyPath: m_SortingOrder
@@ -3034,18 +3033,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 3948864040359086334}
     m_Modifications:
     - target: {fileID: 256007872645249181, guid: 6b8db62ec589d074e9ed4d6b541999c6, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 256007872645249181, guid: 6b8db62ec589d074e9ed4d6b541999c6, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 256007872645249181, guid: 6b8db62ec589d074e9ed4d6b541999c6, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 256007872645249181, guid: 6b8db62ec589d074e9ed4d6b541999c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.47
       objectReference: {fileID: 0}
@@ -3088,18 +3075,6 @@ PrefabInstance:
     - target: {fileID: 890393353509490727, guid: 6b8db62ec589d074e9ed4d6b541999c6, type: 3}
       propertyPath: m_Name
       value: Potion
-      objectReference: {fileID: 0}
-    - target: {fileID: 1347951897394824450, guid: 6b8db62ec589d074e9ed4d6b541999c6, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1347951897394824450, guid: 6b8db62ec589d074e9ed4d6b541999c6, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1347951897394824450, guid: 6b8db62ec589d074e9ed4d6b541999c6, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -382316023
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

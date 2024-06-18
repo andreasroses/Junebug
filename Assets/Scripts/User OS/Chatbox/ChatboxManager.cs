@@ -29,7 +29,7 @@ public class ChatboxManager : MonoBehaviour
         singleton = this;
     }
     // void Start(){
-    //     dialogueManager.StartDialogue(gm.GetNextMsgEvent());
+    //     dialogueManager.StartDialogue(gm.DebugEvent());
     //     profPic = dialogueManager.friendImg;
     //     currMsg = dialogueManager.GetNextMessage();
     //     StartCoroutine(SpawnMessagesWithDelay());
@@ -68,35 +68,30 @@ public class ChatboxManager : MonoBehaviour
 
     public void SpawnNewPlayerMessage(){
         newMsg = Instantiate(playerMsg,Vector3.zero,Quaternion.identity);
-        TextMeshProUGUI nameTxt = newMsg.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI msgTxt = newMsg.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-        msgTxt.text = currMsg.messageText;
-        nameTxt.text = currMsg.charName;
+        MessageHandler msgHandler = newMsg.GetComponent<MessageHandler>();
+        msgHandler.SetTexts(currMsg.messageText);
         newMsg.transform.SetParent(MsgBox,false);
     }
     public void SpawnNewOption(string dialogueTxt){
-        GameObject newOption = Instantiate(msgOption,Vector3.zero,Quaternion.identity);
+        GameObject newOption = Instantiate(msgOption,optionBox);
         lastOption = newOption;
-        TextMeshProUGUI msgTxt = newOption.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        msgTxt.text = dialogueTxt;
-        newOption.transform.SetParent(optionBox,false);
+        OptionHandler optHandler = newOption.GetComponent<OptionHandler>();
+        optHandler.SetText(dialogueTxt);
+        //newOption.transform.SetParent(optionBox,false);
     }
 
     public void SpawnNewFriendMessage(GameObject chatMsg){
         newMsg = Instantiate(chatMsg,Vector3.zero,Quaternion.identity);
-        TextMeshProUGUI nameTxt = newMsg.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI msgTxt = newMsg.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-        Image userImg = newMsg.transform.GetChild(2).GetComponent<Image>();
-        msgTxt.text = currMsg.messageText;
-        nameTxt.text = currMsg.charName;
-        userImg.sprite = profPic;
+        MessageHandler msgHandler = newMsg.GetComponent<MessageHandler>();
+        msgHandler.SetTexts(currMsg.messageText, currMsg.charName);
+        msgHandler.SetProfPic(profPic);
         newMsg.transform.SetParent(MsgBox,false);
 
     }
 
     public void SetLink(){
-        TextMeshProUGUI linkTxt = newMsg.transform.GetChild(3).GetComponent<TextMeshProUGUI>();
-        linkTxt.text = currMsg.linkText;
+        LinkHandler linkHandler = newMsg.GetComponent<LinkHandler>();
+        linkHandler.SetLink(currMsg.linkText);
     }
 
     public void PlayerReply(){

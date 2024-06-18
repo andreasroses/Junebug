@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2334008051992643542}
   m_Layer: 0
   m_Name: RPGGame
-  m_TagString: Untagged
+  m_TagString: RPGGame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc690cd20b129fc4c8e1d91c76c8d2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 0}
+  CurrentLevel: 1
   levels:
   - {fileID: 4168513477695075741, guid: 7c6b5e36f1ce4f54bb0e6fb3dd872699, type: 3}
   - {fileID: 4168513477695075741, guid: bec85fb3ca4097548bd2331b26de2f02, type: 3}
@@ -54,7 +56,7 @@ MonoBehaviour:
   - {fileID: 861151788633162309, guid: 40e993672d8968840a60024576265c16, type: 3}
   - {fileID: 4168513477695075741, guid: fa36cad7d41183e459b55217e183dd9b, type: 3}
   gridTransform: {fileID: 1828862090832767537}
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 7456696664276805305}
   revealEvent:
     m_PersistentCalls:
       m_Calls:
@@ -253,6 +255,18 @@ PrefabInstance:
     - target: {fileID: 1186584404601947715, guid: 33f71f1a742bca14f908765a65e9f767, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971543826422502751, guid: 33f71f1a742bca14f908765a65e9f767, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971543826422502751, guid: 33f71f1a742bca14f908765a65e9f767, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971543826422502751, guid: 33f71f1a742bca14f908765a65e9f767, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1946289821
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

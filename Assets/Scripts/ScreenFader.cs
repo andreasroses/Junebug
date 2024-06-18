@@ -50,5 +50,19 @@ public class ScreenFader : MonoBehaviour{
             }
         }
     }
+    public void GameOverFade(){
+        fadeImage.color = new Color(fadeColor.r,fadeColor.g,fadeColor.b,0);
+        StartCoroutine(FadeToColorRoutine());
+        IEnumerator FadeToColorRoutine(){
+            float timer = 0;
+            while(timer < fadeTime){
+                yield return null;
+                timer+=Time.deltaTime;
+                fadeImage.color = new Color(fadeColor.r,fadeColor.g,fadeColor.b, (timer/fadeTime));
 
+            }
+            fadeImage.color = fadeColor;
+        }
+        Application.Quit();
+    }
 }

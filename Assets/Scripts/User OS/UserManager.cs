@@ -5,7 +5,6 @@ using UnityEngine;
 public class UserManager : MonoBehaviour
 {
     public static UserManager singleton;
-    private ScreenFader screenFader;
     [SerializeField] private GameObject RPGWindow;
     [SerializeField] private GameObject rpgIcon;
     [SerializeField] private GameObject dataIcon;
@@ -16,20 +15,15 @@ public class UserManager : MonoBehaviour
     [SerializeField] private GameObject TwitterWindow;
     [SerializeField] private Transform canvasTransform;
 
-    void Awake()
-    {
+    void Awake(){
         if(singleton != null){
             Destroy(this.gameObject);
         }
         singleton = this;
     }
-    void Start(){
-        screenFader = GetComponent<ScreenFader>();
-    }
-
     public void DataSortResults(){
-        GameObject newWindow = Instantiate(BrowserWindow, canvasTransform);
-        BrowserManager tmpLoader = newWindow.GetComponent<BrowserManager>();
+        LoadBrowserWindow();
+        BrowserManager tmpLoader = GameObject.FindGameObjectWithTag("BrowserWindow").GetComponent<BrowserManager>();
         tmpLoader.BrowserSearch("?data-results");
         
     }

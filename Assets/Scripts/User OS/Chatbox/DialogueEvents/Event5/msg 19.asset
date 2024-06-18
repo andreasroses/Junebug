@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c63e336e06fbd5f4abdb87b04c6ba15f, type: 3}
-  m_Name: msg 5
+  m_Name: msg 19
   m_EditorClassIdentifier: 
-  charName: anonymous
-  messageText: the game has a hidden terminal, you can open it by pressing '/'
+  charName: June
+  messageText: he tried to reach out to me
   linkText: 

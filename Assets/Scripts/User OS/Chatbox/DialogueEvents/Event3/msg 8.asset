@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: msg 8
   m_EditorClassIdentifier: 
   charName: June
-  messageText: sam is that really you?
+  messageText: '!STOP'
   linkText: 

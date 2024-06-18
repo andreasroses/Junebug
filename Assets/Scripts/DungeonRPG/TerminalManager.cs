@@ -14,7 +14,7 @@ public class TerminalManager : MonoBehaviour
     [SerializeField] private List<string> termsList;
     private TMP_InputField terminalInput;
     private bool toggleTerminal = false;
-
+    private bool frozeControls = false;
     void OnEnable(){
         rpgManager.LoadLevel();
     }
@@ -36,9 +36,9 @@ public class TerminalManager : MonoBehaviour
                 rpgManager.RevealLevel();
             }
             if(userInput.Contains("catburglar")){
-                gm.cs.SpawnCubesRandom();
-                GameObject newWindow = Instantiate(UserManager.singleton.GetBrowserWindow(), transform.root,false);
-                BrowserManager tmpLoader = newWindow.GetComponent<BrowserManager>();
+                UserManager.singleton.LoadDataSortWindow();
+                UserManager.singleton.LoadBrowserWindow();
+                BrowserManager tmpLoader = GameObject.FindGameObjectWithTag("BrowserWindow").GetComponent<BrowserManager>();
                 tmpLoader.BrowserSearch(dataSorts[Random.Range(0,2)]);
             }
         }
@@ -51,5 +51,18 @@ public class TerminalManager : MonoBehaviour
             terminalInput.text = "";
         }
         playerInput.SetActive(!toggleTerminal);
+    }
+
+    public void FreezeRPG(){
+        playerInput.SetActive(false);
+        frozeControls = true;
+    }
+
+    public void UnfreezeRPG(){
+        if(frozeControls){
+            playerInput.SetActive(true);
+            frozeControls = false;
+        }
+        
     }
 }

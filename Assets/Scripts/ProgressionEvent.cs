@@ -9,30 +9,18 @@ public class ProgressionEvent{
     public List<EventType> eventTypes;
     public List<EventResult> results;
     public bool eventDone = false;
-    public int rpgLvlReq;
-    public int currRPGLvl;
-    private int numReqs;
-    private int reqsDone = 0;
     //two event types or however many needed
     public bool IsEventDone(){
-        if(currRPGLvl == rpgLvlReq){
-            return eventDone;
-        }
-        return false;
+        return eventDone;
     }
 
     public void MarkEventDone(EventType type){
         if(eventTypes.Contains(type)){
             eventTypes.Remove(type);
-            reqsDone++;
         }
-        if(reqsDone == numReqs){
+        if(eventTypes.Count == 0){
             eventDone = true;
         }
-    }
-
-    public void SetEventReqs(){
-        numReqs = eventTypes.Count;
     }
 }
 

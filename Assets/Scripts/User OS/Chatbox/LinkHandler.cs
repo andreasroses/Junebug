@@ -18,4 +18,8 @@ public class LinkHandler : MonoBehaviour{
         string link = linkTxt.text;
         loader.BrowserSearch(link);
     }
+
+    public void SetLink(string link){
+        linkTxt.text = link;
+    }
 }

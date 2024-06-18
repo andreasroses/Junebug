@@ -8,13 +8,14 @@ using UnityEngine.Rendering;
 
 public class GameDataManager : MonoBehaviour
 {
+    [SerializeField] private ScreenFader screenFader;
     [SerializeField]private DialogueDatabase storyTexts;
     [SerializeField]private FeedsDatabase storyFeed;
+    [SerializeField]private int debugEvent;
     public int CurrRPGLevel = 0;
     private int currMsgEvent = -1;
     [SerializeField] private int currFeedEvent = -1;
     [SerializeField]private int progNum = 0;
-    public CubeSpawner cs;
     public int numEnemiesRemaining = 0;
     public bool beatGame = false;
     public List<ProgressionEvent> progEvents;
@@ -25,23 +26,22 @@ public class GameDataManager : MonoBehaviour
     void Start(){
         UserManager.singleton.LoadTwitterWindow();
         currProgEvent = progEvents[progNum];
-        currProgEvent.SetEventReqs();
     }
     void Update(){
         if (!beatGame && currProgEvent != null){
-            currProgEvent.currRPGLvl = CurrRPGLevel;
             if (currProgEvent.IsEventDone()){
                 HandleEventResults(currProgEvent.results);
                 if (progNum < progEvents.Count - 1){
                     currProgEvent = progEvents[++progNum];
-                    currProgEvent.SetEventReqs();
                 }
                 else{
                     beatGame = true;
                 }
             }
         }
-        
+        if(beatGame){
+            screenFader.FadeToColor();
+        }
     }
 
     public void BrowserEventDone(){
@@ -59,10 +59,8 @@ public class GameDataManager : MonoBehaviour
     public void RPGEventDone(){
         currProgEvent.MarkEventDone(EventType.RPGEnd);
     }
-    public void LoadCubeSpawner(){
-        if(cs == null){
-            cs = GameObject.FindWithTag("DataWindow").GetComponent<CubeSpawner>();
-        }
+    public void DataSortDone(){
+        currProgEvent.MarkEventDone(EventType.DataSort);
     }
     public void StoryInfoTracker(){
         CorrectInfoFound++;
@@ -76,6 +74,9 @@ public class GameDataManager : MonoBehaviour
         return null;
     }
 
+    public DialogueEvent DebugEvent(){
+        return storyTexts.DialogueEvents[debugEvent];
+    }
 
     public FeedEvent GetNextFeedEvent(){
         if(currFeedEvent < storyFeed.allFeeds.Count()){

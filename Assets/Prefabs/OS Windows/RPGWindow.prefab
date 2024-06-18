@@ -1050,14 +1050,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RPGGame
       objectReference: {fileID: 0}
-    - target: {fileID: 537921368506464204, guid: b3ad8e25d7be33d4e9580ef5babcd5ae, type: 3}
-      propertyPath: m_TagString
-      value: RPGGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 2334008051992643542, guid: b3ad8e25d7be33d4e9580ef5babcd5ae, type: 3}
-      propertyPath: playerTransform
-      value: 
-      objectReference: {fileID: 9042950745692440601}
     - target: {fileID: 2643785095641847826, guid: b3ad8e25d7be33d4e9580ef5babcd5ae, type: 3}
       propertyPath: healthTracker
       value: 
@@ -1137,10 +1129,5 @@ MonoBehaviour:
 --- !u!4 &5429460160668436299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5863072013220981227, guid: b3ad8e25d7be33d4e9580ef5babcd5ae, type: 3}
-  m_PrefabInstance: {fileID: 1874766080721104544}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &9042950745692440601 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7456696664276805305, guid: b3ad8e25d7be33d4e9580ef5babcd5ae, type: 3}
   m_PrefabInstance: {fileID: 1874766080721104544}
   m_PrefabAsset: {fileID: 0}

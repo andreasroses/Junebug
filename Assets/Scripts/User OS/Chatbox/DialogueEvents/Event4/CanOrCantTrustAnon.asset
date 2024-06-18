@@ -22,7 +22,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5426e71b0d976fd4188cc40a1219896a, type: 2}
   - {fileID: 11400000, guid: f28d4d1eb57b0c648bb96e16dd8b0c60, type: 2}
   - {fileID: 11400000, guid: 35a420547c2b2d94f992ad27410831db, type: 2}
-  - {fileID: 11400000, guid: 13b4b58f9be3f624e94b49c2b95e6d85, type: 2}
   - {fileID: 11400000, guid: c659928bd92b2de42bd3faf095622fff, type: 2}
   - {fileID: 11400000, guid: 536ec1a96dc93e2408c115e6c14e1768, type: 2}
   - {fileID: 11400000, guid: 469b52e972c3cc5408d9d8e913c4f8f2, type: 2}
@@ -31,7 +30,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9bcff7601c782b747842121436d2707a, type: 2}
   - {fileID: 11400000, guid: 732c47c47e7cf924aab610b61a7bf57e, type: 2}
   - {fileID: 11400000, guid: 0f9e50209944d24499d277945a709d47, type: 2}
+  - {fileID: 11400000, guid: e6c0e9cca19ce4548907ca5d0a5bde6d, type: 2}
   - {fileID: 11400000, guid: 4a7dfbc2f7bb2a4448c97566d2a94c2b, type: 2}
+  - {fileID: 11400000, guid: 762177d6ca17c504f85163d0265fee92, type: 2}
   DialogueDesc:
   - how the hell... how can i help
   - how do you know so much

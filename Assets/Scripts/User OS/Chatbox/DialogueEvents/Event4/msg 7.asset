@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: msg 7
   m_EditorClassIdentifier: 
   charName: anonymous
-  messageText: you can only call it if you have that data retrieval program i sent
-    you
+  messageText: the data retrieval program i sent you is for catburglar
   linkText: 

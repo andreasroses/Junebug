@@ -15,7 +15,9 @@ MonoBehaviour:
   EventName: IsBeeThere
   FriendName: Bee
   friendIcon: {fileID: 1219538866, guid: e856f250e55ded84983658094040b9bb, type: 3}
-  msgDialogue: []
+  msgDialogue:
+  - {fileID: 11400000, guid: 7ee9889c79b49774484445d29a888dab, type: 2}
+  - {fileID: 11400000, guid: 6ce690d7347b3bf4e9d3022d6230d729, type: 2}
   DialogueDesc:
   - still no response...are you mad at me?
   DialogueMultChoices: []

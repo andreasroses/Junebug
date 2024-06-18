@@ -28,6 +28,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7708f0750d4acc947bd89b58f5d539fd, type: 2}
   DialogueDesc:
   - this is either a prank or the weirdest spam ever
-  - theres no way... but
+  - weird spam bot...
   DialogueMultChoices: []
   DialogueResults: []
