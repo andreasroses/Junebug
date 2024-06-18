@@ -339,6 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cdd1591efe72744da0f68f8682ad13a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 0}
   userPost: {fileID: 3350369618969189376, guid: 3b29278ccd53fc0419cf0ca4e39e506b, type: 3}
   linkPost: {fileID: 3350369618969189376, guid: bd0ef343654d73e45a5b4bbe56a75187, type: 3}
   photoPost: {fileID: 3350369618969189376, guid: c172362782803dd46a6f8829d52480b7, type: 3}
@@ -778,6 +779,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3071304696611865224}
     m_Modifications:
+    - target: {fileID: 521263562550207401, guid: 7f067e2b98268d54b8c75b9d9a207c16, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 521263562550207401, guid: 7f067e2b98268d54b8c75b9d9a207c16, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 521263562550207401, guid: 7f067e2b98268d54b8c75b9d9a207c16, type: 3}
+      propertyPath: m_Color.r
+      value: 0.36078432
+      objectReference: {fileID: 0}
     - target: {fileID: 4235434602123141046, guid: 7f067e2b98268d54b8c75b9d9a207c16, type: 3}
       propertyPath: m_Name
       value: WindowBar

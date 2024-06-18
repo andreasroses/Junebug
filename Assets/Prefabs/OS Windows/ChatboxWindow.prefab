@@ -33,7 +33,7 @@ RectTransform:
   m_Father: {fileID: 7556860240503214308}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -110,7 +110,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -454.9295}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2879354949804913519
 MonoBehaviour:
@@ -287,7 +287,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.00021362305, y: -227.46478}
-  m_SizeDelta: {x: 456.92, y: 0}
+  m_SizeDelta: {x: 456.92, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7245697622320693755
 MonoBehaviour:
@@ -346,7 +346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3071304696611865224
 Transform:
   m_ObjectHideFlags: 0
@@ -436,9 +436,9 @@ RectTransform:
   m_Father: {fileID: 4029516916020482569}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -6.67, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &2138996933254683633
 CanvasRenderer:
@@ -684,6 +684,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: TerminalManager, Assembly-CSharp
+          m_MethodName: UnfreezeRPG
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7767919775757916466
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,6 +923,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3071304696611865224}
     m_Modifications:
+    - target: {fileID: 521263562550207401, guid: 7f067e2b98268d54b8c75b9d9a207c16, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 521263562550207401, guid: 7f067e2b98268d54b8c75b9d9a207c16, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 521263562550207401, guid: 7f067e2b98268d54b8c75b9d9a207c16, type: 3}
+      propertyPath: m_Color.r
+      value: 0.36078432
+      objectReference: {fileID: 0}
     - target: {fileID: 4235434602123141046, guid: 7f067e2b98268d54b8c75b9d9a207c16, type: 3}
       propertyPath: m_Name
       value: WindowBar

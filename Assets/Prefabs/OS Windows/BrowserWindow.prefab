@@ -2341,6 +2341,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4756231669891583470}
     m_Modifications:
+    - target: {fileID: 521263562550207401, guid: 7f067e2b98268d54b8c75b9d9a207c16, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 521263562550207401, guid: 7f067e2b98268d54b8c75b9d9a207c16, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 521263562550207401, guid: 7f067e2b98268d54b8c75b9d9a207c16, type: 3}
+      propertyPath: m_Color.r
+      value: 0.36078432
+      objectReference: {fileID: 0}
     - target: {fileID: 4235434602123141046, guid: 7f067e2b98268d54b8c75b9d9a207c16, type: 3}
       propertyPath: m_Name
       value: WindowBar
