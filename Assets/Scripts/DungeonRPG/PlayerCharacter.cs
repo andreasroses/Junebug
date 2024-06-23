@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class PlayerCharacter : MonoBehaviour
 {
@@ -15,29 +17,12 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] Transform bladeTransform;
     [SerializeField] public AnimationUpdater au;
     [SerializeField] private HealthTracker healthTracker;
-    private Quaternion[] dirRotates = new Quaternion[4];
-    private int[] angles = {0,-90,-180,90};
+    public RPGEvent PlayerDeath;
     Rigidbody2D rb;
     void Awake(){
         rb = GetComponent<Rigidbody2D>();
-        dirRotates[0] = swordTransform.rotation;
-        for(int i = 1;i<4;i++){
-            dirRotates[i] = Quaternion.AngleAxis(angles[i],swordTransform.forward);
-        }
     }
     public void MovePlayer(Vector3 direction){
-        if(direction.x == 1){
-            swordTransform.rotation = dirRotates[1];
-        }
-        else if(direction.x == -1){
-            swordTransform.rotation = dirRotates[2];
-        }
-        if(direction.y == -1){
-            swordTransform.rotation = dirRotates[3];
-        }
-        else if(direction.y == 1){
-            swordTransform.rotation = dirRotates[0];
-        }
         direction = direction.normalized;
         
         rb.MovePosition(transform.position + (direction * speed));
@@ -47,6 +32,9 @@ public class PlayerCharacter : MonoBehaviour
         if(health > 0){
             health-=damage;
             health+=armorDef;
+        }
+        if(health <= 0){
+            PlayerDeath.Invoke();
         }
         healthTracker.UpdateHealth();
     }

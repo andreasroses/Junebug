@@ -43,7 +43,9 @@ public class UserManager : MonoBehaviour
     }
 
     public void LoadDataSortWindow(){
-        DataSortWindow.SetActive(true);
+        if(RPGWindow.activeSelf){
+            DataSortWindow.SetActive(true);
+        }
     }
 
     public void LoadTwitterWindow(){

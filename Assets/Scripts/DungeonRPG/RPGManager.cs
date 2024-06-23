@@ -50,6 +50,10 @@ public class RPGManager : MonoBehaviour
         CurrentLevel++;
         gm.RPGEventDone();
         gm.CurrRPGLevel = CurrentLevel;
+        
+    }
+
+    public void PlayerDeath(){
         transform.parent.gameObject.SetActive(false);
     }
 }
