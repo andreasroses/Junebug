@@ -32,7 +32,7 @@ public class CubeSpawner : MonoBehaviour
         if(numSorted == totalToSort){
             UserManager.singleton.DataSortResults();
             gm.DataSortDone();
-            transform.parent.gameObject.SetActive(false);
+            transform.parent.parent.gameObject.SetActive(false);
         }
     }
 
@@ -49,6 +49,6 @@ public class CubeSpawner : MonoBehaviour
     public void TimerRanOut(){
         gm.TimerPenalty();
         gm.DataSortDone();
-        transform.parent.gameObject.SetActive(false);
+        transform.parent.parent.gameObject.SetActive(false);
     }
 }

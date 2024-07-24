@@ -9,6 +9,7 @@ public class RPGEvent : UnityEvent {}
 public class RPGManager : MonoBehaviour
 {
     [SerializeField] GameDataManager gm;
+    [SerializeField] GameObject levelDoneScreen;
     public int CurrentLevel = 0;
     [SerializeField] private List<GameObject> levels;
     [SerializeField] private List<GameObject> realityLevels;
@@ -41,6 +42,7 @@ public class RPGManager : MonoBehaviour
     }
 
     public void LoadLevel(){
+        levelDoneScreen.SetActive(false);
         Destroy(currTilemap);
         currTilemap = Instantiate(levels[CurrentLevel],gridTransform);
         playerTransform.position = currTilemap.transform.GetChild(0).position;
@@ -50,7 +52,7 @@ public class RPGManager : MonoBehaviour
         CurrentLevel++;
         gm.RPGEventDone();
         gm.CurrRPGLevel = CurrentLevel;
-        
+        levelDoneScreen.SetActive(true);
     }
 
     public void PlayerDeath(){

@@ -48,6 +48,9 @@ public class ScreenFader : MonoBehaviour{
             if(newScene != ""){
                 SceneManager.LoadScene(newScene);
             }
+            else{
+                Application.Quit();
+            }
         }
     }
     public void GameOverFade(){
