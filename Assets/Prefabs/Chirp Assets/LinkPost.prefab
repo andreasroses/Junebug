@@ -169,7 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a21f45998608ee4bbb7ad282118307a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  browserWindow: {fileID: 7430175677809514907, guid: 9b020e1886fa86b44b0e433ed0e16c5a, type: 3}
   linkTxt: {fileID: 2078273344544488315}
 --- !u!114 &7835332556743523763
 MonoBehaviour:
@@ -274,8 +273,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294907026
+  m_fontColor: {r: 0.57342094, g: 0.08018869, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

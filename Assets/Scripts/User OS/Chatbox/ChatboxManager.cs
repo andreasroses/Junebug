@@ -10,6 +10,7 @@ public class ChatboxManager : MonoBehaviour
     //add flag to load new messages or not
     [SerializeField] GameDataManager gm;
     public static ChatboxManager singleton;
+    [SerializeField] private GameObject nomsgTxt;
     [SerializeField] private GameObject playerMsg;
     [SerializeField] private GameObject msgOption;
     [SerializeField] private GameObject friendMsg;
@@ -38,6 +39,7 @@ public class ChatboxManager : MonoBehaviour
 
     public void NewMessageEvent(){
         gameObject.SetActive(true);
+        nomsgTxt.SetActive(false);
         foreach(Transform child in MsgBox.transform){
             Destroy(child.gameObject);
         }
