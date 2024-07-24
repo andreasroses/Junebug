@@ -59,6 +59,9 @@ public class GameDataManager : MonoBehaviour
     public void RPGEventDone(){
         currProgEvent.MarkEventDone(EventType.RPGEnd);
     }
+    public void RPGRevealDone(){
+        currProgEvent.MarkEventDone(EventType.RPGReveal);
+    }
     public void DataSortDone(){
         currProgEvent.MarkEventDone(EventType.DataSort);
     }

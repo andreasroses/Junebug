@@ -1620,7 +1620,7 @@ MonoBehaviour:
   - eventTypes: 00000000
     results: 01000000
     eventDone: 0
-  - eventTypes: 0000000004000000030000000200000005000000
+  - eventTypes: 0000000004000000030000000200000006000000
     results: 01000000
     eventDone: 0
   - eventTypes: 00000000

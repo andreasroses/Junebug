@@ -19,6 +19,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7ee9889c79b49774484445d29a888dab, type: 2}
   - {fileID: 11400000, guid: 6ce690d7347b3bf4e9d3022d6230d729, type: 2}
   DialogueDesc:
-  - still no response...are you mad at me?
+  - did you disappear too?
   DialogueMultChoices: []
   DialogueResults: []

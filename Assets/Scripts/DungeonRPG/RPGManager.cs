@@ -39,11 +39,15 @@ public class RPGManager : MonoBehaviour
         Destroy(currTilemap);
         currTilemap = Instantiate(realityLevels[CurrentLevel],gridTransform);
         revealEvent.Invoke();
+        
     }
 
     public void LoadLevel(){
         levelDoneScreen.SetActive(false);
         Destroy(currTilemap);
+        if(CurrentLevel > 1){
+            CurrentLevel = 0;
+        }
         currTilemap = Instantiate(levels[CurrentLevel],gridTransform);
         playerTransform.position = currTilemap.transform.GetChild(0).position;
     }

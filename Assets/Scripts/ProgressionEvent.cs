@@ -30,7 +30,8 @@ public enum EventType{
     Browser,
     DataSort,
     RPGStart,
-    RPGEnd
+    RPGEnd,
+    RPGReveal
 }
 
 public enum EventResult{

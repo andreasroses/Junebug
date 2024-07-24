@@ -41,11 +41,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d5500f7e3ab6e5a41b2dccc1d7a37478, type: 2}
   - {fileID: 11400000, guid: 98a1e4b4176da4540a50c916872ecef9, type: 2}
   DialogueDesc:
-  - mostly, why?
-  - you haven't heard?
+  - girl i just got back
+  - theres more pressing issues right now
   - he's missing
   - don't really know
-  - i must've cursed him somehow
+  - its all my fault
   - typical bee
   - you might have a point...
   DialogueMultChoices: []

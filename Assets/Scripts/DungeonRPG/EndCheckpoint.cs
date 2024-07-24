@@ -11,7 +11,7 @@ public class EndCheckpoint : MonoBehaviour
         rpgWindow = GameObject.FindWithTag("RPGGame");
     }
     void OnTriggerEnter2D(Collider2D other){
-        if(lm.numEnemiesRemaining == 0){
+        if(lm.numEnemiesRemaining == 0 && other.gameObject.tag == "Player"){
             rpgWindow.GetComponent<RPGManager>().RPGLevelCompleted();
         }
     }
