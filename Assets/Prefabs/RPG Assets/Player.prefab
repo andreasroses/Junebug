@@ -163,7 +163,7 @@ Transform:
   m_LocalScale: {x: 30, y: 30, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2285280366249647774}
+  - {fileID: 2125177678074407295}
   - {fileID: 7469621455777972194}
   - {fileID: 1792984600362120292}
   m_Father: {fileID: 0}
@@ -206,9 +206,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -382316023
+  m_SortingLayerID: 1946289821
   m_SortingLayer: 1
-  m_SortingOrder: 7
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1446220400, guid: 52244f9df6250eb419b7ae60798bbd09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -252,8 +252,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01, y: 0.01}
-  m_Size: {x: 0.45, y: 0.6}
+  m_Offset: {x: 0.05, y: -0.05}
+  m_Size: {x: 0.51, y: 0.75}
   m_Direction: 0
 --- !u!50 &3391330718895495540
 Rigidbody2D:
@@ -333,17 +333,19 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   armorDef: 0
-  interactRadius: 2
+  interactRadius: 1
   interactLayer:
     serializedVersion: 2
     m_Bits: 128
   attackLayer:
     serializedVersion: 2
     m_Bits: 1024
-  swordTransform: {fileID: 2285280366249647774}
   bladeTransform: {fileID: 2125177678074407295}
   au: {fileID: 1521582436430235489}
   healthTracker: {fileID: 0}
+  PlayerDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4870690152535782734
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,12 +372,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4870690152535782734}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0462, y: 0.765, z: -0.02961601}
-  m_LocalScale: {x: 0.93802017, y: 0.88643765, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.1237, y: 0.2209, z: 0}
+  m_LocalScale: {x: 0.9193536, y: 1.2961493, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2285280366249647774}
+  m_Father: {fileID: 66895527465904995}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6731648805755904124
 SpriteRenderer:
@@ -474,38 +476,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &6835990165652056521
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2285280366249647774}
-  m_Layer: 0
-  m_Name: Sword
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2285280366249647774
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6835990165652056521}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.016, y: -0.125, z: 0.029619116}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2125177678074407295}
-  m_Father: {fileID: 66895527465904995}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7841535727576929536
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,6 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] float interactRadius = 5f;
     [SerializeField] LayerMask interactLayer;
     [SerializeField] LayerMask attackLayer;
-    [SerializeField] Transform swordTransform;
     [SerializeField] Transform bladeTransform;
     [SerializeField] public AnimationUpdater au;
     [SerializeField] private HealthTracker healthTracker;
@@ -75,4 +74,21 @@ public class PlayerCharacter : MonoBehaviour
         au.SwitchArmored();
     }
 
+    public void RotateBladeCollider(Direction newDir){
+        switch (newDir){
+            case Direction.Right:
+                bladeTransform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.right);
+                break;
+            case Direction.Left:
+                bladeTransform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.left);
+                break;
+            case Direction.Up:
+                bladeTransform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+                break;
+            case Direction.Down:
+                bladeTransform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.down);
+                break;
+        }
+    }
 }
+

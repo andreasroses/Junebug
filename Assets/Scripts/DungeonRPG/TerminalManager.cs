@@ -15,9 +15,9 @@ public class TerminalManager : MonoBehaviour
     private TMP_InputField terminalInput;
     private bool toggleTerminal = false;
     private bool frozeControls = false;
-    void OnEnable(){
-        rpgManager.LoadLevel();
-    }
+    // void OnEnable(){
+    //     rpgManager.LoadLevel();
+    // }
     void Awake(){
         terminalInput = terminalLine.GetComponent<TMP_InputField>();
     }

@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DroneAttackState : AttackEnemyState{
+    public override void Enter(EnemyController enemy){
+        playerTransform = enemy.playerTransform;
+        playerMask.SetLayerMask(enemy.config.playerMask);
+        timer = enemy.config.attackTimer;
+        enterPosition = enemy.transform.position;
+    }
     public override void Update(EnemyController enemy)
     {
         Vector3 direction = playerTransform.position - enterPosition;

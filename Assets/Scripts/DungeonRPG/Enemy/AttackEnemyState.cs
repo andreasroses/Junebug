@@ -9,6 +9,7 @@ public class AttackEnemyState : EnemyState
     protected ContactFilter2D playerMask;
     protected float timer;
     protected Vector3 enterPosition;
+    private EnemyController e;
     public EnemyStateID GetID(){
         return EnemyStateID.Attack;
     }
@@ -17,14 +18,17 @@ public class AttackEnemyState : EnemyState
         playerMask.SetLayerMask(enemy.config.playerMask);
         timer = enemy.config.attackTimer;
         enterPosition = enemy.transform.position;
+        enemy.EnableSpearCollider();
+        e = enemy;
     }
     
     public virtual void Update(EnemyController enemy){
+        enemy.StopAttacking();
         Vector3 direction = playerTransform.position - enterPosition;
         direction.z = 0;
-        var enemyDistanceSqrd = direction.sqrMagnitude;
-        var maxDistanceSqrd = enemy.config.maxDistanceFromPlayer * enemy.config.maxDistanceFromPlayer;
-        if(enemyDistanceSqrd > maxDistanceSqrd){
+        UpdateSpearDirs(direction,enemy);
+        float distance = Vector3.Distance(enterPosition, playerTransform.position);
+        if(distance > enemy.config.maxDistanceFromPlayer){
             enemy.au.EnemyWander();
             enemy.stateMachine.ChangeState(EnemyStateID.Wander);
         }
@@ -32,30 +36,34 @@ public class AttackEnemyState : EnemyState
         if(timer < 0){
             enemy.au.UpdateDirFloats(direction.x,direction.y);
             enemy.au.EnemyAttack();
-            enemy.Attack(swordAttack(enemy));
             timer = enemy.config.attackTimer;
             enemy.au.SwitchAttacking();
+            enemy.IsAttacking();
+            timer = enemy.config.attackTimer;
         }
     }
 
     public virtual void Exit(EnemyController enemy){
-
+        enemy.DisableSpearCollider();
     }
 
-    protected float swordAttack(EnemyController enemy){
-        //add animator to show attack movement, will work with state machine
-        if(doesLand()){
-            return Random.Range(5,20);
-        }
-        return 0f;
-    }
 
-    protected bool doesLand(){
-        var check = Random.Range(0,10);
-        int numColliders = Physics2D.OverlapCircle(enterPosition,2f,playerMask,results);
-        if(check > 3 && numColliders > 0){          
-            return true;
+    private void UpdateSpearDirs(Vector3 input, EnemyController enemy){
+        if(input.x != 0){
+            if(input.x < 0){
+            enemy.RotateSpearCollider(Direction.Left);
+            }
+            else{
+                enemy.RotateSpearCollider(Direction.Right);
+            }
         }
-        return false;
+        else if(input.y != 0){
+            if(input.y < 0){
+                enemy.RotateSpearCollider(Direction.Down);
+            }
+            else{
+                enemy.RotateSpearCollider(Direction.Up);
+            }
+        }
     }
 }

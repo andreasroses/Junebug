@@ -1465,7 +1465,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4168513477695075741}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2815,14 +2815,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 3948864040359086334}
     m_Modifications:
     - target: {fileID: 210298714752330724, guid: 814d56479e0248b4db81b8cf9d3ccf4d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 210298714752330724, guid: 814d56479e0248b4db81b8cf9d3ccf4d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 210298714752330724, guid: 814d56479e0248b4db81b8cf9d3ccf4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.86
       objectReference: {fileID: 0}
@@ -2869,18 +2861,6 @@ PrefabInstance:
     - target: {fileID: 4076131599126571704, guid: 814d56479e0248b4db81b8cf9d3ccf4d, type: 3}
       propertyPath: m_Name
       value: OrcEnemy (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 9024420845274710145, guid: 814d56479e0248b4db81b8cf9d3ccf4d, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9024420845274710145, guid: 814d56479e0248b4db81b8cf9d3ccf4d, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9024420845274710145, guid: 814d56479e0248b4db81b8cf9d3ccf4d, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -382316023
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

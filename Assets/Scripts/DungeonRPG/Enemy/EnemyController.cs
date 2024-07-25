@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour, IDamageable{
     protected int HitsLanded = 0;
     [SerializeField] protected LevelManager lm;
     [SerializeField] protected Transform levelTransform;
+    [SerializeField] private GameObject spearCollider;
     public EnemyStateMachine stateMachine;
     public Transform playerTransform;
     public EnemyStateID initialState;
@@ -16,12 +17,14 @@ public class EnemyController : MonoBehaviour, IDamageable{
     public AnimationUpdater au;
     public GameObject scifiBall;
     protected PlayerCharacter playerCharacter;
-
+    private Transform spearTransform;
+    public bool isAttacking = false;
     protected virtual void Awake(){
         enemyTransform = GetComponent<Transform>();
         GameObject player = GameObject.FindWithTag("Player");
         playerTransform = player.transform;
         playerCharacter = player.GetComponent<PlayerCharacter>();
+        spearTransform = spearCollider.transform;
     }
     protected virtual void Start(){
         stateMachine = new EnemyStateMachine(this);
@@ -42,10 +45,25 @@ public class EnemyController : MonoBehaviour, IDamageable{
         }
     }
 
-    public virtual void Attack(float dmg){
-        playerCharacter.TakeDamage(dmg);
+    public virtual void Attack(){
+        float dmg;
+        if(doesLand() && isAttacking){
+            dmg = Random.Range(5,20);
+            StartCoroutine(AttackCoroutine());
+                IEnumerator AttackCoroutine(){
+                yield return new WaitForSeconds(0.3f);
+                playerCharacter.TakeDamage(dmg);
+            }
+        }
     }
-
+    
+    protected bool doesLand(){
+        var check = Random.Range(0,10);
+        if(check > 3){          
+            return true;
+        }
+        return false;
+    }
     protected virtual void RegisterStates(){
         stateMachine.RegisterState(new WanderEnemyState());
         stateMachine.RegisterState(new AttackEnemyState());
@@ -59,5 +77,34 @@ public class EnemyController : MonoBehaviour, IDamageable{
         Vector3 newPos = new Vector3(newProjectile.transform.position.x,newProjectile.transform.position.y,0f);
         newProjectile.transform.position = newPos;
         newProjectile.GetComponent<Rigidbody2D>().velocity = newProjectile.transform.up * config.projSpeed;
+    }
+    public void RotateSpearCollider(Direction newDir){
+        switch (newDir){
+            case Direction.Right:
+                spearTransform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.right);
+                break;
+            case Direction.Left:
+                spearTransform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.left);
+                break;
+            case Direction.Up:
+                spearTransform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+                break;
+            case Direction.Down:
+                spearTransform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.down);
+                break;
+        }
+    }
+    public void EnableSpearCollider(){
+        spearCollider.SetActive(true);
+    }
+    public void DisableSpearCollider(){
+        spearCollider.SetActive(false);
+    }
+
+    public void IsAttacking(){
+        isAttacking = true;
+    }
+    public void StopAttacking(){
+        isAttacking = false;
     }
 }

@@ -36,6 +36,12 @@ public class AnimationUpdater : MonoBehaviour{
         isWalking = !isWalking;
         animator.SetBool("isWalking",isWalking);
     }
+    public void EnemyWalking(){
+        animator.SetBool("isWalking",true);
+    }
+    public void EnemyStopWalking(){
+        animator.SetBool("isWalking",false);
+    }
     public void EnemyWander(){
         animator.SetBool("isPlayerClose",false);
     }

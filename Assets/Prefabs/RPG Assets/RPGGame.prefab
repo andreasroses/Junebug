@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
+  levelDoneScreen: {fileID: 0}
   CurrentLevel: 1
   levels:
   - {fileID: 4168513477695075741, guid: 7c6b5e36f1ce4f54bb0e6fb3dd872699, type: 3}
@@ -255,18 +256,6 @@ PrefabInstance:
     - target: {fileID: 1186584404601947715, guid: 33f71f1a742bca14f908765a65e9f767, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7971543826422502751, guid: 33f71f1a742bca14f908765a65e9f767, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7971543826422502751, guid: 33f71f1a742bca14f908765a65e9f767, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7971543826422502751, guid: 33f71f1a742bca14f908765a65e9f767, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1946289821
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

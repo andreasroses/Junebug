@@ -32,13 +32,11 @@ public class WanderEnemyState : EnemyState
         movePosition = GetNextPoint();
         moveDirection = movePosition - new Vector2(enemy.enemyTransform.position.x,enemy.enemyTransform.position.y);
         enemy.au.UpdateDirFloats(moveDirection.x,moveDirection.y);
-        enemy.au.SwitchWalk();
+        enemy.au.EnemyWalking();
     }
     public virtual void Update(EnemyController enemy){
-        Vector2 direction = new Vector2(playerTransform.position.x,playerTransform.position.y) - movePosition;
-        var enemyDistanceSqrd = direction.sqrMagnitude;
-        var minDistanceSqrd = enemy.config.minDistanceFromPlayer * enemy.config.minDistanceFromPlayer;
-        if(enemyDistanceSqrd < minDistanceSqrd){
+        float distance = Vector3.Distance(enemy.enemyTransform.position, playerTransform.position);
+        if(distance < enemy.config.minDistanceFromPlayer){
             enemy.au.EnemyAttack();
             enemy.stateMachine.ChangeState(EnemyStateID.Attack);
         }
@@ -47,7 +45,7 @@ public class WanderEnemyState : EnemyState
             Vector2 newPos = Vector2.MoveTowards(enemy.enemyTransform.position,movePosition, speed * Time.deltaTime);
             int numColliders = Physics2D.OverlapCircle(newPos,0.2f,map,results);
             if(numColliders > 0 || currPos == movePosition){
-                enemy.au.SwitchWalk();
+                enemy.au.EnemyStopWalking();
                 isWalking = false;
             }else{
                 enemy.enemyTransform.position = newPos;
@@ -63,7 +61,7 @@ public class WanderEnemyState : EnemyState
                 moveDirection = movePosition - new Vector2(enemy.enemyTransform.position.x,enemy.enemyTransform.position.y);
                 enemy.au.UpdateDirFloats(moveDirection.x,moveDirection.y);
                 isWalking = true;
-                enemy.au.SwitchWalk();
+                enemy.au.EnemyWalking();
             }
         }
         
