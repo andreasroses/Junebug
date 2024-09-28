@@ -1,3 +1,4 @@
+![junebug-cover](https://github.com/user-attachments/assets/e9fb228b-6565-47d6-94fe-0445d0a99002)
 ## Junebug
 Junebug is a desktop simulation adventure game where players explore an in-game operating system to uncover the mysterious disappearance of Sam Levings. The game combines narrative-driven exploration with a dungeon-crawling minigame, blending investigation and action to keep players engaged.
 
@@ -6,6 +7,9 @@ Junebug is a desktop simulation adventure game where players explore an in-game 
 - Dungeon Minigame: Dive into a dungeon-crawling minigame as part of the investigation. Face off against enemies and solve puzzles to progress the story.
 - AI Agents: Two hostile AI-controlled enemies, an Orc and a Drone, both use state machines to wander or attack the player. The Orc uses melee attacks, while the Drone fires projectiles.
 - Story Progression System: The story advances as you complete key tasks within the OS. This system ensures that players solve enough of the mystery before progressing deeper into the narrative.
+
+## How To Play
+The demo is out right now on [itch.io](https://arallia.itch.io/junebug)!
 
 ## AI Mechanics
 - Orc AI: A spear-wielding enemy that wanders and attacks when the player is near. The Orc follows a state machine to alternate between patrolling and attacking.
