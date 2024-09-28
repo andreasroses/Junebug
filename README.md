@@ -22,9 +22,8 @@ In Junebug, players switch between investigating a simulated operating system an
 - Progress the Story: As you complete key tasks in both the OS and the dungeon, the mystery of Sam Levings’ disappearance unravels.
 
 ## Technologies Used
-Unity: Game development engine used to create both the desktop environment and dungeon minigame.
-State Machines: Powering the Orc and Drone AI, enabling them to patrol and attack the player.
-C#: For scripting AI behaviors, story progression, and core game mechanics.
+- Unity: Game development engine used to create both the desktop environment and dungeon minigame.
+- C#: For scripting AI behaviors, story progression, and core game mechanics.
 
 ## Inspiration
 Junebug is inspired by classic adventure games and some more modern games like Welcome to the Game and Sara is Missing
