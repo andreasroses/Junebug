@@ -5,9 +5,13 @@ using UnityEngine;
 
 public class CountdownTimer : MonoBehaviour
 {
-    [SerializeField] public float remainingTime;
+    [SerializeField] public float maxTime;
+    private float remainingTime;
     [SerializeField] private TextMeshProUGUI timerTxt;
     [SerializeField]StoryEvent timerRanOut;
+    void OnEnable(){
+        remainingTime = maxTime;
+    }
     void Update(){
         remainingTime -= Time.deltaTime;
         int minutes = Mathf.FloorToInt(remainingTime/60);

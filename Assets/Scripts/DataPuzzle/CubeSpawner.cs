@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CubeSpawner : MonoBehaviour
@@ -11,11 +12,17 @@ public class CubeSpawner : MonoBehaviour
     
     [SerializeField] private float waitTime;
     [SerializeField] private ScreenFader screenFader;
+    private List<GameObject> packetsLoaded = new();
 
     private InspectItem currCube;
     private int numSorted = -1;
 
     void OnEnable(){
+        if(packetsLoaded.Any()){
+            foreach(GameObject obj in packetsLoaded){
+                Destroy(obj);
+            }
+        }
         SpawnCubesRandom();
     }
     void OnDisable(){
@@ -23,14 +30,16 @@ public class CubeSpawner : MonoBehaviour
     }
     public void SpawnCubesRandom(){
         numSorted++;
+        Destroy(currCube);
         if(numSorted < totalToSort){
             int index = Random.Range(0,packets.Count);
             GameObject newCube = Instantiate(packets[index],cubeWindow.transform);
+            packetsLoaded.Add(newCube);
             currCube = newCube.GetComponent<InspectItem>();
             currCube.transform.localPosition = new Vector3(0, currCube.transform.localPosition.y, -1);
         }
         if(numSorted == totalToSort){
-            UserManager.singleton.DataSortResults();
+            UserManager.singleton.DataSortResults(true);
             gm.DataSortDone();
             transform.parent.parent.gameObject.SetActive(false);
         }
@@ -48,7 +57,8 @@ public class CubeSpawner : MonoBehaviour
 
     public void TimerRanOut(){
         gm.TimerPenalty();
-        gm.DataSortDone();
+        numSorted = 0;
+        UserManager.singleton.DataSortResults(false);
         transform.parent.parent.gameObject.SetActive(false);
     }
 }

@@ -585,7 +585,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2297963396862851452
 Transform:
   m_ObjectHideFlags: 0
@@ -628,7 +628,7 @@ MonoBehaviour:
   defaultSprite: {fileID: 1945466566, guid: 03a697a9bcb907c489d14ac8b332d561, type: 3}
   nameTxt: {fileID: 1608821879656986329}
   statusTxt: {fileID: 4976137112743085949}
-  button: {fileID: 0}
+  button: {fileID: 9052546584072110114}
 --- !u!114 &4831937397756312498
 MonoBehaviour:
   m_ObjectHideFlags: 0

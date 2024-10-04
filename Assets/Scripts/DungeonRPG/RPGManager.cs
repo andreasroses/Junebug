@@ -19,9 +19,9 @@ public class RPGManager : MonoBehaviour
     private GameObject currTilemap;
     private int levelNum = 0;
 
-    // void Start(){
-    //     CurrentLevel = gm.GetCurrentRPGLevel();
-    // }
+    void OnEnable(){
+        LoadLevel();
+    }
 
     private void LoadNextLevel(){
         if(levelNum < levels.Count){

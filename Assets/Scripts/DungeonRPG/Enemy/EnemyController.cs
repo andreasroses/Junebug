@@ -51,15 +51,16 @@ public class EnemyController : MonoBehaviour, IDamageable{
             dmg = Random.Range(5,20);
             StartCoroutine(AttackCoroutine());
                 IEnumerator AttackCoroutine(){
-                yield return new WaitForSeconds(0.3f);
-                playerCharacter.TakeDamage(dmg);
+                    playerCharacter.TakeDamage(dmg);
+                    yield return new WaitForSeconds(0.3f);
+                
             }
         }
     }
     
     protected bool doesLand(){
         var check = Random.Range(0,10);
-        if(check > 3){          
+        if(check > 2){          
             return true;
         }
         return false;
@@ -104,7 +105,13 @@ public class EnemyController : MonoBehaviour, IDamageable{
     public void IsAttacking(){
         isAttacking = true;
     }
-    public void StopAttacking(){
-        isAttacking = false;
+
+    public void StopAttackCoroutine(){
+        StartCoroutine(StopAttacking());
+        IEnumerator StopAttacking(){
+            yield return new WaitForSeconds(0.03f);
+            isAttacking = false;
+        }
+        
     }
 }

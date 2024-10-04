@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using Unity.VisualScripting;
 
 
 public class BrowserManager : MonoBehaviour
@@ -12,9 +13,7 @@ public class BrowserManager : MonoBehaviour
     [SerializeField] private List<string> webpageList;
     [SerializeField] private List<string> termsList;
     
-    
     private WebpageLoader webpageLoader;
-
     void Awake(){
         webpageLoader = GetComponent<WebpageLoader>();
     }

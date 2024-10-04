@@ -206,9 +206,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1946289821
-  m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingLayerID: -382316023
+  m_SortingLayer: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 1446220400, guid: 52244f9df6250eb419b7ae60798bbd09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -253,7 +253,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.05, y: -0.05}
-  m_Size: {x: 0.51, y: 0.75}
+  m_Size: {x: 0.51, y: 0.63}
   m_Direction: 0
 --- !u!50 &3391330718895495540
 Rigidbody2D:
@@ -345,7 +345,31 @@ MonoBehaviour:
   healthTracker: {fileID: 0}
   PlayerDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: RPGManager, Assembly-CSharp
+        m_MethodName: PlayerDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
+        m_MethodName: PlayerUnavailable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4870690152535782734
 GameObject:
   m_ObjectHideFlags: 0

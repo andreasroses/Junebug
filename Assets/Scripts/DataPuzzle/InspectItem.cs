@@ -42,7 +42,7 @@ public class InspectItem : MonoBehaviour
             InfoTrackingEvent.Invoke();
         }
         //update story progress tracker w/ bad result
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
     public void Toss(){
@@ -51,6 +51,6 @@ public class InspectItem : MonoBehaviour
             InfoTrackingEvent.Invoke();
         }
         //update story progress tracker w/ bad result
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }

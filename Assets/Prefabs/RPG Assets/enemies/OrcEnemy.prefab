@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.0036, y: -0.2334, z: 0}
-  m_LocalScale: {x: 0.51818943, y: 0.933141, z: 1}
+  m_LocalScale: {x: 0.51818943, y: 1.0687468, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 210298714752330724}
@@ -338,3 +338,4 @@ MonoBehaviour:
   enemyTransform: {fileID: 210298714752330724}
   au: {fileID: 5268955621152878159}
   scifiBall: {fileID: 0}
+  isAttacking: 0

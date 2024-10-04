@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class DroneEnemy : EnemyController
 {
+    protected override void Awake()
+    {
+        enemyTransform = GetComponent<Transform>();
+        GameObject player = GameObject.FindWithTag("Player");
+        playerTransform = player.transform;
+        playerCharacter = player.GetComponent<PlayerCharacter>();
+    }
     protected override void RegisterStates()
     {
         stateMachine.RegisterState(new DroneWanderState());

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,10 +22,16 @@ public class UserManager : MonoBehaviour
         }
         singleton = this;
     }
-    public void DataSortResults(){
+    public void DataSortResults(bool completed){
         LoadBrowserWindow();
         BrowserManager tmpLoader = GameObject.FindGameObjectWithTag("BrowserWindow").GetComponent<BrowserManager>();
-        tmpLoader.BrowserSearch("?data-results");
+        if(completed){
+            tmpLoader.BrowserSearch("?data-results");
+        }
+        else{
+            tmpLoader.BrowserSearch("?data-failed");
+        }
+        
         
     }
     public void LoadRPGMenu(){

@@ -23,7 +23,6 @@ public class AttackEnemyState : EnemyState
     }
     
     public virtual void Update(EnemyController enemy){
-        enemy.StopAttacking();
         Vector3 direction = playerTransform.position - enterPosition;
         direction.z = 0;
         UpdateSpearDirs(direction,enemy);
@@ -39,6 +38,7 @@ public class AttackEnemyState : EnemyState
             timer = enemy.config.attackTimer;
             enemy.au.SwitchAttacking();
             enemy.IsAttacking();
+            enemy.StopAttackCoroutine();
             timer = enemy.config.attackTimer;
         }
     }
