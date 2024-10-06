@@ -38,5 +38,3 @@ Potential features for future updates:
 - Expanding the story progression system to include more dynamic branching paths
 - Adding additional enemy types with unique AI behaviors
 - Increasing the complexity of the puzzles, including using the browser for puzzles more often
-
-Junebug demonstrates my ability to combine narrative design, AI systems, and gameplay mechanics into a cohesive experience. If you're a recruiter (👋), this project showcases my skills in game development, from building dynamic AI agents to designing engaging story systems. Feel free to reach out!
