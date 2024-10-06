@@ -3,7 +3,7 @@
 Junebug is a desktop simulation adventure game where players explore an in-game operating system to uncover the mysterious disappearance of Sam Levings. The game combines narrative-driven exploration with a dungeon-crawling minigame, blending investigation and action to keep players engaged.
 
 ## Features
-- Simulated Desktop Environment: Navigate a fully interactive desktop OS where you’ll read messages, analyze files, and uncover clues.
+- Simulated Desktop Environment: Navigate a fully interactive desktop OS where you’ll read messages, play minigames, and uncover clues.
 - Dungeon Minigame: Dive into a dungeon-crawling minigame as part of the investigation. Face off against enemies and solve puzzles to progress the story.
 - AI Agents: Two hostile AI-controlled enemies, an Orc and a Drone, both use state machines to wander or attack the player. The Orc uses melee attacks, while the Drone fires projectiles.
 - Story Progression System: The story advances as you complete key tasks within the OS. This system ensures that players solve enough of the mystery before progressing deeper into the narrative.
